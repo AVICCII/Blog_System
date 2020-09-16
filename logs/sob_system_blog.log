@@ -1,0 +1,7 @@
+[2020/09/16-14:34:43] [restartedMain] [INFO ] [com.aviccii.cc.CcApplication] : Starting CcApplication on DESKTOP-11K43QD with PID 14652 (D:\JAVAProject\blogSystem\target\classes started by Administrator in D:\JAVAProject\blogSystem)
+[2020/09/16-14:34:43] [restartedMain] [INFO ] [com.aviccii.cc.CcApplication] : No active profile set, falling back to default profiles: default
+[2020/09/16-14:34:46] [restartedMain] [INFO ] [com.aviccii.cc.CcApplication] : Started CcApplication in 3.08 seconds (JVM running for 4.248)
+[2020/09/16-14:34:59] [http-nio-2020-exec-2] [INFO ] [com.aviccii.cc.controller.TestController] : 学生api测试
+[2020/09/16-14:35:11] [restartedMain] [INFO ] [com.aviccii.cc.CcApplication] : Starting CcApplication on DESKTOP-11K43QD with PID 11100 (D:\JAVAProject\blogSystem\target\classes started by Administrator in D:\JAVAProject\blogSystem)
+[2020/09/16-14:35:11] [restartedMain] [INFO ] [com.aviccii.cc.CcApplication] : No active profile set, falling back to default profiles: default
+[2020/09/16-14:35:14] [restartedMain] [INFO ] [com.aviccii.cc.CcApplication] : Started CcApplication in 3.189 seconds (JVM running for 4.244)
