@@ -1,5 +1,6 @@
 package com.aviccii.cc.controller.user;
 
+import com.aviccii.cc.pojo.User;
 import com.aviccii.cc.response.ResponseResult;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
@@ -16,7 +17,7 @@ public class UserApi {
 
     @PostMapping("/admin_account")
     public ResponseResult initManagerAccount(@RequestBody User user) {
-        log.info("user name ==========>" + user.getUserName());
+        log.info("user name ==========>" + user.getUser_name());
         log.info("user password ==========>" + user.getPassword());
         log.info("user email ==========>" + user.getEmail());
         return ResponseResult.SUCCESS();
