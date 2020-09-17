@@ -1,5 +1,4 @@
 package com.aviccii.cc.pojo;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
@@ -11,10 +10,14 @@ public class Settings {
 
   @Id
   private String id;
-  	@Column(name = "setting_key")
-  private String setting_key;
-  	@Column(name = "setting_value")
-  private String setting_value;
+  	@Column(name = "key")
+  private String key;
+  	@Column(name = "value")
+  private String value;
+  	@Column(name = "create_time")
+  private String create_time;
+  	@Column(name = "update_time")
+  private String update_time;
 
 
   public String getId() {
@@ -26,21 +29,39 @@ public class Settings {
   }
 
 
-  public String getSetting_key() {
-    return setting_key;
+  public String getKey() {
+    return key;
   }
 
-  public void setSetting_key(String setting_key) {
-    this.setting_key = setting_key;
+  public void setKey(String key) {
+    this.key = key;
   }
 
 
-  public String getSetting_value() {
-    return setting_value;
+  public String getValue() {
+    return value;
   }
 
-  public void setSetting_value(String setting_value) {
-    this.setting_value = setting_value;
+  public void setValue(String value) {
+    this.value = value;
+  }
+
+
+  public String getCreate_time() {
+    return create_time;
+  }
+
+  public void setCreate_time(String create_time) {
+    this.create_time = create_time;
+  }
+
+
+  public String getUpdate_time() {
+    return update_time;
+  }
+
+  public void setUpdate_time(String update_time) {
+    this.update_time = update_time;
   }
 
 }

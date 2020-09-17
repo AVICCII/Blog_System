@@ -1,5 +1,4 @@
 package com.aviccii.cc.pojo;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
@@ -11,14 +10,20 @@ public class Looper {
 
   @Id
   private String id;
-  	@Column(name = "url")
-  private String url;
-  	@Column(name = "path")
-  private String path;
+  	@Column(name = "target_url")
+  private String target_url;
   	@Column(name = "title")
   private String title;
   	@Column(name = "`order`")
   private long order;
+  	@Column(name = "state")
+  private String state;
+  	@Column(name = "create_time")
+  private java.sql.Timestamp create_time;
+  	@Column(name = "update_time")
+  private java.sql.Timestamp update_time;
+  	@Column(name = "image_url")
+  private String image_url;
 
 
   public String getId() {
@@ -30,21 +35,12 @@ public class Looper {
   }
 
 
-  public String getUrl() {
-    return url;
+  public String getTarget_url() {
+    return target_url;
   }
 
-  public void setUrl(String url) {
-    this.url = url;
-  }
-
-
-  public String getPath() {
-    return path;
-  }
-
-  public void setPath(String path) {
-    this.path = path;
+  public void setTarget_url(String target_url) {
+    this.target_url = target_url;
   }
 
 
@@ -63,6 +59,42 @@ public class Looper {
 
   public void setOrder(long order) {
     this.order = order;
+  }
+
+
+  public String getState() {
+    return state;
+  }
+
+  public void setState(String state) {
+    this.state = state;
+  }
+
+
+  public java.sql.Timestamp getCreate_time() {
+    return create_time;
+  }
+
+  public void setCreate_time(java.sql.Timestamp create_time) {
+    this.create_time = create_time;
+  }
+
+
+  public java.sql.Timestamp getUpdate_time() {
+    return update_time;
+  }
+
+  public void setUpdate_time(java.sql.Timestamp update_time) {
+    this.update_time = update_time;
+  }
+
+
+  public String getImage_url() {
+    return image_url;
+  }
+
+  public void setImage_url(String image_url) {
+    this.image_url = image_url;
   }
 
 }

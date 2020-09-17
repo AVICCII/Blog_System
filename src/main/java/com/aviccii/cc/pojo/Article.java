@@ -11,22 +11,32 @@ public class Article {
 
   @Id
   private String id;
+  	@Column(name = "title")
+  private String title;
   	@Column(name = "user_id")
   private String user_id;
+  	@Column(name = "user_avatar")
+  private String user_avatar;
+  	@Column(name = "user_name")
+  private String user_name;
   	@Column(name = "category_id")
   private String category_id;
   	@Column(name = "content")
   private String content;
   	@Column(name = "type")
-  private long type;
-  	@Column(name = "status")
-  private long status;
+  private String type;
+  	@Column(name = "state")
+  private String state;
+  	@Column(name = "summary")
+  private String summary;
+  	@Column(name = "labels")
+  private String labels;
   	@Column(name = "view_count")
   private long view_count;
-  	@Column(name = "publish_time")
-  private java.sql.Timestamp publish_time;
+  	@Column(name = "create_time")
+  private String create_time;
   	@Column(name = "update_time")
-  private java.sql.Timestamp update_time;
+  private String update_time;
 
 
   public String getId() {
@@ -38,12 +48,39 @@ public class Article {
   }
 
 
+  public String getTitle() {
+    return title;
+  }
+
+  public void setTitle(String title) {
+    this.title = title;
+  }
+
+
   public String getUser_id() {
     return user_id;
   }
 
   public void setUser_id(String user_id) {
     this.user_id = user_id;
+  }
+
+
+  public String getUser_avatar() {
+    return user_avatar;
+  }
+
+  public void setUser_avatar(String user_avatar) {
+    this.user_avatar = user_avatar;
+  }
+
+
+  public String getUser_name() {
+    return user_name;
+  }
+
+  public void setUser_name(String user_name) {
+    this.user_name = user_name;
   }
 
 
@@ -65,21 +102,39 @@ public class Article {
   }
 
 
-  public long getType() {
+  public String getType() {
     return type;
   }
 
-  public void setType(long type) {
+  public void setType(String type) {
     this.type = type;
   }
 
 
-  public long getStatus() {
-    return status;
+  public String getState() {
+    return state;
   }
 
-  public void setStatus(long status) {
-    this.status = status;
+  public void setState(String state) {
+    this.state = state;
+  }
+
+
+  public String getSummary() {
+    return summary;
+  }
+
+  public void setSummary(String summary) {
+    this.summary = summary;
+  }
+
+
+  public String getLabels() {
+    return labels;
+  }
+
+  public void setLabels(String labels) {
+    this.labels = labels;
   }
 
 
@@ -92,20 +147,20 @@ public class Article {
   }
 
 
-  public java.sql.Timestamp getPublish_time() {
-    return publish_time;
+  public String getCreate_time() {
+    return create_time;
   }
 
-  public void setPublish_time(java.sql.Timestamp publish_time) {
-    this.publish_time = publish_time;
+  public void setCreate_time(String create_time) {
+    this.create_time = create_time;
   }
 
 
-  public java.sql.Timestamp getUpdate_time() {
+  public String getUpdate_time() {
     return update_time;
   }
 
-  public void setUpdate_time(java.sql.Timestamp update_time) {
+  public void setUpdate_time(String update_time) {
     this.update_time = update_time;
   }
 
