@@ -1,6 +1,5 @@
 package com.aviccii.cc.controller;
 
-import com.aviccii.cc.pojo.Student;
 import com.aviccii.cc.response.ResponseResult;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
