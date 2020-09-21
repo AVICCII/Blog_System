@@ -24,13 +24,6 @@ public class TestController {
         return "hello world!";
     }
 
-    @GetMapping("/student")
-    public ResponseResult getStudent(){
-        Student student = new Student("张三", "男", 27);
-        log.info("学生api测试");
-        ResponseResult responseResult =  ResponseResult.SUCCESS();
-        responseResult.setData(student);
-        return responseResult;
-    }
+
 
 }
