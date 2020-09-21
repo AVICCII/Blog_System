@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 @RequestMapping("/portal/web_size_info")
-public class WebSizeInfoApi {
+public class WebSizeInfoPortalApi {
 
     @GetMapping("/categories")
     public ResponseResult getCategories(){

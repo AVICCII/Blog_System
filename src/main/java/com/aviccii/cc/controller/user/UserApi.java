@@ -2,8 +2,12 @@ package com.aviccii.cc.controller.user;
 
 import com.aviccii.cc.pojo.User;
 import com.aviccii.cc.response.ResponseResult;
+import com.aviccii.cc.services.IUserService;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import javax.servlet.http.HttpServletRequest;
 
 /**
  * @author aviccii 2020/9/17
@@ -15,12 +19,15 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/user")
 public class UserApi {
 
+    @Autowired
+    private IUserService iUserService;
+
     @PostMapping("/admin_account")
-    public ResponseResult initManagerAccount(@RequestBody User user) {
+    public ResponseResult initManagerAccount(@RequestBody User user, HttpServletRequest request) {
         log.info("user name ==========>" + user.getUser_name());
         log.info("user password ==========>" + user.getPassword());
         log.info("user email ==========>" + user.getEmail());
-        return ResponseResult.SUCCESS();
+        return iUserService.initManagerAccount(user,request);
     }
 
     @PostMapping
