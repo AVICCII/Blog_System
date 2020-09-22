@@ -1,9 +1,28 @@
 package com.aviccii.cc.controller;
 
+import com.aviccii.cc.dao.LabelDao;
+import com.aviccii.cc.pojo.Label;
 import com.aviccii.cc.response.ResponseResult;
+import com.aviccii.cc.utils.IdWorker;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.jpa.domain.Specification;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
+
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Predicate;
+import javax.persistence.criteria.Root;
+import java.util.Date;
+import java.util.List;
+
+import static com.aviccii.cc.utils.Constants.DEFAULT_SIZE;
 
 /**
  * @author aviccii 2020/9/15
@@ -11,11 +30,17 @@ import org.springframework.web.bind.annotation.*;
  */
 //@Controller
 //@ResponseBody  13+14代码等效16
-
+@Transactional
 @RestController
 @CrossOrigin
 @RequestMapping("/test")
 public class TestController {
+
+    @Autowired
+    private IdWorker idWorker;
+
+    @Autowired
+    private LabelDao labelDao;
 
     public static final Logger log  = LoggerFactory.getLogger(TestController.class);
 
@@ -24,6 +49,82 @@ public class TestController {
         return "hello world!";
     }
 
+    @PostMapping("/label")
+    public ResponseResult addLabel(@RequestBody Label label){
+        //判断数据是否有效
+        //补全数据
+        label.setId(idWorker.nextId()+"");
+        label.setCreateTime(new Date());
+        label.setUpdate_time(new Date());
+        //保存数据
+        labelDao.save(label);
+        return ResponseResult.SUCCESS("添加成功");
+    }
 
 
+    @DeleteMapping("/label/{labelId}")
+    public ResponseResult delete(@PathVariable("labelId")String labelId){
+        labelDao.deleteById(labelId);
+        return ResponseResult.SUCCESS("删除标签成功");
+    }
+
+    @PutMapping("/label/{labelId}")
+    public ResponseResult updateLabel(@PathVariable("labelId")String labelId,@RequestBody Label label){
+        Label dblabel = labelDao.findOneByid(labelId);
+        if (dblabel == null){
+            return ResponseResult.FAILED("标签不存在");
+        }
+        dblabel.setCount(label.getCount());
+        dblabel.setName(label.getName());
+        dblabel.setUpdate_time(new Date());
+        labelDao.save(dblabel);
+        return ResponseResult.SUCCESS("修改成功");
+    }
+
+    @GetMapping("/label/{labelId}")
+    public ResponseResult getLabelById(@PathVariable("labelId")String labelId){
+        Label oneByid = labelDao.findOneByid(labelId);
+        if (oneByid == null){
+            return ResponseResult.FAILED("标签不存在");
+        }
+        ResponseResult success = ResponseResult.SUCCESS("查询成功");
+        success.setData(oneByid);
+        return success;
+    }
+
+
+    @GetMapping("/label/list/{page}/{size}")
+    public ResponseResult listlabels(@PathVariable("page")int page,@PathVariable("size")int size){
+        if (page<1){
+            page = 1;
+        }
+        if (size <=0 ){
+            size =DEFAULT_SIZE;
+        }
+        Sort sort = Sort.by(Sort.Direction.DESC, "createTime");
+        Pageable pageable = PageRequest.of(page-1,size,sort);
+        Page<Label> all = labelDao.findAll(pageable);
+        ResponseResult success = ResponseResult.SUCCESS("获取成功");
+        success.setData(all);
+        return success;
+    }
+
+    @GetMapping("/label/search")
+    public ResponseResult doLabelSearch(@RequestParam("keyword")String keyword,@RequestParam("count")int count){
+        List<Label> all = labelDao.findAll(new Specification<Label>() {
+            @Override
+            public Predicate toPredicate(Root<Label> root, CriteriaQuery<?> criteriaQuery, CriteriaBuilder cb) {
+                Predicate name = cb.like(root.get("name").as(String.class), "%"+keyword+"%");
+                Predicate countpre = cb.equal(root.get("count").as(Integer.class), count);
+                Predicate predicate = cb.and(name, countpre);
+                return predicate;
+            }
+        });
+        if (all.size()== 0){
+            return ResponseResult.FAILED("结果为空");
+        }
+        ResponseResult success = ResponseResult.SUCCESS("查找成功");
+        success.setData(all);
+        return success;
+    }
 }

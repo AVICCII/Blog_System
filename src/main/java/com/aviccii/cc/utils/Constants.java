@@ -6,6 +6,8 @@ package com.aviccii.cc.utils;
  */
 public interface Constants {
 
+    int DEFAULT_SIZE =30;
+
     interface user{
         String ROLE_ADMIN = "role_admin";
         String DEFAULT_AVATAR= "https://cdn.sunofbeaches.com/images/default_avatar.png";
@@ -15,4 +17,5 @@ public interface Constants {
     interface settings{
         String HAS_MANAGER_ACCOUNT_INIT_STATE = "";
     }
+
 }

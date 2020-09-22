@@ -8,4 +8,5 @@ public interface IResponseState {
     String getMessage();
     boolean isSuccess();
     int getCode();
+    Object getData();
 }

@@ -10,6 +10,7 @@ import com.aviccii.cc.utils.Constants;
 import com.aviccii.cc.utils.IdWorker;
 import com.aviccii.cc.utils.TextUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -28,6 +29,9 @@ import java.util.Date;
 @Service
 @Transactional
 public class UserServiceImpl implements IUserService {
+
+    @Autowired
+    private BCryptPasswordEncoder bCryptPasswordEncoder;
 
     @Autowired
     private IdWorker idWorker;
@@ -67,6 +71,11 @@ public class UserServiceImpl implements IUserService {
         user.setReg_ip(remoteAddr);
         user.setCreate_time(new Date());
         user.setUpdate_time(new Date());
+        //对密码进行加密
+        String password = user.getPassword();
+        //加密码
+        String encode = bCryptPasswordEncoder.encode(password);
+        user.setPassword(encode);
         //保存到数据库中
         userDao.save(user);
         //更新已经添加的标记

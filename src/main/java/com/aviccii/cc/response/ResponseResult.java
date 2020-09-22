@@ -1,22 +1,52 @@
 package com.aviccii.cc.response;
 
-import lombok.Data;
-
 /**
  * @author aviccii 2020/9/15
  * @Discrimination
  */
-@Data
 public class ResponseResult {
     private String message;
     private boolean success;
     private int code;
     private Object data;
 
+    public String getMessage() {
+        return message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
+    }
+
+    public boolean isSuccess() {
+        return success;
+    }
+
+    public void setSuccess(boolean success) {
+        this.success = success;
+    }
+
+    public int getCode() {
+        return code;
+    }
+
+    public void setCode(int code) {
+        this.code = code;
+    }
+
+    public Object getData() {
+        return data;
+    }
+
+    public void setData(Object data) {
+        this.data = data;
+    }
+
     public ResponseResult(IResponseState iResponseState) {
         this.message = iResponseState.getMessage();
         this.success = iResponseState.isSuccess();
         this.code = iResponseState.getCode();
+        this.data= iResponseState.getData();
     }
 
     public static ResponseResult SUCCESS(){

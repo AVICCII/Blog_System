@@ -3,10 +3,11 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 import javax.persistence.Id;
+import java.util.Date;
 
 @Entity
 @Table(name = "tb_labels")
-public class Labels {
+public class Label {
 
   @Id
   private String id;
@@ -15,9 +16,9 @@ public class Labels {
   	@Column(name = "count")
   private long count;
   	@Column(name = "create_time")
-  private String create_time;
+  private Date createTime;
   	@Column(name = "update_time")
-  private String update_time;
+  private Date update_time;
 
 
   public String getId() {
@@ -47,20 +48,20 @@ public class Labels {
   }
 
 
-  public String getCreate_time() {
-    return create_time;
+  public Date getCreateTime() {
+    return createTime;
   }
 
-  public void setCreate_time(String create_time) {
-    this.create_time = create_time;
+  public void setCreateTime(Date create_time) {
+    this.createTime = create_time;
   }
 
 
-  public String getUpdate_time() {
+  public Date getUpdate_time() {
     return update_time;
   }
 
-  public void setUpdate_time(String update_time) {
+  public void setUpdate_time(Date update_time) {
     this.update_time = update_time;
   }
 
