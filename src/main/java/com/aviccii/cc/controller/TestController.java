@@ -3,7 +3,11 @@ package com.aviccii.cc.controller;
 import com.aviccii.cc.dao.LabelDao;
 import com.aviccii.cc.pojo.Label;
 import com.aviccii.cc.response.ResponseResult;
+import com.aviccii.cc.utils.Constants;
 import com.aviccii.cc.utils.IdWorker;
+import com.aviccii.cc.utils.RedisUtil;
+import com.wf.captcha.SpecCaptcha;
+import com.wf.captcha.base.Captcha;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +23,9 @@ import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.awt.*;
 import java.util.Date;
 import java.util.List;
 
@@ -46,6 +53,9 @@ public class TestController {
 
     @RequestMapping(value = "/test",method = RequestMethod.GET)
     public String helloWorld(){
+        log.info("hello,world...");
+        String captchaContent = (String) redisUtil.get(Constants.user.key_captcha_content + "123456");
+        log.info("captchaContent == >"+captchaContent);
         return "hello world!";
     }
 
@@ -126,5 +136,32 @@ public class TestController {
         ResponseResult success = ResponseResult.SUCCESS("查找成功");
         success.setData(all);
         return success;
+    }
+
+    @Autowired
+    private RedisUtil redisUtil;
+
+    @RequestMapping("/captcha")
+    public void captcha(HttpServletRequest request, HttpServletResponse response) throws Exception{
+        response.setContentType("image/gif");
+        response.setHeader("Pragma","No-cache");
+        response.setHeader("Cache-Control","no-cache");
+        response.setDateHeader("Expires",0);
+
+        //三个参数分别为宽、高、位数
+        SpecCaptcha specCaptcha = new SpecCaptcha(130,48,5);
+        //设置字体
+        specCaptcha.setFont(new Font("Verdana",Font.PLAIN,32));
+        //设置类型，纯数字、纯字母、字母数字混合
+        specCaptcha.setCharType(Captcha.TYPE_ONLY_CHAR);
+
+        String content = specCaptcha.text().toLowerCase();
+        //验证码存入session
+//        request.getSession().setAttribute("captcha",specCaptcha.text().toLowerCase());
+        //保存到redis中 10分钟有效
+        redisUtil.set(Constants.user.key_captcha_content+"123456",content,600);
+        //输出图片流
+        specCaptcha.out(response.getOutputStream());
+
     }
 }

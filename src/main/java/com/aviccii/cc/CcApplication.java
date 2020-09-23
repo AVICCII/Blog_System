@@ -1,6 +1,7 @@
 package com.aviccii.cc;
 
 import com.aviccii.cc.utils.IdWorker;
+import com.aviccii.cc.utils.RedisUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -26,5 +27,10 @@ public class CcApplication {
     @Bean
     public BCryptPasswordEncoder CreatePasswordEncoder(){
         return new BCryptPasswordEncoder();
+    }
+
+    @Bean
+    public RedisUtil createRedisUtils(){
+        return new RedisUtil();
     }
 }

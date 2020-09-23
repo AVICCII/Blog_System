@@ -12,6 +12,7 @@ public interface Constants {
         String ROLE_ADMIN = "role_admin";
         String DEFAULT_AVATAR= "https://cdn.sunofbeaches.com/images/default_avatar.png";
         String DEFAULT_STATE= "1";
+        String key_captcha_content = "key_captcha_content_";
     }
 
     interface settings{

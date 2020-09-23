@@ -1,69 +1,16 @@
-[2020/09/22-10:55:03] [restartedMain] [INFO ] [com.aviccii.cc.CcApplication] : Starting CcApplication on DESKTOP-11K43QD with PID 12944 (D:\JAVAProject\blogSystem\target\classes started by Administrator in D:\JAVAProject\blogSystem)
-[2020/09/22-10:55:03] [restartedMain] [INFO ] [com.aviccii.cc.CcApplication] : No active profile set, falling back to default profiles: default
-[2020/09/22-10:55:08] [restartedMain] [INFO ] [com.aviccii.cc.CcApplication] : Started CcApplication in 5.409 seconds (JVM running for 6.523)
-[2020/09/22-11:31:04] [restartedMain] [INFO ] [com.aviccii.cc.CcApplication] : Starting CcApplication on DESKTOP-11K43QD with PID 17464 (D:\JAVAProject\blogSystem\target\classes started by Administrator in D:\JAVAProject\blogSystem)
-[2020/09/22-11:31:04] [restartedMain] [INFO ] [com.aviccii.cc.CcApplication] : No active profile set, falling back to default profiles: default
-[2020/09/22-11:31:08] [restartedMain] [INFO ] [com.aviccii.cc.CcApplication] : Started CcApplication in 4.861 seconds (JVM running for 6.039)
-[2020/09/22-13:41:35] [restartedMain] [INFO ] [com.aviccii.cc.CcApplication] : Starting CcApplication on DESKTOP-11K43QD with PID 1196 (D:\JAVAProject\blogSystem\target\classes started by Administrator in D:\JAVAProject\blogSystem)
-[2020/09/22-13:41:35] [restartedMain] [INFO ] [com.aviccii.cc.CcApplication] : No active profile set, falling back to default profiles: default
-[2020/09/22-13:41:39] [restartedMain] [INFO ] [com.aviccii.cc.CcApplication] : Started CcApplication in 3.892 seconds (JVM running for 4.962)
-[2020/09/22-13:50:59] [restartedMain] [INFO ] [com.aviccii.cc.CcApplication] : Starting CcApplication on DESKTOP-11K43QD with PID 3928 (D:\JAVAProject\blogSystem\target\classes started by Administrator in D:\JAVAProject\blogSystem)
-[2020/09/22-13:50:59] [restartedMain] [INFO ] [com.aviccii.cc.CcApplication] : No active profile set, falling back to default profiles: default
-[2020/09/22-13:51:03] [restartedMain] [INFO ] [com.aviccii.cc.CcApplication] : Started CcApplication in 3.903 seconds (JVM running for 4.772)
-[2020/09/22-13:54:05] [restartedMain] [INFO ] [com.aviccii.cc.CcApplication] : Starting CcApplication on DESKTOP-11K43QD with PID 8828 (D:\JAVAProject\blogSystem\target\classes started by Administrator in D:\JAVAProject\blogSystem)
-[2020/09/22-13:54:05] [restartedMain] [INFO ] [com.aviccii.cc.CcApplication] : No active profile set, falling back to default profiles: default
-[2020/09/22-13:54:08] [restartedMain] [INFO ] [com.aviccii.cc.CcApplication] : Started CcApplication in 3.71 seconds (JVM running for 4.632)
-[2020/09/22-14:10:20] [restartedMain] [INFO ] [com.aviccii.cc.CcApplication] : Starting CcApplication on DESKTOP-11K43QD with PID 17936 (D:\JAVAProject\blogSystem\target\classes started by Administrator in D:\JAVAProject\blogSystem)
-[2020/09/22-14:10:20] [restartedMain] [INFO ] [com.aviccii.cc.CcApplication] : No active profile set, falling back to default profiles: default
-[2020/09/22-14:10:24] [restartedMain] [INFO ] [com.aviccii.cc.CcApplication] : Started CcApplication in 4.735 seconds (JVM running for 6.011)
-[2020/09/22-14:17:59] [restartedMain] [INFO ] [com.aviccii.cc.CcApplication] : Starting CcApplication on DESKTOP-11K43QD with PID 11688 (D:\JAVAProject\blogSystem\target\classes started by Administrator in D:\JAVAProject\blogSystem)
-[2020/09/22-14:17:59] [restartedMain] [INFO ] [com.aviccii.cc.CcApplication] : No active profile set, falling back to default profiles: default
-[2020/09/22-14:18:03] [restartedMain] [INFO ] [com.aviccii.cc.CcApplication] : Started CcApplication in 4.391 seconds (JVM running for 5.446)
-[2020/09/22-14:18:42] [restartedMain] [INFO ] [com.aviccii.cc.CcApplication] : Starting CcApplication on DESKTOP-11K43QD with PID 16440 (D:\JAVAProject\blogSystem\target\classes started by Administrator in D:\JAVAProject\blogSystem)
-[2020/09/22-14:18:42] [restartedMain] [INFO ] [com.aviccii.cc.CcApplication] : No active profile set, falling back to default profiles: default
-[2020/09/22-14:18:45] [restartedMain] [INFO ] [com.aviccii.cc.CcApplication] : Started CcApplication in 3.694 seconds (JVM running for 4.585)
-[2020/09/22-14:19:15] [restartedMain] [INFO ] [com.aviccii.cc.CcApplication] : Starting CcApplication on DESKTOP-11K43QD with PID 4820 (D:\JAVAProject\blogSystem\target\classes started by Administrator in D:\JAVAProject\blogSystem)
-[2020/09/22-14:19:15] [restartedMain] [INFO ] [com.aviccii.cc.CcApplication] : No active profile set, falling back to default profiles: default
-[2020/09/22-14:19:19] [restartedMain] [INFO ] [com.aviccii.cc.CcApplication] : Started CcApplication in 4.322 seconds (JVM running for 5.342)
-[2020/09/22-14:20:03] [restartedMain] [INFO ] [com.aviccii.cc.CcApplication] : Starting CcApplication on DESKTOP-11K43QD with PID 11592 (D:\JAVAProject\blogSystem\target\classes started by Administrator in D:\JAVAProject\blogSystem)
-[2020/09/22-14:20:03] [restartedMain] [INFO ] [com.aviccii.cc.CcApplication] : No active profile set, falling back to default profiles: default
-[2020/09/22-14:20:06] [restartedMain] [INFO ] [com.aviccii.cc.CcApplication] : Started CcApplication in 3.726 seconds (JVM running for 4.668)
-[2020/09/22-14:20:46] [restartedMain] [INFO ] [com.aviccii.cc.CcApplication] : Starting CcApplication on DESKTOP-11K43QD with PID 15480 (D:\JAVAProject\blogSystem\target\classes started by Administrator in D:\JAVAProject\blogSystem)
-[2020/09/22-14:20:46] [restartedMain] [INFO ] [com.aviccii.cc.CcApplication] : No active profile set, falling back to default profiles: default
-[2020/09/22-14:20:49] [restartedMain] [INFO ] [com.aviccii.cc.CcApplication] : Started CcApplication in 4.146 seconds (JVM running for 5.026)
-[2020/09/22-14:21:55] [restartedMain] [INFO ] [com.aviccii.cc.CcApplication] : Starting CcApplication on DESKTOP-11K43QD with PID 2708 (D:\JAVAProject\blogSystem\target\classes started by Administrator in D:\JAVAProject\blogSystem)
-[2020/09/22-14:21:55] [restartedMain] [INFO ] [com.aviccii.cc.CcApplication] : No active profile set, falling back to default profiles: default
-[2020/09/22-14:21:59] [restartedMain] [INFO ] [com.aviccii.cc.CcApplication] : Started CcApplication in 4.314 seconds (JVM running for 5.313)
-[2020/09/22-14:24:52] [restartedMain] [INFO ] [com.aviccii.cc.CcApplication] : Starting CcApplication on DESKTOP-11K43QD with PID 4064 (D:\JAVAProject\blogSystem\target\classes started by Administrator in D:\JAVAProject\blogSystem)
-[2020/09/22-14:24:52] [restartedMain] [INFO ] [com.aviccii.cc.CcApplication] : No active profile set, falling back to default profiles: default
-[2020/09/22-14:24:55] [restartedMain] [INFO ] [com.aviccii.cc.CcApplication] : Started CcApplication in 3.878 seconds (JVM running for 4.789)
-[2020/09/22-14:25:36] [restartedMain] [INFO ] [com.aviccii.cc.CcApplication] : Starting CcApplication on DESKTOP-11K43QD with PID 10956 (D:\JAVAProject\blogSystem\target\classes started by Administrator in D:\JAVAProject\blogSystem)
-[2020/09/22-14:25:36] [restartedMain] [INFO ] [com.aviccii.cc.CcApplication] : No active profile set, falling back to default profiles: default
-[2020/09/22-14:25:40] [restartedMain] [INFO ] [com.aviccii.cc.CcApplication] : Started CcApplication in 3.601 seconds (JVM running for 4.472)
-[2020/09/22-14:39:00] [restartedMain] [INFO ] [com.aviccii.cc.CcApplication] : Starting CcApplication on DESKTOP-11K43QD with PID 1800 (D:\JAVAProject\blogSystem\target\classes started by Administrator in D:\JAVAProject\blogSystem)
-[2020/09/22-14:39:00] [restartedMain] [INFO ] [com.aviccii.cc.CcApplication] : No active profile set, falling back to default profiles: default
-[2020/09/22-14:39:03] [restartedMain] [INFO ] [com.aviccii.cc.CcApplication] : Started CcApplication in 4.361 seconds (JVM running for 5.434)
-[2020/09/22-14:41:07] [restartedMain] [INFO ] [com.aviccii.cc.CcApplication] : Starting CcApplication on DESKTOP-11K43QD with PID 14704 (D:\JAVAProject\blogSystem\target\classes started by Administrator in D:\JAVAProject\blogSystem)
-[2020/09/22-14:41:07] [restartedMain] [INFO ] [com.aviccii.cc.CcApplication] : No active profile set, falling back to default profiles: default
-[2020/09/22-14:41:10] [restartedMain] [INFO ] [com.aviccii.cc.CcApplication] : Started CcApplication in 3.749 seconds (JVM running for 4.698)
-[2020/09/22-14:47:14] [restartedMain] [INFO ] [com.aviccii.cc.CcApplication] : Starting CcApplication on DESKTOP-11K43QD with PID 968 (D:\JAVAProject\blogSystem\target\classes started by Administrator in D:\JAVAProject\blogSystem)
-[2020/09/22-14:47:14] [restartedMain] [INFO ] [com.aviccii.cc.CcApplication] : No active profile set, falling back to default profiles: default
-[2020/09/22-14:47:18] [restartedMain] [INFO ] [com.aviccii.cc.CcApplication] : Started CcApplication in 4.578 seconds (JVM running for 5.61)
-[2020/09/22-15:25:32] [restartedMain] [INFO ] [com.aviccii.cc.CcApplication] : Starting CcApplication on DESKTOP-11K43QD with PID 9596 (D:\JAVAProject\blogSystem\target\classes started by Administrator in D:\JAVAProject\blogSystem)
-[2020/09/22-15:25:32] [restartedMain] [INFO ] [com.aviccii.cc.CcApplication] : No active profile set, falling back to default profiles: default
-[2020/09/22-15:25:36] [restartedMain] [INFO ] [com.aviccii.cc.CcApplication] : Started CcApplication in 4.094 seconds (JVM running for 5.046)
-[2020/09/22-15:46:21] [restartedMain] [INFO ] [com.aviccii.cc.CcApplication] : Starting CcApplication on DESKTOP-11K43QD with PID 9596 (D:\JAVAProject\blogSystem\target\classes started by Administrator in D:\JAVAProject\blogSystem)
-[2020/09/22-15:46:21] [restartedMain] [INFO ] [com.aviccii.cc.CcApplication] : No active profile set, falling back to default profiles: default
-[2020/09/22-15:46:23] [restartedMain] [INFO ] [com.aviccii.cc.CcApplication] : Started CcApplication in 1.728 seconds (JVM running for 1251.906)
-[2020/09/22-15:54:54] [restartedMain] [INFO ] [com.aviccii.cc.CcApplication] : Starting CcApplication on DESKTOP-11K43QD with PID 1116 (D:\JAVAProject\blogSystem\target\classes started by Administrator in D:\JAVAProject\blogSystem)
-[2020/09/22-15:54:54] [restartedMain] [INFO ] [com.aviccii.cc.CcApplication] : No active profile set, falling back to default profiles: default
-[2020/09/22-15:54:58] [restartedMain] [INFO ] [com.aviccii.cc.CcApplication] : Started CcApplication in 3.943 seconds (JVM running for 4.874)
-[2020/09/22-15:55:14] [http-nio-2020-exec-1] [INFO ] [com.aviccii.cc.controller.user.UserApi] : user name ==========>null
-[2020/09/22-15:55:14] [http-nio-2020-exec-1] [INFO ] [com.aviccii.cc.controller.user.UserApi] : user password ==========>123456
-[2020/09/22-15:55:14] [http-nio-2020-exec-1] [INFO ] [com.aviccii.cc.controller.user.UserApi] : user email ==========>admin@123.com
-[2020/09/22-15:55:56] [http-nio-2020-exec-3] [INFO ] [com.aviccii.cc.controller.user.UserApi] : user name ==========>null
-[2020/09/22-15:55:56] [http-nio-2020-exec-3] [INFO ] [com.aviccii.cc.controller.user.UserApi] : user password ==========>123456
-[2020/09/22-15:55:56] [http-nio-2020-exec-3] [INFO ] [com.aviccii.cc.controller.user.UserApi] : user email ==========>admin@123.com
-[2020/09/22-15:56:11] [http-nio-2020-exec-4] [INFO ] [com.aviccii.cc.controller.user.UserApi] : user name ==========>ccsama
-[2020/09/22-15:56:11] [http-nio-2020-exec-4] [INFO ] [com.aviccii.cc.controller.user.UserApi] : user password ==========>123456
-[2020/09/22-15:56:11] [http-nio-2020-exec-4] [INFO ] [com.aviccii.cc.controller.user.UserApi] : user email ==========>admin@123.com
+[2020/09/23-09:24:04] [restartedMain] [INFO ] [com.aviccii.cc.CcApplication] : Starting CcApplication on DESKTOP-11K43QD with PID 15704 (D:\JAVAProject\blogSystem\target\classes started by Administrator in D:\JAVAProject\blogSystem)
+[2020/09/23-09:24:04] [restartedMain] [INFO ] [com.aviccii.cc.CcApplication] : No active profile set, falling back to default profiles: default
+[2020/09/23-09:25:21] [restartedMain] [INFO ] [com.aviccii.cc.CcApplication] : Starting CcApplication on DESKTOP-11K43QD with PID 16804 (D:\JAVAProject\blogSystem\target\classes started by Administrator in D:\JAVAProject\blogSystem)
+[2020/09/23-09:25:21] [restartedMain] [INFO ] [com.aviccii.cc.CcApplication] : No active profile set, falling back to default profiles: default
+[2020/09/23-09:25:47] [restartedMain] [INFO ] [com.aviccii.cc.CcApplication] : Started CcApplication in 26.27 seconds (JVM running for 27.181)
+[2020/09/23-10:15:56] [restartedMain] [INFO ] [com.aviccii.cc.CcApplication] : Starting CcApplication on DESKTOP-11K43QD with PID 16804 (D:\JAVAProject\blogSystem\target\classes started by Administrator in D:\JAVAProject\blogSystem)
+[2020/09/23-10:15:56] [restartedMain] [INFO ] [com.aviccii.cc.CcApplication] : No active profile set, falling back to default profiles: default
+[2020/09/23-10:15:57] [restartedMain] [INFO ] [com.aviccii.cc.CcApplication] : Started CcApplication in 1.309 seconds (JVM running for 3036.786)
+[2020/09/23-11:13:19] [restartedMain] [INFO ] [com.aviccii.cc.CcApplication] : Starting CcApplication on DESKTOP-11K43QD with PID 12120 (D:\JAVAProject\blogSystem\target\classes started by Administrator in D:\JAVAProject\blogSystem)
+[2020/09/23-11:13:19] [restartedMain] [INFO ] [com.aviccii.cc.CcApplication] : No active profile set, falling back to default profiles: default
+[2020/09/23-11:13:24] [restartedMain] [INFO ] [com.aviccii.cc.CcApplication] : Started CcApplication in 5.848 seconds (JVM running for 7.109)
+[2020/09/23-11:17:32] [restartedMain] [INFO ] [com.aviccii.cc.CcApplication] : Starting CcApplication on DESKTOP-11K43QD with PID 13108 (D:\JAVAProject\blogSystem\target\classes started by Administrator in D:\JAVAProject\blogSystem)
+[2020/09/23-11:17:32] [restartedMain] [INFO ] [com.aviccii.cc.CcApplication] : No active profile set, falling back to default profiles: default
+[2020/09/23-11:17:38] [restartedMain] [INFO ] [com.aviccii.cc.CcApplication] : Started CcApplication in 7.685 seconds (JVM running for 9.091)
+[2020/09/23-11:18:23] [http-nio-2020-exec-3] [INFO ] [com.aviccii.cc.controller.TestController] : hello,world...
+[2020/09/23-11:18:24] [http-nio-2020-exec-3] [INFO ] [com.aviccii.cc.controller.TestController] : captchaContent == >qhjtq
