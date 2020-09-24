@@ -310,6 +310,14 @@ public class EmailSender {
         bodyPart.setContent(html, "text/html; charset=utf-8");
         return bodyPart;
     }
+
+    public static void sendRegisterVerifyCode(String code,String address)throws Exception {
+        EmailSender.subject("博客系统注册验证码")
+                .from("阳光沙滩博客系统")
+                .text("这是您的验证码:"+code+"，请在十分钟有效期内输入验证码")
+                .to(address)
+                .send();
+    }
 }
 
 

@@ -54,7 +54,7 @@ public class TestController {
     @RequestMapping(value = "/test",method = RequestMethod.GET)
     public String helloWorld(){
         log.info("hello,world...");
-        String captchaContent = (String) redisUtil.get(Constants.user.key_captcha_content + "123456");
+        String captchaContent = (String) redisUtil.get(Constants.user.KEY_CAPTCHA_CONTENT + "123456");
         log.info("captchaContent == >"+captchaContent);
         return "hello world!";
     }
@@ -141,6 +141,7 @@ public class TestController {
     @Autowired
     private RedisUtil redisUtil;
 
+
     @RequestMapping("/captcha")
     public void captcha(HttpServletRequest request, HttpServletResponse response) throws Exception{
         response.setContentType("image/gif");
@@ -159,7 +160,7 @@ public class TestController {
         //验证码存入session
 //        request.getSession().setAttribute("captcha",specCaptcha.text().toLowerCase());
         //保存到redis中 10分钟有效
-        redisUtil.set(Constants.user.key_captcha_content+"123456",content,600);
+        redisUtil.set(Constants.user.KEY_CAPTCHA_CONTENT +"123456",content,600);
         //输出图片流
         specCaptcha.out(response.getOutputStream());
 

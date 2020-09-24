@@ -3,11 +3,23 @@ package com.aviccii.cc.controller.user;
 import com.aviccii.cc.pojo.User;
 import com.aviccii.cc.response.ResponseResult;
 import com.aviccii.cc.services.IUserService;
+import com.aviccii.cc.utils.Constants;
+import com.aviccii.cc.utils.RedisUtil;
+import com.aviccii.cc.utils.TextUtils;
+import com.wf.captcha.ArithmeticCaptcha;
+import com.wf.captcha.GifCaptcha;
+import com.wf.captcha.SpecCaptcha;
+import com.wf.captcha.base.Captcha;
+import com.wf.captcha.base.*;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.awt.*;
+import java.io.IOException;
+import java.util.Random;
 
 /**
  * @author aviccii 2020/9/17
@@ -32,6 +44,15 @@ public class UserApi {
 
     @PostMapping
     public ResponseResult register(@RequestBody User user) {
+        //第一步：检查当前用户名是否已经注册
+        //第二步：检查邮箱格式是否正确
+        //第三步：检查当前邮箱是否已经注册
+        //第四步：检查邮箱验证码是否正确
+        //第五步：检查图灵验证码是否正确
+        //达到可以注册的条件
+        //对密码加密
+        //补全数据
+
         return null;
     }
 
@@ -40,9 +61,24 @@ public class UserApi {
         return null;
     }
 
-    @GetMapping("/capthcha")
-    public ResponseResult getCaptcha() {
-        return null;
+    public static final int[] captcha_font_types = {Captcha.FONT_1,Captcha.FONT_2,
+            Captcha.FONT_3,Captcha.FONT_4,Captcha.FONT_5,Captcha.FONT_6,
+            Captcha.FONT_7,Captcha.FONT_8,Captcha.FONT_9,Captcha.FONT_10};
+
+
+    /**
+     * 图灵验证码
+     *有效时常10分钟
+     * @param response
+     * @param captchaKey
+     * @throws IOException
+     * @throws FontFormatException
+     */
+    @GetMapping("/captcha")
+    public void getCaptcha(HttpServletResponse response,@RequestParam("captcha_key")String captchaKey) throws IOException, FontFormatException {
+        iUserService.createCaptcha(response,captchaKey);
+
+
     }
 
     /**
@@ -50,10 +86,10 @@ public class UserApi {
      * @param emailAddress
      * @return
      */
-    @GetMapping("/getVerifyCode")
-    public ResponseResult sendVerifyCode(@RequestParam("email")String emailAddress){
+    @GetMapping("/verify_code")
+    public ResponseResult sendVerifyCode(HttpServletRequest request,@RequestParam("email")String emailAddress){
         log.info("email ==> " +emailAddress);
-        return ResponseResult.SUCCESS();
+        return iUserService.sendemail(request,emailAddress);
     }
 
     /**
