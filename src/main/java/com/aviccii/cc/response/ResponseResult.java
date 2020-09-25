@@ -49,6 +49,10 @@ public class ResponseResult {
         this.data= iResponseState.getData();
     }
 
+    public static ResponseResult GET(ResponseState state){
+        return new ResponseResult(state);
+    }
+
     public static ResponseResult SUCCESS(){
         return new ResponseResult(ResponseState.SUCCESS);
     }

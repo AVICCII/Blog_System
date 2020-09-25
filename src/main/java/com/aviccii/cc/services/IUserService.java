@@ -2,7 +2,6 @@ package com.aviccii.cc.services;
 
 import com.aviccii.cc.pojo.User;
 import com.aviccii.cc.response.ResponseResult;
-import org.springframework.stereotype.Service;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -17,5 +16,7 @@ public interface IUserService {
 
     void createCaptcha(HttpServletResponse response,String captchaKey) throws IOException;
 
-    ResponseResult sendemail(HttpServletRequest request,String emailAddress);
+    ResponseResult sendemail(String type,HttpServletRequest request,String emailAddress);
+
+    ResponseResult register(User user, String emailCode, String captchaCode, String captchaKey, HttpServletRequest request);
 }

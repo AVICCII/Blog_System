@@ -6,6 +6,7 @@ package com.aviccii.cc.response;
  */
 public enum ResponseState implements IResponseState {
     SUCCESS(10000, true, "操作成功",null),
+    JOIN_IN_SUCCESS(20002, true, "注册成功",null),
     FAILED(20000, false, "操作失败",null),
     PARAMS_ILL(30000, false, "参数错误",null),
     PERMISSION_DENIED(40000, false, "权限不够",null),
