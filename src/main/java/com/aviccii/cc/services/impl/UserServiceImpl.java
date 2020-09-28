@@ -153,7 +153,7 @@ public class UserServiceImpl implements IUserService {
         String content = targetCaptcha.text().toLowerCase();
         log.info("captcha content == >" + content);
         //保存到redis
-        redisUtil.set(Constants.user.KEY_CAPTCHA_CONTENT + "key", content, 60 * 10);
+        redisUtil.set(Constants.user.KEY_CAPTCHA_CONTENT+captchaKey , content, 60 * 10);
         targetCaptcha.out(response.getOutputStream());
     }
 
@@ -231,9 +231,9 @@ public class UserServiceImpl implements IUserService {
         ipSendTime++;
         //1个小时有效期
         redisUtil.set(Constants.user.KEY_EMAIL_SEND_IP + remoteAddr, ipSendTime, 60 * 60);
-        redisUtil.set(Constants.user.KEY_EMAIL_SEND_ADDRESS + emailAddress, 1, 30);
+        redisUtil.set(Constants.user.KEY_EMAIL_SEND_ADDRESS + emailAddress, "true", 30);
         //保存code,10分钟内有效
-        redisUtil.set(Constants.user.KEY_EMAIL_CODE_CONTENT + emailAddress, code, 60 * 10);
+        redisUtil.set(Constants.user.KEY_EMAIL_CODE_CONTENT + emailAddress, String.valueOf(code), 60 * 10);
         return ResponseResult.SUCCESS("发送成功");
     }
 
@@ -274,9 +274,10 @@ public class UserServiceImpl implements IUserService {
             redisUtil.del(Constants.user.KEY_EMAIL_CODE_CONTENT + email);
         }
         //第五步：检查图灵验证码是否正确
-        String captchaVerifyCode = (String) redisUtil.get(Constants.user.KEY_CAPTCHA_CONTENT + captchaKey);
+        System.out.println(" 人类验证码 ======>"+redisUtil.get(Constants.user.KEY_CAPTCHA_CONTENT + captchaKey));
+        String captchaVerifyCode = String.valueOf(redisUtil.get(Constants.user.KEY_CAPTCHA_CONTENT + captchaKey));
         if (TextUtils.isEmpty(captchaVerifyCode)) {
-            return ResponseResult.FAILED("验证码已过期");
+            return ResponseResult.FAILED("人类验证码已过期");
         }
         if (!captchaVerifyCode.equals(captchaCode)){
             return ResponseResult.FAILED("验证码不正确");
