@@ -7,14 +7,14 @@ import com.aviccii.cc.utils.JwtUtil;
  * @Discrimination
  */
 public class TestCreateToken {
-    public static void main(String[] args) {
-        String token = JwtUtil.createJWT(
-                //用户id
-                "760078116340105216",
-                //用户名
-                "新用户注册名",
-                null
-        );
-        System.out.println(token);
-    }
+//    public static void main(String[] args) {
+//        String token = JwtUtil.createJWT(
+//                //用户id
+//                "760078116340105216",
+//                //用户名
+//                "新用户注册名",
+//                null
+//        );
+//        System.out.println(token);
+//    }
 }

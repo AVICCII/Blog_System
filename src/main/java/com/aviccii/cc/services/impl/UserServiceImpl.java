@@ -13,16 +13,21 @@ import com.wf.captcha.GifCaptcha;
 import com.wf.captcha.SpecCaptcha;
 import com.wf.captcha.base.Captcha;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.tomcat.util.bcel.Const;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.util.DigestUtils;
 
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.awt.*;
 import java.io.IOException;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Random;
 
 import static com.aviccii.cc.controller.user.UserApi.captcha_font_types;
@@ -153,7 +158,7 @@ public class UserServiceImpl implements IUserService {
         String content = targetCaptcha.text().toLowerCase();
         log.info("captcha content == >" + content);
         //保存到redis
-        redisUtil.set(Constants.user.KEY_CAPTCHA_CONTENT+captchaKey , content, 60 * 10);
+        redisUtil.set(Constants.user.KEY_CAPTCHA_CONTENT + captchaKey, content, 60 * 10);
         targetCaptcha.out(response.getOutputStream());
     }
 
@@ -163,23 +168,24 @@ public class UserServiceImpl implements IUserService {
     /**
      * 发送验证码
      * 根据场景类型判断
+     *
      * @param request
      * @param emailAddress
      * @return
      */
     @Override
-    public ResponseResult sendemail(String type,HttpServletRequest request, String emailAddress) {
+    public ResponseResult sendemail(String type, HttpServletRequest request, String emailAddress) {
         //根据类型查询邮箱是否存在
         if (emailAddress == null) {
             return ResponseResult.FAILED("邮箱地址不可以为空");
         }
 
-        if("register".equals(type)||"update".equals(type)){
+        if ("register".equals(type) || "update".equals(type)) {
             User userByEmail = userDao.findOneByEmail(emailAddress);
             if (userByEmail != null) {
                 return ResponseResult.FAILED("该邮箱已经注册");
             }
-        }else if ("forget".equals(type)){
+        } else if ("forget".equals(type)) {
             User userByEmail = userDao.findOneByEmail(emailAddress);
             if (userByEmail == null) {
                 return ResponseResult.FAILED("该邮箱未注册");
@@ -220,7 +226,7 @@ public class UserServiceImpl implements IUserService {
         log.info("sendEmail code == >" + code);
         //3.发送验证码
         try {
-            taskService.sendEmailVerifyCode(String.valueOf(code),emailAddress);
+            taskService.sendEmailVerifyCode(String.valueOf(code), emailAddress);
         } catch (Exception e) {
             return ResponseResult.FAILED("验证码发送失败，请稍后重试");
         }
@@ -258,31 +264,31 @@ public class UserServiceImpl implements IUserService {
         }
         //第三步：检查当前邮箱是否已经注册
         User userByEmail = userDao.findOneByEmail(email);
-        if (userByEmail!=null) {
+        if (userByEmail != null) {
             return ResponseResult.FAILED("该邮箱地址已注册");
 
         }
         //第四步：检查邮箱验证码是否正确
-        String emailVerifyCode = String.valueOf(redisUtil.get(Constants.user.KEY_EMAIL_CODE_CONTENT + email)) ;
+        String emailVerifyCode = String.valueOf(redisUtil.get(Constants.user.KEY_EMAIL_CODE_CONTENT + email));
         if (TextUtils.isEmpty(emailVerifyCode)) {
             return ResponseResult.FAILED("该邮箱地址已过期");
         }
         if (!emailVerifyCode.equals(emailCode)) {
             return ResponseResult.FAILED("邮箱验证码不正确");
-        }else {
+        } else {
             //正确,干掉redis里的内容
             redisUtil.del(Constants.user.KEY_EMAIL_CODE_CONTENT + email);
         }
         //第五步：检查图灵验证码是否正确
-        System.out.println(" 人类验证码 ======>"+redisUtil.get(Constants.user.KEY_CAPTCHA_CONTENT + captchaKey));
+        System.out.println(" 人类验证码 ======>" + redisUtil.get(Constants.user.KEY_CAPTCHA_CONTENT + captchaKey));
         String captchaVerifyCode = String.valueOf(redisUtil.get(Constants.user.KEY_CAPTCHA_CONTENT + captchaKey));
         if (TextUtils.isEmpty(captchaVerifyCode)) {
             return ResponseResult.FAILED("人类验证码已过期");
         }
-        if (!captchaVerifyCode.equals(captchaCode)){
+        if (!captchaVerifyCode.equals(captchaCode)) {
             return ResponseResult.FAILED("验证码不正确");
-        }else {
-            redisUtil.del(Constants.user.KEY_CAPTCHA_CONTENT+captchaKey);
+        } else {
+            redisUtil.del(Constants.user.KEY_CAPTCHA_CONTENT + captchaKey);
         }
         //达到可以注册的条件
         //对密码加密
@@ -300,11 +306,73 @@ public class UserServiceImpl implements IUserService {
         user.setAvatar(Constants.user.DEFAULT_AVATAR);
         user.setRole(ROLE_NORMAL);
         user.setState("1");
-        user.setId(idWorker.nextId()+"");
+        user.setId(idWorker.nextId() + "");
         //保存到数据库中
         userDao.save(user);
         //返回结果
         return ResponseResult.GET(ResponseState.JOIN_IN_SUCCESS);
+    }
+
+    @Override
+    public ResponseResult doLogin(String captcha, String captcha_key,
+                                  User user, HttpServletRequest request, HttpServletResponse response) {
+        String captchaValue = (String) redisUtil.get(Constants.user.KEY_CAPTCHA_CONTENT + captcha_key);
+        if (!captcha.equals(captchaValue)) {
+            return ResponseResult.FAILED("人类验证码不正确");
+        }
+
+        //有可能是邮箱，也有可能是用户名
+        String userName = user.getUserName();
+        if (TextUtils.isEmpty(userName)) {
+            return ResponseResult.FAILED("账户不可为空");
+        }
+
+        String password = user.getPassword();
+        if (TextUtils.isEmpty(password)) {
+            return ResponseResult.FAILED("密码不可为空");
+        }
+
+        User userFromDb = userDao.findOneByUserName(userName);
+        if (userFromDb == null) {
+            userFromDb = userDao.findOneByEmail(userName);
+        }
+        if (userFromDb == null) {
+            return ResponseResult.FAILED("用户名或密码不正确1");
+        }
+        //用户存在
+        //对比密码
+        boolean matches = bCryptPasswordEncoder.matches(password, userFromDb.getPassword());
+        if (!matches) {
+            return ResponseResult.FAILED("用户名或密码不正确2");
+        }
+        //密码正确
+        //判断用户状态，如果是非正常，则返回结果
+        if (!"1".equals(userFromDb.getState())) {
+            return ResponseResult.FAILED("当前账号已经被禁止");
+        }
+        //生成token
+        Map<String, Object> claims = new HashMap<>();
+        claims.put("id", userFromDb.getId());
+        claims.put("user_name", userFromDb.getUserName());
+        claims.put("roles", userFromDb.getRole());
+        claims.put("avatar", userFromDb.getAvatar());
+        claims.put("email", userFromDb.getEmail());
+        claims.put("sign", userFromDb.getSign());
+        String token = JwtUtil.createJWT(claims);
+        //返回token的md5值,token会保存在redis里
+        //如果前端访问的时候，携带token的Md5key，从redis中获取即可
+        String tokenKey = DigestUtils.md5DigestAsHex(token.getBytes());
+        //保存token到redis里，有效期为2个小时,key是tokenKey
+        redisUtil.set(Constants.user.KEY_TOKEN + tokenKey, token, 60 * 60 * 2);
+        //把tokenkey写到cookies里
+        Cookie cookie = new Cookie("sob_blog_token", tokenKey);
+        //这个要动态获取，可以从request里获取
+        cookie.setDomain("localhost");
+        cookie.setMaxAge(60 * 60 * 24 * 365);
+        cookie.setPath("/");
+        response.addCookie(cookie);
+        //生成refreshToken
+        return ResponseResult.SUCCESS("登录成功");
     }
 
 }
