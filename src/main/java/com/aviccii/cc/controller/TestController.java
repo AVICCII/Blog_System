@@ -1,13 +1,16 @@
 package com.aviccii.cc.controller;
 
+import com.aviccii.cc.dao.CommentDao;
 import com.aviccii.cc.dao.LabelDao;
+import com.aviccii.cc.pojo.Comment;
 import com.aviccii.cc.pojo.Label;
+import com.aviccii.cc.pojo.User;
 import com.aviccii.cc.response.ResponseResult;
-import com.aviccii.cc.utils.Constants;
-import com.aviccii.cc.utils.IdWorker;
-import com.aviccii.cc.utils.RedisUtil;
+import com.aviccii.cc.utils.*;
+import com.sun.org.apache.bcel.internal.generic.IF_ACMPEQ;
 import com.wf.captcha.SpecCaptcha;
 import com.wf.captcha.base.Captcha;
+import io.jsonwebtoken.Claims;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,6 +26,7 @@ import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.awt.*;
@@ -165,4 +169,53 @@ public class TestController {
         specCaptcha.out(response.getOutputStream());
 
     }
+
+    @Autowired
+    private CommentDao commentDao;
+
+
+    @PostMapping("/comment")
+    public ResponseResult testComment(@RequestBody Comment comment,HttpServletRequest request){
+        String content = comment.getContent();
+        log.info("comment content ===>" +content);
+        //还得知道是谁的评论，对这个评论，身份进行确定
+        String tokenKey = CookieUtils.getCookie(request, Constants.user.COOKIE_TOKEN_KEY);
+        if (tokenKey==null){
+            return ResponseResult.FAILED("账号未登录");
+        }
+
+        String token = (String) redisUtil.get(Constants.user.KEY_TOKEN + tokenKey);
+        if (token == null) {
+            //空的话就是过期了，有可能是登录过了,可以去查RefreshToken
+            //TODO：
+            //如果RefreshToken不存在，或者已经过期
+            //告诉用户未登录
+        }
+
+        //已经登录了，解析token
+        Claims claims=null;
+        try {
+             claims = JwtUtil.parseJWT(token);
+        }catch (Exception e){
+            //过期了，去查refreshtoken
+            //TODO:
+            //如果RefreshToken不存在，或者已经过期
+            //告诉用户未登录
+            return ResponseResult.FAILED("账号未登录");
+        }
+        if (claims == null) {
+            return ResponseResult.FAILED("账号未登录");
+        }
+        User user = ClaimsUtils.claims2User(claims);
+        comment.setUserId(user.getId());
+        comment.setUserAvatar(user.getAvatar());
+        comment.setUserName(user.getUserName());
+        comment.setCreateTime(new Date());
+        comment.setUpdateTime(new Date());
+        comment.setId(idWorker.nextId()+"");
+        commentDao.save(comment);
+        return ResponseResult.SUCCESS("评论成功");
+    }
+
+
 }

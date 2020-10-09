@@ -1,11 +1,30 @@
-[2020/09/29-17:10:09] [restartedMain] [INFO ] [com.aviccii.cc.CcApplication] : Starting CcApplication on DESKTOP-11K43QD with PID 1600 (D:\JAVAProject\blogSystem\target\classes started by Administrator in D:\JAVAProject\blogSystem)
-[2020/09/29-17:10:09] [restartedMain] [INFO ] [com.aviccii.cc.CcApplication] : No active profile set, falling back to default profiles: default
-[2020/09/29-17:10:15] [restartedMain] [INFO ] [com.aviccii.cc.CcApplication] : Started CcApplication in 6.231 seconds (JVM running for 7.604)
-[2020/09/29-17:10:20] [http-nio-2020-exec-2] [INFO ] [com.aviccii.cc.services.impl.UserServiceImpl] : captcha font type index == >9
-[2020/09/29-17:10:20] [http-nio-2020-exec-2] [INFO ] [com.aviccii.cc.services.impl.UserServiceImpl] : captcha content == >-6
-[2020/09/29-17:11:33] [restartedMain] [INFO ] [com.aviccii.cc.CcApplication] : Starting CcApplication on DESKTOP-11K43QD with PID 8260 (D:\JAVAProject\blogSystem\target\classes started by Administrator in D:\JAVAProject\blogSystem)
-[2020/09/29-17:11:33] [restartedMain] [INFO ] [com.aviccii.cc.CcApplication] : No active profile set, falling back to default profiles: default
-[2020/09/29-17:11:39] [restartedMain] [INFO ] [com.aviccii.cc.CcApplication] : Started CcApplication in 6.726 seconds (JVM running for 7.858)
-[2020/09/29-17:13:09] [restartedMain] [INFO ] [com.aviccii.cc.CcApplication] : Starting CcApplication on DESKTOP-11K43QD with PID 1664 (D:\JAVAProject\blogSystem\target\classes started by Administrator in D:\JAVAProject\blogSystem)
-[2020/09/29-17:13:09] [restartedMain] [INFO ] [com.aviccii.cc.CcApplication] : No active profile set, falling back to default profiles: default
-[2020/09/29-17:13:14] [restartedMain] [INFO ] [com.aviccii.cc.CcApplication] : Started CcApplication in 5.415 seconds (JVM running for 6.372)
+[2020/10/09-15:43:21] [restartedMain] [INFO ] [com.aviccii.cc.CcApplication] : Starting CcApplication on DESKTOP-11K43QD with PID 13460 (D:\JAVAProject\blogSystem\target\classes started by Administrator in D:\JAVAProject\blogSystem)
+[2020/10/09-15:43:21] [restartedMain] [INFO ] [com.aviccii.cc.CcApplication] : No active profile set, falling back to default profiles: default
+[2020/10/09-15:43:27] [restartedMain] [INFO ] [com.aviccii.cc.CcApplication] : Started CcApplication in 7.167 seconds (JVM running for 8.55)
+[2020/10/09-16:00:03] [http-nio-2020-exec-1] [INFO ] [com.aviccii.cc.controller.TestController] : comment content ===>a1高闪来一个好吗
+[2020/10/09-16:02:09] [http-nio-2020-exec-8] [INFO ] [com.aviccii.cc.services.impl.UserServiceImpl] : captcha font type index == >0
+[2020/10/09-16:02:09] [http-nio-2020-exec-8] [INFO ] [com.aviccii.cc.services.impl.UserServiceImpl] : captcha content == >4
+[2020/10/09-16:06:51] [restartedMain] [INFO ] [com.aviccii.cc.CcApplication] : Starting CcApplication on DESKTOP-11K43QD with PID 14848 (D:\JAVAProject\blogSystem\target\classes started by Administrator in D:\JAVAProject\blogSystem)
+[2020/10/09-16:06:51] [restartedMain] [INFO ] [com.aviccii.cc.CcApplication] : No active profile set, falling back to default profiles: default
+[2020/10/09-16:06:57] [restartedMain] [INFO ] [com.aviccii.cc.CcApplication] : Started CcApplication in 7.075 seconds (JVM running for 8.646)
+[2020/10/09-16:07:52] [http-nio-2020-exec-2] [INFO ] [com.aviccii.cc.services.impl.UserServiceImpl] : captcha font type index == >5
+[2020/10/09-16:07:52] [http-nio-2020-exec-2] [INFO ] [com.aviccii.cc.services.impl.UserServiceImpl] : captcha content == >28
+[2020/10/09-16:10:30] [restartedMain] [INFO ] [com.aviccii.cc.CcApplication] : Starting CcApplication on DESKTOP-11K43QD with PID 4860 (D:\JAVAProject\blogSystem\target\classes started by Administrator in D:\JAVAProject\blogSystem)
+[2020/10/09-16:10:30] [restartedMain] [INFO ] [com.aviccii.cc.CcApplication] : No active profile set, falling back to default profiles: default
+[2020/10/09-16:10:35] [restartedMain] [INFO ] [com.aviccii.cc.CcApplication] : Started CcApplication in 6.098 seconds (JVM running for 7.053)
+[2020/10/09-16:10:38] [http-nio-2020-exec-1] [INFO ] [com.aviccii.cc.services.impl.UserServiceImpl] : password ==>1212
+[2020/10/09-16:10:38] [http-nio-2020-exec-1] [INFO ] [com.aviccii.cc.services.impl.UserServiceImpl] : passwordEncoding ==>1212
+[2020/10/09-16:12:21] [http-nio-2020-exec-5] [INFO ] [com.aviccii.cc.services.impl.UserServiceImpl] : password ==>123456
+[2020/10/09-16:12:21] [http-nio-2020-exec-5] [INFO ] [com.aviccii.cc.services.impl.UserServiceImpl] : passwordEncoding ==>$2a$10$c/B31GlEor5bqYWDIVlO8ertBEp5VXXB2oHAzDj53nUQTxcg1RCK2
+[2020/10/09-16:12:47] [http-nio-2020-exec-6] [INFO ] [com.aviccii.cc.controller.TestController] : comment content ===>a1高闪来一个好吗
+[2020/10/09-16:14:56] [http-nio-2020-exec-8] [INFO ] [com.aviccii.cc.controller.TestController] : comment content ===>a1高闪来一个好吗
+[2020/10/09-16:16:03] [http-nio-2020-exec-10] [INFO ] [com.aviccii.cc.controller.TestController] : comment content ===>a1高闪来一个好吗
+[2020/10/09-16:33:24] [http-nio-2020-exec-3] [INFO ] [com.aviccii.cc.controller.TestController] : comment content ===>a1高闪来一个好吗
+[2020/10/09-16:36:49] [restartedMain] [INFO ] [com.aviccii.cc.CcApplication] : Starting CcApplication on DESKTOP-11K43QD with PID 4848 (D:\JAVAProject\blogSystem\target\classes started by Administrator in D:\JAVAProject\blogSystem)
+[2020/10/09-16:36:49] [restartedMain] [INFO ] [com.aviccii.cc.CcApplication] : No active profile set, falling back to default profiles: default
+[2020/10/09-16:36:55] [restartedMain] [INFO ] [com.aviccii.cc.CcApplication] : Started CcApplication in 6.946 seconds (JVM running for 8.064)
+[2020/10/09-16:37:14] [http-nio-2020-exec-1] [INFO ] [com.aviccii.cc.services.impl.UserServiceImpl] : captcha font type index == >2
+[2020/10/09-16:37:14] [http-nio-2020-exec-1] [INFO ] [com.aviccii.cc.services.impl.UserServiceImpl] : captcha content == >7
+[2020/10/09-16:37:34] [http-nio-2020-exec-3] [INFO ] [com.aviccii.cc.services.impl.UserServiceImpl] : password ==>123456
+[2020/10/09-16:37:34] [http-nio-2020-exec-3] [INFO ] [com.aviccii.cc.services.impl.UserServiceImpl] : passwordEncoding ==>$2a$10$c/B31GlEor5bqYWDIVlO8ertBEp5VXXB2oHAzDj53nUQTxcg1RCK2
+[2020/10/09-16:37:52] [http-nio-2020-exec-4] [INFO ] [com.aviccii.cc.controller.TestController] : comment content ===>a1高闪来一个好吗

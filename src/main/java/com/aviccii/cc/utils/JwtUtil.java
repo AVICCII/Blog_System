@@ -60,7 +60,7 @@ public class JwtUtil {
         return builder.compact();
     }
 
-    public Claims parseJWT(String jwtStr){
+    public static Claims parseJWT(String jwtStr){
         return Jwts.parser()
                 .setSigningKey(key)
                 .parseClaimsJws(jwtStr)

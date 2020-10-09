@@ -31,6 +31,7 @@ import java.util.Map;
 import java.util.Random;
 
 import static com.aviccii.cc.controller.user.UserApi.captcha_font_types;
+import static com.aviccii.cc.utils.Constants.user.COOKIE_TOKEN_KEY;
 import static com.aviccii.cc.utils.Constants.user.ROLE_NORMAL;
 
 /**
@@ -194,7 +195,6 @@ public class UserServiceImpl implements IUserService {
 
 
         //1.防止暴力发送  同一邮箱30秒间隔，同一ip1小时最多10次
-
         String remoteAddr = request.getRemoteAddr();
         log.info("sendEmail == > ip == > " + remoteAddr);
         if (remoteAddr != null) {
@@ -341,6 +341,8 @@ public class UserServiceImpl implements IUserService {
         }
         //用户存在
         //对比密码
+        log.info("password ==>"+password);
+        log.info("passwordEncoding ==>"+userFromDb.getPassword());
         boolean matches = bCryptPasswordEncoder.matches(password, userFromDb.getPassword());
         if (!matches) {
             return ResponseResult.FAILED("用户名或密码不正确2");
@@ -351,13 +353,7 @@ public class UserServiceImpl implements IUserService {
             return ResponseResult.FAILED("当前账号已经被禁止");
         }
         //生成token
-        Map<String, Object> claims = new HashMap<>();
-        claims.put("id", userFromDb.getId());
-        claims.put("user_name", userFromDb.getUserName());
-        claims.put("roles", userFromDb.getRole());
-        claims.put("avatar", userFromDb.getAvatar());
-        claims.put("email", userFromDb.getEmail());
-        claims.put("sign", userFromDb.getSign());
+        Map<String, Object> claims = ClaimsUtils.sobUser2Claims(userFromDb);
         String token = JwtUtil.createJWT(claims);
         //返回token的md5值,token会保存在redis里
         //如果前端访问的时候，携带token的Md5key，从redis中获取即可
@@ -365,12 +361,9 @@ public class UserServiceImpl implements IUserService {
         //保存token到redis里，有效期为2个小时,key是tokenKey
         redisUtil.set(Constants.user.KEY_TOKEN + tokenKey, token, 60 * 60 * 2);
         //把tokenkey写到cookies里
-        Cookie cookie = new Cookie("sob_blog_token", tokenKey);
+        Cookie cookie = new Cookie(COOKIE_TOKEN_KEY, tokenKey);
         //这个要动态获取，可以从request里获取
-        cookie.setDomain("localhost");
-        cookie.setMaxAge(60 * 60 * 24 * 365);
-        cookie.setPath("/");
-        response.addCookie(cookie);
+        CookieUtils.setUpCookie(response,COOKIE_TOKEN_KEY,tokenKey);
         //生成refreshToken
         return ResponseResult.SUCCESS("登录成功");
     }
