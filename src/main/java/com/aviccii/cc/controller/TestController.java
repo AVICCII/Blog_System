@@ -6,6 +6,7 @@ import com.aviccii.cc.pojo.Comment;
 import com.aviccii.cc.pojo.Label;
 import com.aviccii.cc.pojo.User;
 import com.aviccii.cc.response.ResponseResult;
+import com.aviccii.cc.services.IUserService;
 import com.aviccii.cc.utils.*;
 import com.sun.org.apache.bcel.internal.generic.IF_ACMPEQ;
 import com.wf.captcha.SpecCaptcha;
@@ -173,9 +174,11 @@ public class TestController {
     @Autowired
     private CommentDao commentDao;
 
+    @Autowired
+    private IUserService userService;
 
     @PostMapping("/comment")
-    public ResponseResult testComment(@RequestBody Comment comment,HttpServletRequest request){
+    public ResponseResult testComment(@RequestBody Comment comment,HttpServletRequest request,HttpServletResponse response){
         String content = comment.getContent();
         log.info("comment content ===>" +content);
         //还得知道是谁的评论，对这个评论，身份进行确定
@@ -184,29 +187,11 @@ public class TestController {
             return ResponseResult.FAILED("账号未登录");
         }
 
-        String token = (String) redisUtil.get(Constants.user.KEY_TOKEN + tokenKey);
-        if (token == null) {
-            //空的话就是过期了，有可能是登录过了,可以去查RefreshToken
-            //TODO：
-            //如果RefreshToken不存在，或者已经过期
-            //告诉用户未登录
-        }
 
-        //已经登录了，解析token
-        Claims claims=null;
-        try {
-             claims = JwtUtil.parseJWT(token);
-        }catch (Exception e){
-            //过期了，去查refreshtoken
-            //TODO:
-            //如果RefreshToken不存在，或者已经过期
-            //告诉用户未登录
+        User user = userService.checkUser(request, response);
+        if (user == null) {
             return ResponseResult.FAILED("账号未登录");
         }
-        if (claims == null) {
-            return ResponseResult.FAILED("账号未登录");
-        }
-        User user = ClaimsUtils.claims2User(claims);
         comment.setUserId(user.getId());
         comment.setUserAvatar(user.getAvatar());
         comment.setUserName(user.getUserName());

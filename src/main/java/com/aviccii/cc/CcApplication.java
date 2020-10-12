@@ -2,6 +2,7 @@ package com.aviccii.cc;
 
 import com.aviccii.cc.utils.IdWorker;
 import com.aviccii.cc.utils.RedisUtil;
+import com.google.gson.Gson;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -39,5 +40,10 @@ public class CcApplication {
     @Bean
     public Random createRandom(){
         return new Random();
+    }
+
+    @Bean
+    public Gson createGson(){
+        return new Gson();
     }
 }

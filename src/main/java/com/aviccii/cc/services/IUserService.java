@@ -21,4 +21,8 @@ public interface IUserService {
     ResponseResult register(User user, String emailCode, String captchaCode, String captchaKey, HttpServletRequest request);
 
     ResponseResult doLogin(String captcha, String captcha_key, User user, HttpServletRequest request, HttpServletResponse response);
+
+    User checkUser(HttpServletRequest request,HttpServletResponse response);
+
+    ResponseResult getUserInfo(String userId);
 }

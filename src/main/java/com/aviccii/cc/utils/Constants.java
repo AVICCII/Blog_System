@@ -6,13 +6,13 @@ package com.aviccii.cc.utils;
  */
 public interface Constants {
 
-    int DEFAULT_SIZE =30;
+    int DEFAULT_SIZE = 30;
 
-    interface user{
+    interface user {
         String ROLE_ADMIN = "role_admin";
         String ROLE_NORMAL = "role_normal";
-        String DEFAULT_AVATAR= "https://cdn.sunofbeaches.com/images/default_avatar.png";
-        String DEFAULT_STATE= "1";
+        String DEFAULT_AVATAR = "https://cdn.sunofbeaches.com/images/default_avatar.png";
+        String DEFAULT_STATE = "1";
         String KEY_CAPTCHA_CONTENT = "key_captcha_content_";
         String KEY_EMAIL_CODE_CONTENT = "key_email_code_content_";
         String KEY_EMAIL_SEND_IP = "key_email_send_ip_";
@@ -21,8 +21,20 @@ public interface Constants {
         String COOKIE_TOKEN_KEY = "sob_blog_token";
     }
 
-    interface settings{
+    interface settings {
         String HAS_MANAGER_ACCOUNT_INIT_STATE = "";
+    }
+
+    /**
+     * 单位是秒
+     */
+    interface timeValue {
+        int MIN = 60;
+        int HOUR = 60 * MIN;
+        int HOUR_2 = 60 * MIN*2;
+        int DAY = 24 * HOUR;
+        int WEEK = 7 * DAY;
+        int MONTH = 30 * DAY;
     }
 
 }

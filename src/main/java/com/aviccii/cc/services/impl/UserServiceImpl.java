@@ -1,19 +1,22 @@
 package com.aviccii.cc.services.impl;
 
+import com.aviccii.cc.dao.RefreshTokenDao;
 import com.aviccii.cc.dao.SettingsDao;
 import com.aviccii.cc.dao.UserDao;
+import com.aviccii.cc.pojo.RefreshToken;
 import com.aviccii.cc.pojo.Setting;
 import com.aviccii.cc.pojo.User;
 import com.aviccii.cc.response.ResponseResult;
 import com.aviccii.cc.response.ResponseState;
 import com.aviccii.cc.services.IUserService;
 import com.aviccii.cc.utils.*;
+import com.google.gson.Gson;
 import com.wf.captcha.ArithmeticCaptcha;
 import com.wf.captcha.GifCaptcha;
 import com.wf.captcha.SpecCaptcha;
 import com.wf.captcha.base.Captcha;
+import io.jsonwebtoken.Claims;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.tomcat.util.bcel.Const;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -26,13 +29,11 @@ import javax.servlet.http.HttpServletResponse;
 import java.awt.*;
 import java.io.IOException;
 import java.util.Date;
-import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;
 
 import static com.aviccii.cc.controller.user.UserApi.captcha_font_types;
-import static com.aviccii.cc.utils.Constants.user.COOKIE_TOKEN_KEY;
-import static com.aviccii.cc.utils.Constants.user.ROLE_NORMAL;
+import static com.aviccii.cc.utils.Constants.user.*;
 
 /**
  * @author aviccii 2020/9/21
@@ -57,6 +58,12 @@ public class UserServiceImpl implements IUserService {
 
     @Autowired
     private SettingsDao settingsDao;
+
+    @Autowired
+    private RefreshTokenDao refreshTokenDao;
+
+    @Autowired
+    private Gson gson;
 
     @Override
     public ResponseResult initManagerAccount(User user, HttpServletRequest request) {
@@ -341,8 +348,8 @@ public class UserServiceImpl implements IUserService {
         }
         //用户存在
         //对比密码
-        log.info("password ==>"+password);
-        log.info("passwordEncoding ==>"+userFromDb.getPassword());
+        log.info("password ==>" + password);
+        log.info("passwordEncoding ==>" + userFromDb.getPassword());
         boolean matches = bCryptPasswordEncoder.matches(password, userFromDb.getPassword());
         if (!matches) {
             return ResponseResult.FAILED("用户名或密码不正确2");
@@ -352,20 +359,120 @@ public class UserServiceImpl implements IUserService {
         if (!"1".equals(userFromDb.getState())) {
             return ResponseResult.FAILED("当前账号已经被禁止");
         }
+        createToken(response, userFromDb);
+        return ResponseResult.SUCCESS("登录成功");
+    }
+
+    /**
+     * 返回
+     *
+     * @param response
+     * @param userFromDb
+     * @return tokenkey
+     */
+    private String createToken(HttpServletResponse response, User userFromDb) {
+        refreshTokenDao.deleteAllByUserId(userFromDb.getId());
         //生成token
         Map<String, Object> claims = ClaimsUtils.sobUser2Claims(userFromDb);
-        String token = JwtUtil.createJWT(claims);
+        String token = JwtUtil.createToken(claims);
         //返回token的md5值,token会保存在redis里
         //如果前端访问的时候，携带token的Md5key，从redis中获取即可
         String tokenKey = DigestUtils.md5DigestAsHex(token.getBytes());
         //保存token到redis里，有效期为2个小时,key是tokenKey
-        redisUtil.set(Constants.user.KEY_TOKEN + tokenKey, token, 60 * 60 * 2);
+        redisUtil.set(Constants.user.KEY_TOKEN + tokenKey, token, Constants.timeValue.HOUR_2);
         //把tokenkey写到cookies里
         Cookie cookie = new Cookie(COOKIE_TOKEN_KEY, tokenKey);
         //这个要动态获取，可以从request里获取
-        CookieUtils.setUpCookie(response,COOKIE_TOKEN_KEY,tokenKey);
+        CookieUtils.setUpCookie(response, COOKIE_TOKEN_KEY, tokenKey);
         //生成refreshToken
-        return ResponseResult.SUCCESS("登录成功");
+        String refreshTokenValue = JwtUtil.createRefreshToken(userFromDb.getId(), Constants.timeValue.MONTH);
+        //保存到数据库里
+        //RefreshToken,tokenKey,用户id,创建时间，更新时间
+        RefreshToken refreshToken = new RefreshToken();
+        refreshToken.setId(idWorker.nextId() + "");
+        refreshToken.setRefreshToken(refreshTokenValue);
+        refreshToken.setUserId(userFromDb.getId());
+        refreshToken.setTokenKey(tokenKey);
+        refreshToken.setCreateTime(new Date());
+        refreshToken.setUpdateTime(new Date());
+        refreshTokenDao.save(refreshToken);
+        return tokenKey;
+    }
+
+    /**
+     * 本质就是检查用户是否有登录，如果登录了，就返回用户信息
+     *
+     * @param request
+     * @param response
+     * @return
+     */
+    @Override
+    public User checkUser(HttpServletRequest request, HttpServletResponse response) {
+        //拿到tokenKey
+        String tokenKey = CookieUtils.getCookie(request, COOKIE_TOKEN_KEY);
+        User user = parseByTokenKey(tokenKey);
+        if (user == null) {
+            //根据refreshToken去判断是否已经登录过了
+            //1.去mysql数据库查询refreshToken
+            RefreshToken refreshToken = refreshTokenDao.findOneByTokenKey(tokenKey);
+            //2.如果不存在，就是当前访问没有登录
+            if (refreshToken == null) {
+                return null;
+            }
+            //3.如果存在，就解析refreshToken
+            try {
+                Claims claims = JwtUtil.parseJWT(refreshToken.getRefreshToken());
+                //5.如果refreshToken有效，创建新的token，和新的refreshToken
+                String userId = refreshToken.getUserId();
+                User userFromDb = userDao.findOneById(userId);
+                //删掉refreshToken的记录
+                refreshTokenDao.deleteById(refreshToken.getId());
+                String newTokenKey = createToken(response, userFromDb);
+                return parseByTokenKey(newTokenKey);
+            } catch (Exception e1) {
+                //4.如果refreshToken过期了，就当前访问没有登录，提示用户登录
+                return null;
+            }
+        }
+        return null;
+        //说明有token,解析token
+
+    }
+
+    @Override
+    public ResponseResult getUserInfo(String userId) {
+        //从数据库里获取
+        User user = userDao.findOneById(userId);
+        //判断结果
+        if (user == null) {
+            //如果不存在，返回不存在
+            return ResponseResult.FAILED("用户不存在");
+        }
+        //如果存在，就复制对象，清空密码、EMAIL、登录IP，注册IP
+        String userJson = gson.toJson(user);
+        User newUser = gson.fromJson(userJson, User.class);
+        newUser.setPassword("");
+        newUser.setEmail("");
+        newUser.setReg_ip("");
+        newUser.setLogin_ip("");
+
+        //返回结果
+        ResponseResult success = ResponseResult.SUCCESS("获取成功");
+        success.setData(newUser);
+        return success;
+    }
+
+    private User parseByTokenKey(String tokenKey) {
+        String token = (String) redisUtil.get(KEY_TOKEN+tokenKey);
+        if (token != null) {
+            try {
+                Claims claims = JwtUtil.parseJWT(token);
+                return ClaimsUtils.claims2User(claims);
+            } catch (Exception e) {
+                return null;
+            }
+        }
+        return null;
     }
 
 }

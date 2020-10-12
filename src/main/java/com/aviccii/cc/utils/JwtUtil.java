@@ -16,7 +16,7 @@ public class JwtUtil {
     //盐值
     private static String key = "0b60057b079d630e38c6cd456f3406bf";
 
-    private static long ttl = 2*60*60*1000;
+    private static long ttl = Constants.timeValue.HOUR_2;
 
     public String getKey(){
         return key;
@@ -36,12 +36,25 @@ public class JwtUtil {
      * @param ttl
      * @return
      */
-    public  static String createJWT(Map<String,Object> claims, long ttl){
+    public  static String createToken(Map<String,Object> claims, long ttl){
         JwtUtil.ttl=ttl;
-        return createJWT(claims);
+        return createToken(claims);
     }
 
-    public static String createJWT(Map<String,Object> claims){
+    public  static String createRefreshToken(String userId, long ttl){
+        long nowMillis = System.currentTimeMillis();
+        Date now = new Date(nowMillis);
+        JwtBuilder builder = Jwts.builder()
+                .setIssuedAt(now)
+                .setId(userId)
+                .signWith(SignatureAlgorithm.HS256,key);
+        if (ttl>0){
+            builder.setExpiration(new Date(nowMillis+ttl));
+        }
+        return builder.compact();
+    }
+
+    public static String createToken(Map<String,Object> claims){
 
         long nowMillis = System.currentTimeMillis();
         Date now = new Date(nowMillis);
