@@ -1,0 +1,28 @@
+[2020/10/12-10:02:24] [restartedMain] [INFO ] [com.aviccii.cc.CcApplication] : Starting CcApplication on DESKTOP-11K43QD with PID 1824 (D:\JAVAProject\blogSystem\target\classes started by Administrator in D:\JAVAProject\blogSystem)
+[2020/10/12-10:02:24] [restartedMain] [INFO ] [com.aviccii.cc.CcApplication] : No active profile set, falling back to default profiles: default
+[2020/10/12-10:02:31] [restartedMain] [INFO ] [com.aviccii.cc.CcApplication] : Started CcApplication in 7.014 seconds (JVM running for 8.395)
+[2020/10/12-10:03:11] [http-nio-2020-exec-2] [INFO ] [com.aviccii.cc.services.impl.UserServiceImpl] : captcha font type index == >0
+[2020/10/12-10:03:11] [http-nio-2020-exec-2] [INFO ] [com.aviccii.cc.services.impl.UserServiceImpl] : captcha content == >8
+[2020/10/12-10:03:28] [http-nio-2020-exec-3] [INFO ] [com.aviccii.cc.services.impl.UserServiceImpl] : password ==>123456
+[2020/10/12-10:03:28] [http-nio-2020-exec-3] [INFO ] [com.aviccii.cc.services.impl.UserServiceImpl] : passwordEncoding ==>$2a$10$c/B31GlEor5bqYWDIVlO8ertBEp5VXXB2oHAzDj53nUQTxcg1RCK2
+[2020/10/12-13:37:04] [restartedMain] [INFO ] [com.aviccii.cc.CcApplication] : Starting CcApplication on DESKTOP-11K43QD with PID 6328 (D:\JAVAProject\blogSystem\target\classes started by Administrator in D:\JAVAProject\blogSystem)
+[2020/10/12-13:37:04] [restartedMain] [INFO ] [com.aviccii.cc.CcApplication] : No active profile set, falling back to default profiles: default
+[2020/10/12-13:37:10] [restartedMain] [INFO ] [com.aviccii.cc.CcApplication] : Started CcApplication in 6.517 seconds (JVM running for 7.623)
+[2020/10/12-13:41:14] [http-nio-2020-exec-2] [INFO ] [com.aviccii.cc.controller.TestController] : comment content ===>a1高闪来2个好吗
+[2020/10/12-13:41:25] [http-nio-2020-exec-3] [INFO ] [com.aviccii.cc.services.impl.UserServiceImpl] : captcha font type index == >2
+[2020/10/12-13:41:25] [http-nio-2020-exec-3] [INFO ] [com.aviccii.cc.services.impl.UserServiceImpl] : captcha content == >6
+[2020/10/12-13:41:29] [http-nio-2020-exec-4] [INFO ] [com.aviccii.cc.services.impl.UserServiceImpl] : captcha font type index == >4
+[2020/10/12-13:41:29] [http-nio-2020-exec-4] [INFO ] [com.aviccii.cc.services.impl.UserServiceImpl] : captcha content == >9
+[2020/10/12-13:41:38] [http-nio-2020-exec-5] [INFO ] [com.aviccii.cc.services.impl.UserServiceImpl] : password ==>123456
+[2020/10/12-13:41:38] [http-nio-2020-exec-5] [INFO ] [com.aviccii.cc.services.impl.UserServiceImpl] : passwordEncoding ==>$2a$10$c/B31GlEor5bqYWDIVlO8ertBEp5VXXB2oHAzDj53nUQTxcg1RCK2
+[2020/10/12-13:41:55] [http-nio-2020-exec-6] [INFO ] [com.aviccii.cc.controller.TestController] : comment content ===>a1高闪来2个好吗
+[2020/10/12-13:43:32] [restartedMain] [INFO ] [com.aviccii.cc.CcApplication] : Starting CcApplication on DESKTOP-11K43QD with PID 15428 (D:\JAVAProject\blogSystem\target\classes started by Administrator in D:\JAVAProject\blogSystem)
+[2020/10/12-13:43:32] [restartedMain] [INFO ] [com.aviccii.cc.CcApplication] : No active profile set, falling back to default profiles: default
+[2020/10/12-13:43:39] [restartedMain] [INFO ] [com.aviccii.cc.CcApplication] : Started CcApplication in 7.614 seconds (JVM running for 9.06)
+[2020/10/12-13:48:19] [restartedMain] [INFO ] [com.aviccii.cc.CcApplication] : Starting CcApplication on DESKTOP-11K43QD with PID 3488 (D:\JAVAProject\blogSystem\target\classes started by Administrator in D:\JAVAProject\blogSystem)
+[2020/10/12-13:48:19] [restartedMain] [INFO ] [com.aviccii.cc.CcApplication] : No active profile set, falling back to default profiles: default
+[2020/10/12-13:48:26] [restartedMain] [INFO ] [com.aviccii.cc.CcApplication] : Started CcApplication in 7.748 seconds (JVM running for 9.278)
+[2020/10/12-13:48:41] [http-nio-2020-exec-1] [INFO ] [com.aviccii.cc.controller.TestController] : comment content ===>a1高闪来2个好吗
+[2020/10/12-14:11:33] [restartedMain] [INFO ] [com.aviccii.cc.CcApplication] : Starting CcApplication on DESKTOP-11K43QD with PID 8472 (D:\JAVAProject\blogSystem\target\classes started by Administrator in D:\JAVAProject\blogSystem)
+[2020/10/12-14:11:33] [restartedMain] [INFO ] [com.aviccii.cc.CcApplication] : No active profile set, falling back to default profiles: default
+[2020/10/12-14:11:40] [restartedMain] [INFO ] [com.aviccii.cc.CcApplication] : Started CcApplication in 7.404 seconds (JVM running for 8.626)

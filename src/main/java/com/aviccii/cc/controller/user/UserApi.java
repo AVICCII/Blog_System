@@ -2,8 +2,11 @@ package com.aviccii.cc.controller.user;
 
 import com.aviccii.cc.pojo.User;
 import com.aviccii.cc.response.ResponseResult;
+import com.aviccii.cc.response.ResponseState;
 import com.aviccii.cc.services.IUserService;
 import com.wf.captcha.base.Captcha;
+import io.swagger.annotations.ApiResponse;
+import io.swagger.annotations.ApiResponses;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -121,9 +124,22 @@ public class UserApi {
         return iUserService.getUserInfo(userId);
     }
 
+    /**
+     * 允许用户修改的内容
+     * 1.头像
+     * 2.用户名 (唯一的)
+     * 3.密码 (单独修改)
+     * 4.签名
+     * 5.用户的email(唯一的，单独修改)
+     * @param userId
+     * @param user
+     * @return
+     */
+
     @PutMapping("/{userId}")
-    public ResponseResult updateUserInfo(@PathVariable("userId") String userId, @RequestBody User user) {
-        return null;
+    public ResponseResult updateUserInfo(HttpServletResponse response, HttpServletRequest request,
+                                         @PathVariable("userId") String userId, @RequestBody User user) {
+        return iUserService.updateUserInfo(request,response,userId,user);
     }
 
     @GetMapping("/list")
@@ -131,9 +147,46 @@ public class UserApi {
         return null;
     }
 
+    /**
+     * 需要管理员权限
+     * @param userId
+     * @return
+     */
     @DeleteMapping("/{userId}")
-    public ResponseResult deleteUser(@PathVariable("userId") String userId) {
-        return null;
+    public ResponseResult deleteUser(HttpServletResponse response, HttpServletRequest request,
+                                     @PathVariable("userId") String userId) {
+        //判断当前的操作用户
+        //根据用户角色判断是否可以操作
+        //TODO：通过注解方式来控制权限
+        return iUserService.deleteUserById(userId,request,response);
     }
 
+    /**
+     * 检查该email是否已经注册
+     * @param email 邮箱地址
+     * @return  SUCCESS --> 已经注册，FAIL --> 没有注册
+     */
+    @ApiResponses({
+            @ApiResponse(code = 20000,message = "表示当前邮箱已经注册"),
+            @ApiResponse(code = 40000,message = "表示当前邮箱未注册")
+    })
+    @GetMapping("/email")
+    public ResponseResult checkEmail(@RequestParam("email")String email){
+        return iUserService.checkEmail(email);
+    }
+
+
+    /**
+     * 检查该email是否已经注册
+     * @param userName 邮箱地址
+     * @return  SUCCESS --> 已经注册，FAIL --> 没有注册
+     */
+    @ApiResponses({
+            @ApiResponse(code = 20000,message = "表示当前用户名已经注册"),
+            @ApiResponse(code = 40000,message = "表示当前用户名未注册")
+    })
+    @GetMapping("/user_name")
+    public ResponseResult checkUserName(@RequestParam("userName")String userName){
+        return iUserService.checkUserName(userName);
+    }
 }

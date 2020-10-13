@@ -184,13 +184,13 @@ public class TestController {
         //还得知道是谁的评论，对这个评论，身份进行确定
         String tokenKey = CookieUtils.getCookie(request, Constants.user.COOKIE_TOKEN_KEY);
         if (tokenKey==null){
-            return ResponseResult.FAILED("账号未登录");
+            return ResponseResult.ACCOUNT_NOT_LOGIN();
         }
 
 
         User user = userService.checkUser(request, response);
         if (user == null) {
-            return ResponseResult.FAILED("账号未登录");
+            return ResponseResult.ACCOUNT_NOT_LOGIN();
         }
         comment.setUserId(user.getId());
         comment.setUserAvatar(user.getAvatar());

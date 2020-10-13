@@ -3,6 +3,8 @@ package com.aviccii.cc.dao;
 import com.aviccii.cc.pojo.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
+import org.springframework.data.jpa.repository.Modifying;
+import org.springframework.data.jpa.repository.Query;
 
 import java.util.List;
 
@@ -34,4 +36,13 @@ public interface UserDao extends JpaRepository<User,String>, JpaSpecificationExe
      * @return
      */
     User findOneById(String UserId);
+
+    /**
+     * 通过修改用户的状态来修改用户
+     * @param userId
+     * @return
+     */
+    @Modifying
+    @Query(nativeQuery = true,value = "update  `tb_user` set `state` = '0' where `id` = ?")
+    int deleteUserByState(String userId);
 }

@@ -57,6 +57,13 @@ public class ResponseResult {
         return new ResponseResult(ResponseState.SUCCESS);
     }
 
+    public static ResponseResult ACCOUNT_NOT_LOGIN(){
+        return new ResponseResult(ResponseState.ACCOUNT_NOT_LOGIN);
+
+    }
+    public static ResponseResult PERMISSION_FORBID(){
+        return new ResponseResult(ResponseState.PERMISSION_FORBID);
+    }
 
     public static ResponseResult SUCCESS(String message){
         ResponseResult success = SUCCESS();

@@ -9,6 +9,7 @@ import java.util.Date;
 @Table(name = "tb_user")
 public class User {
 
+
   @Id
   private String id;
   	@Column(name = "user_name")
