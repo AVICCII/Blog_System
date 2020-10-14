@@ -33,4 +33,8 @@ public interface IUserService {
     ResponseResult updateUserInfo(HttpServletRequest request, HttpServletResponse response, String userId, User user);
 
     ResponseResult deleteUserById(String userId, HttpServletRequest request, HttpServletResponse response);
+
+    ResponseResult listUsers(int page, int size, HttpServletRequest request, HttpServletResponse response);
+
+    ResponseResult updateUserPassword(String verifyCode, User user);
 }

@@ -18,6 +18,10 @@ import com.wf.captcha.base.Captcha;
 import io.jsonwebtoken.Claims;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -92,8 +96,8 @@ public class UserServiceImpl implements IUserService {
         String localAddr = request.getLocalAddr();
         user.setLogin_ip(remoteAddr);
         user.setReg_ip(remoteAddr);
-        user.setCreate_time(new Date());
-        user.setUpdate_time(new Date());
+        user.setCreateTime(new Date());
+        user.setUpdateTime(new Date());
         //对密码进行加密
         String password = user.getPassword();
         //加密码
@@ -308,8 +312,8 @@ public class UserServiceImpl implements IUserService {
         String ipAddress = request.getRemoteAddr();
         user.setReg_ip(ipAddress);
         user.setLogin_ip(ipAddress);
-        user.setUpdate_time(new Date());
-        user.setCreate_time(new Date());
+        user.setCreateTime(new Date());
+        user.setUpdateTime(new Date());
         user.setAvatar(Constants.user.DEFAULT_AVATAR);
         user.setRole(ROLE_NORMAL);
         user.setState("1");
@@ -534,15 +538,15 @@ public class UserServiceImpl implements IUserService {
      */
     @Override
     public ResponseResult deleteUserById(String userId, HttpServletRequest request, HttpServletResponse response) {
-        //检验当前用户是谁
-        User currentUser = checkUser(request, response);
-        if (currentUser == null) {
-            return ResponseResult.ACCOUNT_NOT_LOGIN();
-        }
-        //判断角色
-        if (!ROLE_ADMIN.equals(currentUser.getRole())){
-            return ResponseResult.PERMISSION_FORBID();
-        }
+//        //检验当前用户是谁
+//        User currentUser = checkUser(request, response);
+//        if (currentUser == null) {
+//            return ResponseResult.ACCOUNT_NOT_LOGIN();
+//        }
+//        //判断角色
+//        if (!ROLE_ADMIN.equals(currentUser.getRole())){
+//            return ResponseResult.PERMISSION_FORBID();
+//        }
 
         int result = userDao.deleteUserByState(userId);
         if (result>0){
@@ -550,6 +554,63 @@ public class UserServiceImpl implements IUserService {
         }else {
             return ResponseResult.FAILED("用户不存在");
         }
+    }
+
+    /**
+     * 需要管理员权限
+     * @param page
+     * @param size
+     * @param request
+     * @param response
+     * @return
+     */
+    @Override
+    public ResponseResult listUsers(int page, int size, HttpServletRequest request, HttpServletResponse response) {
+
+        //可以获取用户列表
+        //分页查询
+        if (page<Constants.Page.DEFAULT_PAGE){
+            page = 1;
+        }
+        //size也限制一下，每一页不得少于五个
+        if (size <Constants.Page.MIN_SIZE){
+            size = Constants.Page.MIN_SIZE;
+        }
+
+        //根据注册日期来排序
+        Sort sort = Sort.by(Sort.Direction.DESC,"createTime");
+        Pageable pageable = PageRequest.of(page - 1, size,sort);
+        Page<User> all = userDao.listAllUserNoPassword(pageable);
+
+        ResponseResult success = ResponseResult.SUCCESS("获取用户列表成功");
+        success.setData(all);
+        return success;
+    }
+
+    /**
+     * 更新密码
+     * @param verifyCode
+     * @param user
+     * @return
+     */
+    @Override
+    public ResponseResult updateUserPassword(String verifyCode, User user) {
+        //检查邮箱是否有填写
+        String email = user.getEmail();
+        if (TextUtils.isEmpty(email)) {
+            return ResponseResult.FAILED("邮箱不可以为空");
+        }
+        //根据邮箱去redis里拿验证
+        //进行对比
+        String redisVerifyCode = (String) redisUtil.get(KEY_EMAIL_CODE_CONTENT + email);
+        if (redisVerifyCode == null||!redisVerifyCode.equals(verifyCode)) {
+            return ResponseResult.FAILED("验证码错误");
+        }
+
+        redisUtil.del(KEY_EMAIL_CODE_CONTENT + email);
+        int result = userDao.updatePasswordByEmail(bCryptPasswordEncoder.encode(user.getPassword()), email);
+        //修改密码
+        return result > 0 ? ResponseResult.SUCCESS("密码修改成功") : ResponseResult.FAILED("修改密码失败");
     }
 
     private User parseByTokenKey(String tokenKey) {

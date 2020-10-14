@@ -1,6 +1,8 @@
 package com.aviccii.cc.dao;
 
 import com.aviccii.cc.pojo.User;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import org.springframework.data.jpa.repository.Modifying;
@@ -45,4 +47,11 @@ public interface UserDao extends JpaRepository<User,String>, JpaSpecificationExe
     @Modifying
     @Query(nativeQuery = true,value = "update  `tb_user` set `state` = '0' where `id` = ?")
     int deleteUserByState(String userId);
+
+    @Query(value = "select new User(u.id,u.userName,u.role,u.avatar,u.email,u.sign,u.state,u.reg_ip,u.login_ip,u.createTime,u.updateTime) from User as u")
+    Page<User> listAllUserNoPassword(Pageable pageable);
+
+    @Modifying
+    @Query(nativeQuery = true,value = "update  `tb_user` set `password` = ? where `email` = ?")
+    int updatePasswordByEmail(String encode, String email);
 }

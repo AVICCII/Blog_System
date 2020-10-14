@@ -10,10 +10,10 @@ public enum ResponseState implements IResponseState {
     FAILED(20000, false, "操作失败",null),
     ACCOUNT_NOT_LOGIN(40002, false, "账号未登录",null),
     PERMISSION_FORBID(40003, false, "权限不够",null),
-    PARAMS_ILL(30000, false, "参数错误",null),
-    PERMISSION_DENIED(40000, false, "权限不够",null),
-    NOT_LOGIN(50000, false, "账号未登录",null),
-    LOGIN_SUCCESS(60000,true, "登录成功",null);
+    ERROR_404(40004, false, "页面丢失",null),
+    ERROR_403(40005, false, "权限不够",null),
+    ERROR_504(40006, false, "系统繁忙，请稍后再试",null),
+    ERROR_505(40003, false, "请求错误，请检查所提交数据",null);
 
 
     int code;

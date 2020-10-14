@@ -25,6 +25,12 @@ public interface Constants {
         String HAS_MANAGER_ACCOUNT_INIT_STATE = "";
     }
 
+    interface Page{
+        int DEFAULT_PAGE = 1;
+        int MIN_SIZE = 10;
+    }
+
+
     /**
      * 单位是秒
      */

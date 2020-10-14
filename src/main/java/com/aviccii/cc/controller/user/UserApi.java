@@ -9,6 +9,7 @@ import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
@@ -102,14 +103,16 @@ public class UserApi {
     }
 
     /**
+     * 修改密码
+     *
      * @param user
      * @return
      * @ PostMapping 和 @PutMapping 作用等同，都是用来向服务器提交信息。
      * 如果是添加信息，倾向于用@PostMapping，如果是更新信息，倾向于用@PutMapping。两者差别不是很明显。
      */
-    @PutMapping("/password/{userId}")
-    public ResponseResult updatePassword(@PathVariable("userId") String userId, @RequestBody User user) {
-        return null;
+    @PutMapping("/password/{verifyCode}")
+    public ResponseResult updatePassword(@PathVariable("verifyCode") String verifyCode, @RequestBody User user) {
+        return iUserService.updateUserPassword(verifyCode,user);
     }
 
     /**
@@ -142,9 +145,20 @@ public class UserApi {
         return iUserService.updateUserInfo(request,response,userId,user);
     }
 
+    /**
+     * 获取用户列表
+     * 权限：管理员权限
+     *
+     * @param page
+     * @param size
+     * @return
+     */
+    @PreAuthorize("@permission.admin()")
     @GetMapping("/list")
-    public ResponseResult listUsers(@RequestParam("page") int page, @RequestParam("size") int size) {
-        return null;
+    public ResponseResult listUsers(@RequestParam("page") int page,
+                                    @RequestParam("size") int size,
+                                     HttpServletRequest request,HttpServletResponse response) {
+        return iUserService.listUsers(page,size,request,response);
     }
 
     /**
@@ -152,6 +166,8 @@ public class UserApi {
      * @param userId
      * @return
      */
+//    @PreAuthorize("hasRole('role_admin')")
+    @PreAuthorize("@permission.admin()")
     @DeleteMapping("/{userId}")
     public ResponseResult deleteUser(HttpServletResponse response, HttpServletRequest request,
                                      @PathVariable("userId") String userId) {
