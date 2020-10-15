@@ -188,7 +188,7 @@ public class TestController {
         }
 
 
-        User user = userService.checkUser(request, response);
+        User user = userService.checkUser();
         if (user == null) {
             return ResponseResult.ACCOUNT_NOT_LOGIN();
         }

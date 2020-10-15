@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
  */
 @RestController
 @RequestMapping("/admin/friend_link")
-public class FriendLinkApi {
+public class FriendLinkAdminApi {
     @PostMapping
     public ResponseResult addFriendsLink(@RequestBody FriendLink friendLink){
         return null;

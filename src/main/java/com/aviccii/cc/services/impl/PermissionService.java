@@ -40,7 +40,7 @@ public class PermissionService {
             return false;
         }
 
-        User user = userService.checkUser(request, response);
+        User user = userService.checkUser();
         if (user == null) {
             return false;
         }

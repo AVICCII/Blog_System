@@ -22,7 +22,7 @@ public interface IUserService {
 
     ResponseResult doLogin(String captcha, String captcha_key, User user, HttpServletRequest request, HttpServletResponse response);
 
-    User checkUser(HttpServletRequest request,HttpServletResponse response);
+    User checkUser();
 
     ResponseResult getUserInfo(String userId);
 
@@ -30,11 +30,15 @@ public interface IUserService {
 
     ResponseResult checkUserName(String userName);
 
-    ResponseResult updateUserInfo(HttpServletRequest request, HttpServletResponse response, String userId, User user);
+    ResponseResult updateUserInfo( String userId, User user);
 
-    ResponseResult deleteUserById(String userId, HttpServletRequest request, HttpServletResponse response);
+    ResponseResult deleteUserById(String userId);
 
-    ResponseResult listUsers(int page, int size, HttpServletRequest request, HttpServletResponse response);
+    ResponseResult listUsers(int page, int size);
 
     ResponseResult updateUserPassword(String verifyCode, User user);
+
+    ResponseResult updateEmail(String email, String verifyCode);
+
+    ResponseResult doLogout();
 }

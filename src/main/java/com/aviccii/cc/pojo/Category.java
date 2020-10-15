@@ -3,6 +3,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 import javax.persistence.Id;
+import java.util.Date;
 
 @Entity
 @Table(name = "tb_categories")
@@ -11,19 +12,19 @@ public class Category {
   @Id
   private String id;
   	@Column(name = "category_name")
-  private String category_name;
+  private String categoryName;
   	@Column(name = "category_py")
-  private String category_py;
+  private String categoryPy;
   	@Column(name = "description")
   private String description;
   	@Column(name = "`order`")
-  private long order;
+  private long order=1;
   	@Column(name = "status")
   private String status;
   	@Column(name = "create_time")
-  private java.sql.Timestamp create_time;
+  private Date createTime;
   	@Column(name = "update_time")
-  private java.sql.Timestamp update_time;
+  private Date updateTime;
 
 
   public String getId() {
@@ -35,23 +36,21 @@ public class Category {
   }
 
 
-  public String getCategory_name() {
-    return category_name;
+  public String getCategoryName() {
+    return categoryName;
   }
 
-  public void setCategory_name(String category_name) {
-    this.category_name = category_name;
+  public void setCategoryName(String categoryName) {
+    this.categoryName = categoryName;
   }
 
-
-  public String getCategory_py() {
-    return category_py;
+  public String getCategoryPy() {
+    return categoryPy;
   }
 
-  public void setCategory_py(String category_py) {
-    this.category_py = category_py;
+  public void setCategoryPy(String categoryPy) {
+    this.categoryPy = categoryPy;
   }
-
 
   public String getDescription() {
     return description;
@@ -61,7 +60,6 @@ public class Category {
     this.description = description;
   }
 
-
   public long getOrder() {
     return order;
   }
@@ -69,7 +67,6 @@ public class Category {
   public void setOrder(long order) {
     this.order = order;
   }
-
 
   public String getStatus() {
     return status;
@@ -79,22 +76,19 @@ public class Category {
     this.status = status;
   }
 
-
-  public java.sql.Timestamp getCreate_time() {
-    return create_time;
+  public Date getCreateTime() {
+    return createTime;
   }
 
-  public void setCreate_time(java.sql.Timestamp create_time) {
-    this.create_time = create_time;
+  public void setCreateTime(Date createTime) {
+    this.createTime = createTime;
   }
 
-
-  public java.sql.Timestamp getUpdate_time() {
-    return update_time;
+  public Date getUpdateTime() {
+    return updateTime;
   }
 
-  public void setUpdate_time(java.sql.Timestamp update_time) {
-    this.update_time = update_time;
+  public void setUpdateTime(Date updateTime) {
+    this.updateTime = updateTime;
   }
-
 }

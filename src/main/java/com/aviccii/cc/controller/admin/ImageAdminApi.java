@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
  */
 @RestController
 @RequestMapping("/admin/image")
-public class ImageApi {
+public class ImageAdminApi {
 
     @PostMapping
     public ResponseResult uploadImage(){

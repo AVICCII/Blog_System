@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
  */
 @RestController
 @RequestMapping("/admin/loop")
-public class LooperApi {
+public class LooperAdminApi {
     @PostMapping
     public ResponseResult addLoop(@RequestBody Looper looper){
         return null;

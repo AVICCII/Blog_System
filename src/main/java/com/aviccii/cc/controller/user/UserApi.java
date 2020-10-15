@@ -38,7 +38,7 @@ public class UserApi {
         return iUserService.initManagerAccount(user, request);
     }
 
-    @PostMapping
+    @PostMapping("/join")
     public ResponseResult register(@RequestBody User user, @RequestParam("email_code") String emailCode,
                                    @RequestParam("captcha_code") String captchaCode,
                                     @RequestParam("captcha_key")String captchaKey,
@@ -59,7 +59,7 @@ public class UserApi {
      * @param user  用户bean类，封装着账号和密码
      * @return
      */
-    @PostMapping("/{captcha}/{captcha_key}")
+    @PostMapping("/login/{captcha}/{captcha_key}")
     public ResponseResult login(@PathVariable("captcha_key")String captcha_key,
                                 @PathVariable("captcha") String captcha,
                                 @RequestBody User user,
@@ -121,7 +121,7 @@ public class UserApi {
      * @param userId
      * @return
      */
-    @GetMapping("/{userId}")
+    @GetMapping("/user_info/{userId}")
     public ResponseResult getUserInfo(@PathVariable("userId") String userId) {
 
         return iUserService.getUserInfo(userId);
@@ -139,10 +139,9 @@ public class UserApi {
      * @return
      */
 
-    @PutMapping("/{userId}")
-    public ResponseResult updateUserInfo(HttpServletResponse response, HttpServletRequest request,
-                                         @PathVariable("userId") String userId, @RequestBody User user) {
-        return iUserService.updateUserInfo(request,response,userId,user);
+    @PutMapping("/user_info/{userId}")
+    public ResponseResult updateUserInfo(@PathVariable("userId") String userId, @RequestBody User user) {
+        return iUserService.updateUserInfo(userId,user);
     }
 
     /**
@@ -156,9 +155,9 @@ public class UserApi {
     @PreAuthorize("@permission.admin()")
     @GetMapping("/list")
     public ResponseResult listUsers(@RequestParam("page") int page,
-                                    @RequestParam("size") int size,
-                                     HttpServletRequest request,HttpServletResponse response) {
-        return iUserService.listUsers(page,size,request,response);
+                                    @RequestParam("size") int size
+                                     ) {
+        return iUserService.listUsers(page,size);
     }
 
     /**
@@ -169,12 +168,12 @@ public class UserApi {
 //    @PreAuthorize("hasRole('role_admin')")
     @PreAuthorize("@permission.admin()")
     @DeleteMapping("/{userId}")
-    public ResponseResult deleteUser(HttpServletResponse response, HttpServletRequest request,
+    public ResponseResult deleteUser(
                                      @PathVariable("userId") String userId) {
         //判断当前的操作用户
         //根据用户角色判断是否可以操作
         //TODO：通过注解方式来控制权限
-        return iUserService.deleteUserById(userId,request,response);
+        return iUserService.deleteUserById(userId);
     }
 
     /**
@@ -204,5 +203,44 @@ public class UserApi {
     @GetMapping("/user_name")
     public ResponseResult checkUserName(@RequestParam("userName")String userName){
         return iUserService.checkUserName(userName);
+    }
+
+    /**
+     * 1.必须登录
+     * 2.新的邮箱未注册过
+     *
+     * 用户的步骤：
+     * 1.已经登录
+     * 2.输入新的邮箱地址
+     * 3.获取验证码
+     * 4.输入验证码
+     * 5.提交数据
+     *
+     * 需要提交的数据
+     * 1.新的邮箱地址
+     * 2.验证码
+     * 3.其他信息从token里获取
+     *
+     * @return
+     */
+    @PutMapping("/email")
+    public ResponseResult updateEmail(@RequestParam("email") String email,
+                                      @RequestParam("verify_code") String verifyCode){
+        return iUserService.updateEmail(email,verifyCode);
+    }
+
+    /**
+     * 退出登录
+     *
+     * 拿到tokenKey
+     * 删除redis里对应的token
+     * 删除mysql里对应的refreshtoken
+     * 删除cookie里的tokenkey
+     *
+     * @return
+     */
+    @GetMapping("/logout")
+    public ResponseResult logout(){
+        return iUserService.doLogout();
     }
 }
