@@ -24,14 +24,27 @@ public class CategoryAdminApi {
         return iCategoryService.addCategory(category);
     }
 
+    /**
+     * 删除分类
+     * @param categoryId
+     * @return
+     */
+    @PreAuthorize("@permission.admin()")
     @DeleteMapping("/{categoryId}")
     public ResponseResult deleteCategory(@PathVariable("categoryId")String categoryId){
-        return null;
+        return iCategoryService.deleteCategory(categoryId);
     }
 
+    /**
+     * 更新分类
+     * @param categoryId
+     * @param category
+     * @return
+     */
+    @PreAuthorize("@permission.admin()")
     @PutMapping("/{categoryId}")
     public ResponseResult updateCategory(@PathVariable("categoryId")String categoryId,@RequestBody Category category){
-        return null;
+        return iCategoryService.updateCategory(categoryId,category);
     }
 
     /**
@@ -49,9 +62,19 @@ public class CategoryAdminApi {
         return iCategoryService.getCategory(categoryId);
     }
 
-    @GetMapping("/list")
-    public ResponseResult listCategories(@RequestParam("page")int page,@RequestParam("size")int size){
-        return null;
+
+    /**
+     * 获取分类列表
+     * 权限：管理员
+     *
+     * @param page 页码
+     * @param size  每一页的记录数量
+     * @return
+     */
+    @PreAuthorize("@permission.admin()")
+    @GetMapping("/list/{page}/{size}")
+    public ResponseResult listCategories(@PathVariable("page")int page,@PathVariable("size")int size){
+        return iCategoryService.listCategories(page,size);
     }
 
 }

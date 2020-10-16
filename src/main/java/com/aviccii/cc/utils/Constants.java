@@ -28,7 +28,20 @@ public interface Constants {
 
     interface Page{
         int DEFAULT_PAGE = 1;
+        int DEFAULT_SIZE = 2;
         int MIN_SIZE = 10;
+    }
+
+    /**
+     * 单位是毫秒
+     */
+    interface timeValueInMillions {
+        int MIN = 60 * 1000;
+        int HOUR = 60 * MIN;
+        int HOUR_2 = 60 * MIN*2;
+        int DAY = 24 * HOUR;
+        int WEEK = 7 * DAY;
+        int MONTH = 30 * DAY;
     }
 
 
