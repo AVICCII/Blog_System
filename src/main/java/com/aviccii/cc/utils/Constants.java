@@ -22,6 +22,18 @@ public interface Constants {
         String KEY_TOKEN = "key_token_";
     }
 
+    interface imageType{
+        String PREFIX = "image/";
+        String TYPE_JPG = "jpg";
+        String TYPE_JPEG = "jpeg";
+        String TYPE_PNG = "png";
+        String TYPE_GIF = "gif";
+        String TYPE_JPG_WITH_PREFIX = PREFIX+"jpg";
+        String TYPE_JPEG_WITH_PREFIX = PREFIX+"jpeg";
+        String TYPE_PNG_WITH_PREFIX = PREFIX+"png";
+        String TYPE_GIF_WITH_PREFIX = PREFIX+"gif";
+    }
+
     interface settings {
         String HAS_MANAGER_ACCOUNT_INIT_STATE = "";
     }

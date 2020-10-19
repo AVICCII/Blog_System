@@ -75,7 +75,6 @@ public class FriendLinkServiceImpl implements IFriendLinkService {
 
     @Override
     public ResponseResult listFriendLinks(int page, int size) {
-        System.out.println("wdnmd");
         if(page < Constants.Page.DEFAULT_PAGE){
             page=Constants.Page.DEFAULT_PAGE;
         }
