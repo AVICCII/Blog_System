@@ -519,6 +519,7 @@ public class UserServiceImpl implements IUserService {
         }
         //签名,可以为空
         userAccount.setSign(user.getSign());
+        userAccount.setUpdateTime(new Date());
         userDao.save(userAccount);
         //删除redis里的token，下一次请求，需要解析token的，就会根据refreshtoken重新创建一个。
         String cookie = CookieUtils.getCookie(getRequest(), COOKIE_TOKEN_KEY);

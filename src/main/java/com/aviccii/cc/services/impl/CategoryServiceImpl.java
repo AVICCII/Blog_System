@@ -23,7 +23,7 @@ import java.util.Date;
  */
 @Service
 @Transactional
-public class CategoryServiceImpl implements ICategoryService {
+public class CategoryServiceImpl extends BaseSerive implements ICategoryService {
 
     @Autowired
     private IdWorker idWorker;
@@ -69,12 +69,8 @@ public class CategoryServiceImpl implements ICategoryService {
     @Override
     public ResponseResult listCategories(int page, int size) {
         //参数检查
-        if(page< Constants.Page.DEFAULT_PAGE){
-            page=Constants.Page.DEFAULT_PAGE;
-        }
-        if (size<Constants.Page.DEFAULT_SIZE){
-            size=Constants.Page.DEFAULT_SIZE;
-        }
+        page = checkPage(page);
+        size = checkSize(size);
         //创建条件
         Sort sort = Sort.by(Sort.Direction.DESC, "createTime","order");
         Pageable pageable = PageRequest.of(page - 1, size, sort);
@@ -107,6 +103,7 @@ public class CategoryServiceImpl implements ICategoryService {
             categoryFromDb.setDescription(description);
         }
         categoryFromDb.setOrder(category.getOrder());
+        categoryFromDb.setUpdateTime(new Date());
         //第三步是保存数据
         categoryDao.save(categoryFromDb);
         //返回结果

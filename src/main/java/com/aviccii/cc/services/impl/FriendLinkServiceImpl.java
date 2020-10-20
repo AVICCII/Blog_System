@@ -23,7 +23,7 @@ import java.util.Date;
  */
 @Service
 @Transactional
-public class FriendLinkServiceImpl implements IFriendLinkService {
+public class FriendLinkServiceImpl extends BaseSerive implements IFriendLinkService {
 
     @Autowired
     private IdWorker idWorker;
@@ -75,12 +75,8 @@ public class FriendLinkServiceImpl implements IFriendLinkService {
 
     @Override
     public ResponseResult listFriendLinks(int page, int size) {
-        if(page < Constants.Page.DEFAULT_PAGE){
-            page=Constants.Page.DEFAULT_PAGE;
-        }
-        if (size<Constants.Page.DEFAULT_SIZE){
-            size=Constants.Page.DEFAULT_SIZE;
-        }
+        page = checkPage(page);
+        size = checkSize(size);
         //创建条件
         Sort sort = Sort.by(Sort.Direction.DESC, "createTime","order");
         Pageable pageable = PageRequest.of(page - 1, size, sort);
@@ -126,6 +122,7 @@ public class FriendLinkServiceImpl implements IFriendLinkService {
             friendLinkFromDb.setUrl(url);
         }
         friendLinkFromDb.setOrder(friendLink.getOrder());
+        friendLinkFromDb.setUpdateTime(new Date());
         //保存数据
         friendLinkDao.save(friendLinkFromDb);
 

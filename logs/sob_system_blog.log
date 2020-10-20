@@ -1,208 +1,72 @@
-[2020/10/19-09:02:16] [restartedMain] [INFO ] [com.aviccii.cc.CcApplication] : Starting CcApplication on DESKTOP-11K43QD with PID 15028 (D:\JAVAProject\blogSystem\target\classes started by Administrator in D:\JAVAProject\blogSystem)
-[2020/10/19-09:02:16] [restartedMain] [INFO ] [com.aviccii.cc.CcApplication] : No active profile set, falling back to default profiles: default
-[2020/10/19-09:03:37] [restartedMain] [INFO ] [com.aviccii.cc.CcApplication] : Starting CcApplication on DESKTOP-11K43QD with PID 9800 (D:\JAVAProject\blogSystem\target\classes started by Administrator in D:\JAVAProject\blogSystem)
-[2020/10/19-09:03:37] [restartedMain] [INFO ] [com.aviccii.cc.CcApplication] : No active profile set, falling back to default profiles: default
-[2020/10/19-09:03:44] [restartedMain] [INFO ] [com.aviccii.cc.CcApplication] : Started CcApplication in 7.853 seconds (JVM running for 9.017)
-[2020/10/19-09:04:30] [http-nio-2020-exec-1] [INFO ] [com.aviccii.cc.services.impl.UserServiceImpl] : captcha font type index == >4
-[2020/10/19-09:04:30] [http-nio-2020-exec-1] [INFO ] [com.aviccii.cc.services.impl.UserServiceImpl] : captcha content == >6
-[2020/10/19-09:05:10] [http-nio-2020-exec-7] [INFO ] [com.aviccii.cc.services.impl.UserServiceImpl] : password ==>123456
-[2020/10/19-09:05:10] [http-nio-2020-exec-7] [INFO ] [com.aviccii.cc.services.impl.UserServiceImpl] : passwordEncoding ==>$2a$10$BIQeIgZhagXjEMi9EWET0OqCPltWTMnQyoFIyXWj/B/jDFAFYf/5.
-[2020/10/19-09:06:07] [http-nio-2020-exec-9] [INFO ] [com.aviccii.cc.services.impl.UserServiceImpl] : checkuser ---> avicci
-[2020/10/19-09:06:07] [http-nio-2020-exec-9] [INFO ] [com.aviccii.cc.services.impl.IImageServiceImpl] : name == > file
-[2020/10/19-09:06:07] [http-nio-2020-exec-9] [INFO ] [com.aviccii.cc.services.impl.IImageServiceImpl] : name == > arashmil.jpg
-[2020/10/19-09:06:07] [http-nio-2020-exec-9] [INFO ] [com.aviccii.cc.services.impl.IImageServiceImpl] : targetfile == >D:\JAVAProject\images\arashmil.jpg
-[2020/10/19-09:20:36] [restartedMain] [INFO ] [com.aviccii.cc.CcApplication] : Starting CcApplication on DESKTOP-11K43QD with PID 14072 (D:\JAVAProject\blogSystem\target\classes started by Administrator in D:\JAVAProject\blogSystem)
-[2020/10/19-09:20:36] [restartedMain] [INFO ] [com.aviccii.cc.CcApplication] : No active profile set, falling back to default profiles: default
-[2020/10/19-09:21:49] [restartedMain] [INFO ] [com.aviccii.cc.CcApplication] : Starting CcApplication on DESKTOP-11K43QD with PID 8688 (D:\JAVAProject\blogSystem\target\classes started by Administrator in D:\JAVAProject\blogSystem)
-[2020/10/19-09:21:49] [restartedMain] [INFO ] [com.aviccii.cc.CcApplication] : No active profile set, falling back to default profiles: default
-[2020/10/19-09:21:54] [restartedMain] [INFO ] [com.aviccii.cc.CcApplication] : Started CcApplication in 6.018 seconds (JVM running for 6.961)
-[2020/10/19-09:22:08] [http-nio-2020-exec-2] [INFO ] [com.aviccii.cc.services.impl.UserServiceImpl] : captcha font type index == >6
-[2020/10/19-09:22:09] [http-nio-2020-exec-2] [INFO ] [com.aviccii.cc.services.impl.UserServiceImpl] : captcha content == >6
-[2020/10/19-09:22:19] [http-nio-2020-exec-3] [INFO ] [com.aviccii.cc.services.impl.UserServiceImpl] : password ==>123456
-[2020/10/19-09:22:19] [http-nio-2020-exec-3] [INFO ] [com.aviccii.cc.services.impl.UserServiceImpl] : passwordEncoding ==>$2a$10$BIQeIgZhagXjEMi9EWET0OqCPltWTMnQyoFIyXWj/B/jDFAFYf/5.
-[2020/10/19-09:22:30] [http-nio-2020-exec-3] [INFO ] [com.aviccii.cc.services.impl.UserServiceImpl] : checkuser ---> avicci
-[2020/10/19-09:23:50] [restartedMain] [INFO ] [com.aviccii.cc.CcApplication] : Starting CcApplication on DESKTOP-11K43QD with PID 14648 (D:\JAVAProject\blogSystem\target\classes started by Administrator in D:\JAVAProject\blogSystem)
-[2020/10/19-09:23:50] [restartedMain] [INFO ] [com.aviccii.cc.CcApplication] : No active profile set, falling back to default profiles: default
-[2020/10/19-09:23:56] [restartedMain] [INFO ] [com.aviccii.cc.CcApplication] : Started CcApplication in 6.711 seconds (JVM running for 7.724)
-[2020/10/19-09:24:03] [http-nio-2020-exec-1] [INFO ] [com.aviccii.cc.services.impl.UserServiceImpl] : checkuser ---> avicci
-[2020/10/19-09:24:23] [http-nio-2020-exec-3] [INFO ] [com.aviccii.cc.services.impl.UserServiceImpl] : checkuser ---> avicci
-[2020/10/19-09:37:19] [restartedMain] [INFO ] [com.aviccii.cc.CcApplication] : Starting CcApplication on DESKTOP-11K43QD with PID 15336 (D:\JAVAProject\blogSystem\target\classes started by Administrator in D:\JAVAProject\blogSystem)
-[2020/10/19-09:37:19] [restartedMain] [INFO ] [com.aviccii.cc.CcApplication] : No active profile set, falling back to default profiles: default
-[2020/10/19-09:37:25] [restartedMain] [INFO ] [com.aviccii.cc.CcApplication] : Started CcApplication in 6.816 seconds (JVM running for 7.882)
-[2020/10/19-09:38:55] [http-nio-2020-exec-4] [INFO ] [com.aviccii.cc.services.impl.UserServiceImpl] : checkuser ---> avicci
-[2020/10/19-09:38:55] [http-nio-2020-exec-4] [INFO ] [com.aviccii.cc.services.impl.IImageServiceImpl] : contentType == >image/png
-[2020/10/19-09:38:55] [http-nio-2020-exec-4] [INFO ] [com.aviccii.cc.services.impl.IImageServiceImpl] : originalFilename == > bg-abstract2.png
-[2020/10/19-09:38:55] [http-nio-2020-exec-4] [INFO ] [com.aviccii.cc.services.impl.IImageServiceImpl] : targetFile == >D:\JAVAProject\images\bg-abstract2.png
-[2020/10/19-09:43:12] [restartedMain] [INFO ] [com.aviccii.cc.CcApplication] : Starting CcApplication on DESKTOP-11K43QD with PID 1568 (D:\JAVAProject\blogSystem\target\classes started by Administrator in D:\JAVAProject\blogSystem)
-[2020/10/19-09:43:12] [restartedMain] [INFO ] [com.aviccii.cc.CcApplication] : The following profiles are active: dev
-[2020/10/19-09:43:19] [restartedMain] [INFO ] [com.aviccii.cc.CcApplication] : Started CcApplication in 7.486 seconds (JVM running for 8.618)
-[2020/10/19-09:43:40] [restartedMain] [INFO ] [com.aviccii.cc.CcApplication] : Starting CcApplication on DESKTOP-11K43QD with PID 1768 (D:\JAVAProject\blogSystem\target\classes started by Administrator in D:\JAVAProject\blogSystem)
-[2020/10/19-09:43:40] [restartedMain] [INFO ] [com.aviccii.cc.CcApplication] : The following profiles are active: prod
-[2020/10/19-09:43:46] [restartedMain] [INFO ] [com.aviccii.cc.CcApplication] : Started CcApplication in 7.045 seconds (JVM running for 8.114)
-[2020/10/19-10:31:38] [restartedMain] [INFO ] [com.aviccii.cc.CcApplication] : Starting CcApplication on DESKTOP-11K43QD with PID 15140 (D:\JAVAProject\blogSystem\target\classes started by Administrator in D:\JAVAProject\blogSystem)
-[2020/10/19-10:31:38] [restartedMain] [INFO ] [com.aviccii.cc.CcApplication] : The following profiles are active: dev
-[2020/10/19-10:31:45] [restartedMain] [INFO ] [com.aviccii.cc.CcApplication] : Started CcApplication in 7.108 seconds (JVM running for 8.117)
-[2020/10/19-10:34:29] [restartedMain] [INFO ] [com.aviccii.cc.CcApplication] : Starting CcApplication on DESKTOP-11K43QD with PID 10460 (D:\JAVAProject\blogSystem\target\classes started by Administrator in D:\JAVAProject\blogSystem)
-[2020/10/19-10:34:29] [restartedMain] [INFO ] [com.aviccii.cc.CcApplication] : The following profiles are active: dev
-[2020/10/19-10:34:34] [restartedMain] [INFO ] [com.aviccii.cc.CcApplication] : Started CcApplication in 6.425 seconds (JVM running for 7.613)
-[2020/10/19-10:36:58] [http-nio-2020-exec-1] [INFO ] [com.aviccii.cc.services.impl.UserServiceImpl] : checkuser ---> avicci
-[2020/10/19-10:36:58] [http-nio-2020-exec-1] [INFO ] [com.aviccii.cc.services.impl.IImageServiceImpl] : contentType == >image/jpeg
-[2020/10/19-10:36:58] [http-nio-2020-exec-1] [INFO ] [com.aviccii.cc.services.impl.IImageServiceImpl] : originalFilename == > blogpost.jpg
-[2020/10/19-10:36:58] [http-nio-2020-exec-1] [INFO ] [com.aviccii.cc.services.impl.IImageServiceImpl] : maxSize === >2097152 size === > 64728
-[2020/10/19-10:36:58] [http-nio-2020-exec-1] [INFO ] [com.aviccii.cc.services.impl.IImageServiceImpl] : current day == >2020_10_19
-[2020/10/19-10:36:58] [http-nio-2020-exec-1] [INFO ] [com.aviccii.cc.services.impl.IImageServiceImpl] : targetFile == >D:\JAVAProject\images\2020_10_19\null\767697799591493632.null
-[2020/10/19-10:43:02] [restartedMain] [INFO ] [com.aviccii.cc.CcApplication] : Starting CcApplication on DESKTOP-11K43QD with PID 2592 (D:\JAVAProject\blogSystem\target\classes started by Administrator in D:\JAVAProject\blogSystem)
-[2020/10/19-10:43:02] [restartedMain] [INFO ] [com.aviccii.cc.CcApplication] : The following profiles are active: dev
-[2020/10/19-10:43:08] [restartedMain] [INFO ] [com.aviccii.cc.CcApplication] : Started CcApplication in 6.315 seconds (JVM running for 7.386)
-[2020/10/19-10:43:15] [http-nio-2020-exec-1] [INFO ] [com.aviccii.cc.services.impl.UserServiceImpl] : checkuser ---> avicci
-[2020/10/19-10:43:15] [http-nio-2020-exec-1] [INFO ] [com.aviccii.cc.services.impl.IImageServiceImpl] : contentType == >image/jpeg
-[2020/10/19-10:43:15] [http-nio-2020-exec-1] [INFO ] [com.aviccii.cc.services.impl.IImageServiceImpl] : originalFilename == > blogpost.jpg
-[2020/10/19-10:43:15] [http-nio-2020-exec-1] [INFO ] [com.aviccii.cc.services.impl.IImageServiceImpl] : maxSize === >2097152 size === > 64728
-[2020/10/19-10:43:15] [http-nio-2020-exec-1] [INFO ] [com.aviccii.cc.services.impl.IImageServiceImpl] : current day == >2020_10_19
-[2020/10/19-10:43:15] [http-nio-2020-exec-1] [INFO ] [com.aviccii.cc.services.impl.IImageServiceImpl] : targetFile == >D:\JAVAProject\images\2020_10_19\null\767699381280309248.null
-[2020/10/19-10:44:12] [restartedMain] [INFO ] [com.aviccii.cc.CcApplication] : Starting CcApplication on DESKTOP-11K43QD with PID 6472 (D:\JAVAProject\blogSystem\target\classes started by Administrator in D:\JAVAProject\blogSystem)
-[2020/10/19-10:44:12] [restartedMain] [INFO ] [com.aviccii.cc.CcApplication] : The following profiles are active: dev
-[2020/10/19-10:44:18] [restartedMain] [INFO ] [com.aviccii.cc.CcApplication] : Started CcApplication in 6.047 seconds (JVM running for 6.969)
-[2020/10/19-10:44:21] [http-nio-2020-exec-1] [INFO ] [com.aviccii.cc.services.impl.UserServiceImpl] : checkuser ---> avicci
-[2020/10/19-10:44:21] [http-nio-2020-exec-1] [INFO ] [com.aviccii.cc.services.impl.IImageServiceImpl] : contentType == >image/jpeg
-[2020/10/19-10:44:21] [http-nio-2020-exec-1] [INFO ] [com.aviccii.cc.services.impl.IImageServiceImpl] : originalFilename == > blogpost.jpg
-[2020/10/19-10:44:21] [http-nio-2020-exec-1] [INFO ] [com.aviccii.cc.services.impl.IImageServiceImpl] : maxSize === >2097152 size === > 64728
-[2020/10/19-10:44:21] [http-nio-2020-exec-1] [INFO ] [com.aviccii.cc.services.impl.IImageServiceImpl] : current day == >2020_10_19
-[2020/10/19-10:44:21] [http-nio-2020-exec-1] [INFO ] [com.aviccii.cc.services.impl.IImageServiceImpl] : targetFile == >D:\JAVAProject\images\2020_10_19\null\767699655390658560.null
-[2020/10/19-10:45:04] [http-nio-2020-exec-2] [INFO ] [com.aviccii.cc.services.impl.UserServiceImpl] : checkuser ---> avicci
-[2020/10/19-10:45:04] [http-nio-2020-exec-2] [INFO ] [com.aviccii.cc.services.impl.IImageServiceImpl] : contentType == >image/jpeg
-[2020/10/19-10:45:04] [http-nio-2020-exec-2] [INFO ] [com.aviccii.cc.services.impl.IImageServiceImpl] : originalFilename == > bg-404.jpeg
-[2020/10/19-10:45:04] [http-nio-2020-exec-2] [INFO ] [com.aviccii.cc.services.impl.IImageServiceImpl] : maxSize === >2097152 size === > 836122
-[2020/10/19-10:45:04] [http-nio-2020-exec-2] [INFO ] [com.aviccii.cc.services.impl.IImageServiceImpl] : current day == >2020_10_19
-[2020/10/19-10:45:04] [http-nio-2020-exec-2] [INFO ] [com.aviccii.cc.services.impl.IImageServiceImpl] : targetFile == >D:\JAVAProject\images\2020_10_19\null\767699838035820544.null
-[2020/10/19-10:45:26] [http-nio-2020-exec-3] [INFO ] [com.aviccii.cc.services.impl.UserServiceImpl] : checkuser ---> avicci
-[2020/10/19-10:45:26] [http-nio-2020-exec-3] [INFO ] [com.aviccii.cc.services.impl.IImageServiceImpl] : contentType == >image/jpeg
-[2020/10/19-10:45:26] [http-nio-2020-exec-3] [INFO ] [com.aviccii.cc.services.impl.IImageServiceImpl] : originalFilename == > chadengle.jpg
-[2020/10/19-10:45:26] [http-nio-2020-exec-3] [INFO ] [com.aviccii.cc.services.impl.IImageServiceImpl] : maxSize === >2097152 size === > 3849
-[2020/10/19-10:45:26] [http-nio-2020-exec-3] [INFO ] [com.aviccii.cc.services.impl.IImageServiceImpl] : current day == >2020_10_19
-[2020/10/19-10:45:26] [http-nio-2020-exec-3] [INFO ] [com.aviccii.cc.services.impl.IImageServiceImpl] : targetFile == >D:\JAVAProject\images\2020_10_19\null\767699929488424960.null
-[2020/10/19-10:45:48] [http-nio-2020-exec-4] [INFO ] [com.aviccii.cc.services.impl.UserServiceImpl] : checkuser ---> avicci
-[2020/10/19-10:45:48] [http-nio-2020-exec-4] [INFO ] [com.aviccii.cc.services.impl.IImageServiceImpl] : contentType == >image/jpeg
-[2020/10/19-10:45:48] [http-nio-2020-exec-4] [INFO ] [com.aviccii.cc.services.impl.IImageServiceImpl] : originalFilename == > arashmil.jpg
-[2020/10/19-10:45:48] [http-nio-2020-exec-4] [INFO ] [com.aviccii.cc.services.impl.IImageServiceImpl] : maxSize === >2097152 size === > 5223
-[2020/10/19-10:45:48] [http-nio-2020-exec-4] [INFO ] [com.aviccii.cc.services.impl.IImageServiceImpl] : current day == >2020_10_19
-[2020/10/19-10:45:48] [http-nio-2020-exec-4] [INFO ] [com.aviccii.cc.services.impl.IImageServiceImpl] : targetFile == >D:\JAVAProject\images\2020_10_19\null\767700024334221312.null
-[2020/10/19-10:47:28] [restartedMain] [INFO ] [com.aviccii.cc.CcApplication] : Starting CcApplication on DESKTOP-11K43QD with PID 11076 (D:\JAVAProject\blogSystem\target\classes started by Administrator in D:\JAVAProject\blogSystem)
-[2020/10/19-10:47:28] [restartedMain] [INFO ] [com.aviccii.cc.CcApplication] : The following profiles are active: dev
-[2020/10/19-10:47:33] [restartedMain] [INFO ] [com.aviccii.cc.CcApplication] : Started CcApplication in 5.795 seconds (JVM running for 6.724)
-[2020/10/19-10:47:39] [http-nio-2020-exec-1] [INFO ] [com.aviccii.cc.services.impl.UserServiceImpl] : checkuser ---> avicci
-[2020/10/19-10:47:39] [http-nio-2020-exec-1] [INFO ] [com.aviccii.cc.services.impl.IImageServiceImpl] : contentType == >image/jpeg
-[2020/10/19-10:47:39] [http-nio-2020-exec-1] [INFO ] [com.aviccii.cc.services.impl.IImageServiceImpl] : originalFilename == > arashmil.jpg
-[2020/10/19-10:47:39] [http-nio-2020-exec-1] [INFO ] [com.aviccii.cc.services.impl.IImageServiceImpl] : maxSize === >2097152 size === > 5223
-[2020/10/19-10:47:39] [http-nio-2020-exec-1] [INFO ] [com.aviccii.cc.services.impl.IImageServiceImpl] : current day == >2020_10_19
-[2020/10/19-10:47:39] [http-nio-2020-exec-1] [INFO ] [com.aviccii.cc.services.impl.IImageServiceImpl] : targetFile == >D:\JAVAProject\images\2020_10_19\null\767700487632846848.null
-[2020/10/19-10:49:37] [http-nio-2020-exec-3] [INFO ] [com.aviccii.cc.services.impl.UserServiceImpl] : checkuser ---> avicci
-[2020/10/19-10:49:37] [http-nio-2020-exec-3] [INFO ] [com.aviccii.cc.services.impl.IImageServiceImpl] : contentType == >image/png
-[2020/10/19-10:49:37] [http-nio-2020-exec-3] [INFO ] [com.aviccii.cc.services.impl.IImageServiceImpl] : originalFilename == > icon.png
-[2020/10/19-10:49:37] [http-nio-2020-exec-3] [INFO ] [com.aviccii.cc.services.impl.IImageServiceImpl] : maxSize === >2097152 size === > 673
-[2020/10/19-10:49:37] [http-nio-2020-exec-3] [INFO ] [com.aviccii.cc.services.impl.IImageServiceImpl] : current day == >2020_10_19
-[2020/10/19-10:49:37] [http-nio-2020-exec-3] [INFO ] [com.aviccii.cc.services.impl.IImageServiceImpl] : targetFile == >D:\JAVAProject\images\2020_10_19\png\767700981516337152.png
-[2020/10/19-10:50:54] [restartedMain] [INFO ] [com.aviccii.cc.CcApplication] : Starting CcApplication on DESKTOP-11K43QD with PID 3492 (D:\JAVAProject\blogSystem\target\classes started by Administrator in D:\JAVAProject\blogSystem)
-[2020/10/19-10:50:54] [restartedMain] [INFO ] [com.aviccii.cc.CcApplication] : The following profiles are active: dev
-[2020/10/19-10:50:59] [restartedMain] [INFO ] [com.aviccii.cc.CcApplication] : Started CcApplication in 5.626 seconds (JVM running for 6.56)
-[2020/10/19-10:51:08] [http-nio-2020-exec-1] [INFO ] [com.aviccii.cc.services.impl.UserServiceImpl] : checkuser ---> avicci
-[2020/10/19-10:51:08] [http-nio-2020-exec-1] [INFO ] [com.aviccii.cc.services.impl.IImageServiceImpl] : contentType == >image/jpeg
-[2020/10/19-10:51:08] [http-nio-2020-exec-1] [INFO ] [com.aviccii.cc.services.impl.IImageServiceImpl] : originalFilename == > chadengle.jpg
-[2020/10/19-10:51:08] [http-nio-2020-exec-1] [INFO ] [com.aviccii.cc.services.impl.IImageServiceImpl] : maxSize === >2097152 size === > 3849
-[2020/10/19-10:51:08] [http-nio-2020-exec-1] [INFO ] [com.aviccii.cc.services.impl.IImageServiceImpl] : current day == >2020_10_19
-[2020/10/19-10:51:08] [http-nio-2020-exec-1] [INFO ] [com.aviccii.cc.services.impl.IImageServiceImpl] : targetFile == >D:\JAVAProject\images\2020_10_19\jpg\767701366029156352.jpg
-[2020/10/19-11:06:14] [restartedMain] [INFO ] [com.aviccii.cc.CcApplication] : Starting CcApplication on DESKTOP-11K43QD with PID 13840 (D:\JAVAProject\blogSystem\target\classes started by Administrator in D:\JAVAProject\blogSystem)
-[2020/10/19-11:06:14] [restartedMain] [INFO ] [com.aviccii.cc.CcApplication] : The following profiles are active: dev
-[2020/10/19-11:06:21] [restartedMain] [INFO ] [com.aviccii.cc.CcApplication] : Started CcApplication in 7.114 seconds (JVM running for 8.128)
-[2020/10/19-13:31:48] [http-nio-2020-exec-1] [INFO ] [com.aviccii.cc.services.impl.UserServiceImpl] : captcha font type index == >8
-[2020/10/19-13:31:48] [http-nio-2020-exec-1] [INFO ] [com.aviccii.cc.services.impl.UserServiceImpl] : captcha content == >5
-[2020/10/19-13:32:14] [http-nio-2020-exec-5] [INFO ] [com.aviccii.cc.services.impl.UserServiceImpl] : password ==>123456
-[2020/10/19-13:32:14] [http-nio-2020-exec-5] [INFO ] [com.aviccii.cc.services.impl.UserServiceImpl] : passwordEncoding ==>$2a$10$BIQeIgZhagXjEMi9EWET0OqCPltWTMnQyoFIyXWj/B/jDFAFYf/5.
-[2020/10/19-14:27:35] [restartedMain] [INFO ] [com.aviccii.cc.CcApplication] : Starting CcApplication on DESKTOP-11K43QD with PID 12308 (D:\JAVAProject\blogSystem\target\classes started by Administrator in D:\JAVAProject\blogSystem)
-[2020/10/19-14:27:35] [restartedMain] [INFO ] [com.aviccii.cc.CcApplication] : The following profiles are active: dev
-[2020/10/19-14:27:41] [restartedMain] [INFO ] [com.aviccii.cc.CcApplication] : Started CcApplication in 7.244 seconds (JVM running for 8.415)
-[2020/10/19-14:28:21] [restartedMain] [INFO ] [com.aviccii.cc.CcApplication] : Starting CcApplication on DESKTOP-11K43QD with PID 6468 (D:\JAVAProject\blogSystem\target\classes started by Administrator in D:\JAVAProject\blogSystem)
-[2020/10/19-14:28:21] [restartedMain] [INFO ] [com.aviccii.cc.CcApplication] : The following profiles are active: dev
-[2020/10/19-14:28:27] [restartedMain] [INFO ] [com.aviccii.cc.CcApplication] : Started CcApplication in 7.35 seconds (JVM running for 8.46)
-[2020/10/19-14:29:01] [http-nio-2020-exec-9] [INFO ] [com.aviccii.cc.services.impl.UserServiceImpl] : checkuser ---> avicci
-[2020/10/19-14:29:49] [http-nio-2020-exec-1] [INFO ] [com.aviccii.cc.services.impl.UserServiceImpl] : checkuser ---> avicci
-[2020/10/19-14:29:49] [http-nio-2020-exec-1] [INFO ] [com.aviccii.cc.services.impl.IImageServiceImpl] : contentType == >image/jpeg
-[2020/10/19-14:29:49] [http-nio-2020-exec-1] [INFO ] [com.aviccii.cc.services.impl.IImageServiceImpl] : originalFilename == > chadengle.jpg
-[2020/10/19-14:29:49] [http-nio-2020-exec-1] [INFO ] [com.aviccii.cc.services.impl.IImageServiceImpl] : maxSize === >2097152 size === > 3849
-[2020/10/19-14:29:49] [http-nio-2020-exec-1] [INFO ] [com.aviccii.cc.services.impl.IImageServiceImpl] : current day == >2020_10_19
-[2020/10/19-14:29:49] [http-nio-2020-exec-1] [INFO ] [com.aviccii.cc.services.impl.IImageServiceImpl] : targetFile == >D:\JAVAProject\images\2020_10_19\jpg\767756396287492097.jpg
-[2020/10/19-14:29:57] [http-nio-2020-exec-6] [INFO ] [com.aviccii.cc.services.impl.UserServiceImpl] : checkuser ---> avicci
-[2020/10/19-14:29:57] [http-nio-2020-exec-6] [INFO ] [com.aviccii.cc.services.impl.IImageServiceImpl] : viewImage format == >2020_10_19
-[2020/10/19-14:29:57] [http-nio-2020-exec-6] [INFO ] [com.aviccii.cc.services.impl.IImageServiceImpl] : get image target path  === >D:\\JAVAProject\\images\2020_10_19\jpg\\767756396287492096.jpg
-[2020/10/19-14:30:03] [http-nio-2020-exec-8] [INFO ] [com.aviccii.cc.services.impl.UserServiceImpl] : checkuser ---> avicci
-[2020/10/19-14:30:03] [http-nio-2020-exec-8] [INFO ] [com.aviccii.cc.services.impl.IImageServiceImpl] : viewImage format == >2020_10_19
-[2020/10/19-14:30:03] [http-nio-2020-exec-8] [INFO ] [com.aviccii.cc.services.impl.IImageServiceImpl] : get image target path  === >D:\\JAVAProject\\images\2020_10_19\jpg\\767756396287492096.jpg
-[2020/10/19-14:36:00] [http-nio-2020-exec-9] [INFO ] [com.aviccii.cc.services.impl.UserServiceImpl] : checkuser ---> avicci
-[2020/10/19-14:36:00] [http-nio-2020-exec-9] [INFO ] [com.aviccii.cc.services.impl.IImageServiceImpl] : viewImage format == >2020_10_19
-[2020/10/19-14:36:00] [http-nio-2020-exec-9] [INFO ] [com.aviccii.cc.services.impl.IImageServiceImpl] : get image target path  === >D:\\JAVAProject\\images\2020_10_19\jpg\\767756396287492096.jpg
-[2020/10/19-14:37:10] [http-nio-2020-exec-2] [INFO ] [com.aviccii.cc.services.impl.UserServiceImpl] : checkuser ---> avicci
-[2020/10/19-14:37:10] [http-nio-2020-exec-2] [INFO ] [com.aviccii.cc.services.impl.IImageServiceImpl] : contentType == >image/png
-[2020/10/19-14:37:10] [http-nio-2020-exec-2] [INFO ] [com.aviccii.cc.services.impl.IImageServiceImpl] : originalFilename == > img-shadow.png
-[2020/10/19-14:37:10] [http-nio-2020-exec-2] [INFO ] [com.aviccii.cc.services.impl.IImageServiceImpl] : maxSize === >2097152 size === > 26085
-[2020/10/19-14:37:10] [http-nio-2020-exec-2] [INFO ] [com.aviccii.cc.services.impl.IImageServiceImpl] : current day == >2020_10_19
-[2020/10/19-14:37:10] [http-nio-2020-exec-2] [INFO ] [com.aviccii.cc.services.impl.IImageServiceImpl] : targetFile == >D:\JAVAProject\images\2020_10_19\png\767758248366309377.png
-[2020/10/19-14:37:23] [http-nio-2020-exec-7] [INFO ] [com.aviccii.cc.services.impl.UserServiceImpl] : checkuser ---> avicci
-[2020/10/19-14:37:23] [http-nio-2020-exec-7] [INFO ] [com.aviccii.cc.services.impl.IImageServiceImpl] : viewImage format == >2020_10_19
-[2020/10/19-14:37:23] [http-nio-2020-exec-7] [INFO ] [com.aviccii.cc.services.impl.IImageServiceImpl] : get image target path  === >D:\\JAVAProject\\images\2020_10_19\png\\767758248366309376.png
-[2020/10/19-14:37:51] [http-nio-2020-exec-3] [INFO ] [com.aviccii.cc.services.impl.UserServiceImpl] : checkuser ---> avicci
-[2020/10/19-14:37:51] [http-nio-2020-exec-3] [INFO ] [com.aviccii.cc.services.impl.IImageServiceImpl] : viewImage format == >2020_10_19
-[2020/10/19-14:37:51] [http-nio-2020-exec-3] [INFO ] [com.aviccii.cc.services.impl.IImageServiceImpl] : get image target path  === >D:\\JAVAProject\\images\2020_10_19\png\\767758248366309377.png
-[2020/10/19-14:38:08] [http-nio-2020-exec-4] [INFO ] [com.aviccii.cc.services.impl.UserServiceImpl] : checkuser ---> avicci
-[2020/10/19-14:38:08] [http-nio-2020-exec-4] [INFO ] [com.aviccii.cc.services.impl.IImageServiceImpl] : viewImage format == >2020_10_19
-[2020/10/19-14:38:08] [http-nio-2020-exec-4] [INFO ] [com.aviccii.cc.services.impl.IImageServiceImpl] : get image target path  === >D:\\JAVAProject\\images\2020_10_19\png\\767758248366309377.png
-[2020/10/19-14:38:24] [http-nio-2020-exec-1] [INFO ] [com.aviccii.cc.services.impl.UserServiceImpl] : checkuser ---> avicci
-[2020/10/19-14:38:24] [http-nio-2020-exec-1] [INFO ] [com.aviccii.cc.services.impl.IImageServiceImpl] : viewImage format == >2020_10_19
-[2020/10/19-14:38:24] [http-nio-2020-exec-1] [INFO ] [com.aviccii.cc.services.impl.IImageServiceImpl] : get image target path  === >D:\\JAVAProject\\images\2020_10_19\png\\767758248366309377.png
-[2020/10/19-14:41:41] [restartedMain] [INFO ] [com.aviccii.cc.CcApplication] : Starting CcApplication on DESKTOP-11K43QD with PID 9192 (D:\JAVAProject\blogSystem\target\classes started by Administrator in D:\JAVAProject\blogSystem)
-[2020/10/19-14:41:41] [restartedMain] [INFO ] [com.aviccii.cc.CcApplication] : The following profiles are active: dev
-[2020/10/19-14:41:46] [restartedMain] [INFO ] [com.aviccii.cc.CcApplication] : Started CcApplication in 6.112 seconds (JVM running for 7.026)
-[2020/10/19-14:41:57] [http-nio-2020-exec-1] [INFO ] [com.aviccii.cc.services.impl.UserServiceImpl] : checkuser ---> avicci
-[2020/10/19-14:41:57] [http-nio-2020-exec-1] [INFO ] [com.aviccii.cc.services.impl.IImageServiceImpl] : contentType == >image/jpeg
-[2020/10/19-14:41:57] [http-nio-2020-exec-1] [INFO ] [com.aviccii.cc.services.impl.IImageServiceImpl] : originalFilename == > jm_denis.jpg
-[2020/10/19-14:41:57] [http-nio-2020-exec-1] [INFO ] [com.aviccii.cc.services.impl.IImageServiceImpl] : maxSize === >2097152 size === > 3072
-[2020/10/19-14:41:57] [http-nio-2020-exec-1] [INFO ] [com.aviccii.cc.services.impl.IImageServiceImpl] : current day == >2020_10_19
-[2020/10/19-14:41:57] [http-nio-2020-exec-1] [INFO ] [com.aviccii.cc.services.impl.IImageServiceImpl] : targetFile == >D:\JAVAProject\images\2020_10_19\jpg\767759452425158657.jpg
-[2020/10/19-14:43:50] [restartedMain] [INFO ] [com.aviccii.cc.CcApplication] : Starting CcApplication on DESKTOP-11K43QD with PID 6392 (D:\JAVAProject\blogSystem\target\classes started by Administrator in D:\JAVAProject\blogSystem)
-[2020/10/19-14:43:50] [restartedMain] [INFO ] [com.aviccii.cc.CcApplication] : The following profiles are active: dev
-[2020/10/19-14:43:55] [restartedMain] [INFO ] [com.aviccii.cc.CcApplication] : Started CcApplication in 5.724 seconds (JVM running for 6.597)
-[2020/10/19-14:44:00] [http-nio-2020-exec-1] [INFO ] [com.aviccii.cc.services.impl.UserServiceImpl] : checkuser ---> avicci
-[2020/10/19-14:44:00] [http-nio-2020-exec-1] [INFO ] [com.aviccii.cc.services.impl.IImageServiceImpl] : contentType == >image/jpeg
-[2020/10/19-14:44:00] [http-nio-2020-exec-1] [INFO ] [com.aviccii.cc.services.impl.IImageServiceImpl] : originalFilename == > jm_denis.jpg
-[2020/10/19-14:44:00] [http-nio-2020-exec-1] [INFO ] [com.aviccii.cc.services.impl.IImageServiceImpl] : maxSize === >2097152 size === > 3072
-[2020/10/19-14:44:00] [http-nio-2020-exec-1] [INFO ] [com.aviccii.cc.services.impl.IImageServiceImpl] : current day == >2020_10_19
-[2020/10/19-14:44:00] [http-nio-2020-exec-1] [INFO ] [com.aviccii.cc.services.impl.IImageServiceImpl] : targetFile == >D:\JAVAProject\images\2020_10_19\jpg\767759967015927809.jpg
-[2020/10/19-14:44:38] [restartedMain] [INFO ] [com.aviccii.cc.CcApplication] : Starting CcApplication on DESKTOP-11K43QD with PID 11096 (D:\JAVAProject\blogSystem\target\classes started by Administrator in D:\JAVAProject\blogSystem)
-[2020/10/19-14:44:38] [restartedMain] [INFO ] [com.aviccii.cc.CcApplication] : The following profiles are active: dev
-[2020/10/19-14:44:43] [restartedMain] [INFO ] [com.aviccii.cc.CcApplication] : Started CcApplication in 5.727 seconds (JVM running for 6.641)
-[2020/10/19-14:44:47] [http-nio-2020-exec-1] [INFO ] [com.aviccii.cc.services.impl.UserServiceImpl] : checkuser ---> avicci
-[2020/10/19-14:44:47] [http-nio-2020-exec-1] [INFO ] [com.aviccii.cc.services.impl.IImageServiceImpl] : contentType == >image/jpeg
-[2020/10/19-14:44:47] [http-nio-2020-exec-1] [INFO ] [com.aviccii.cc.services.impl.IImageServiceImpl] : originalFilename == > jm_denis.jpg
-[2020/10/19-14:44:47] [http-nio-2020-exec-1] [INFO ] [com.aviccii.cc.services.impl.IImageServiceImpl] : maxSize === >2097152 size === > 3072
-[2020/10/19-14:44:47] [http-nio-2020-exec-1] [INFO ] [com.aviccii.cc.services.impl.IImageServiceImpl] : current day == >2020_10_19
-[2020/10/19-14:44:47] [http-nio-2020-exec-1] [INFO ] [com.aviccii.cc.services.impl.IImageServiceImpl] : targetFile == >D:\JAVAProject\images\2020_10_19\jpg\767760165607833601.jpg
-[2020/10/19-14:45:04] [http-nio-2020-exec-2] [INFO ] [com.aviccii.cc.services.impl.UserServiceImpl] : checkuser ---> avicci
-[2020/10/19-14:45:04] [http-nio-2020-exec-2] [INFO ] [com.aviccii.cc.services.impl.IImageServiceImpl] : viewImage format == >2020_10_19
-[2020/10/19-14:45:04] [http-nio-2020-exec-2] [INFO ] [com.aviccii.cc.services.impl.IImageServiceImpl] : get image target path  === >D:\\JAVAProject\\images\2020_10_19\jpg\\7677601656078336001.jpg
-[2020/10/19-14:45:41] [http-nio-2020-exec-3] [INFO ] [com.aviccii.cc.services.impl.UserServiceImpl] : checkuser ---> avicci
-[2020/10/19-14:45:41] [http-nio-2020-exec-3] [INFO ] [com.aviccii.cc.services.impl.IImageServiceImpl] : viewImage format == >2020_10_19
-[2020/10/19-14:45:41] [http-nio-2020-exec-3] [INFO ] [com.aviccii.cc.services.impl.IImageServiceImpl] : get image target path  === >D:\\JAVAProject\\images\2020_10_19\jpg\\7677601656078336001.jpg
-[2020/10/19-14:46:08] [restartedMain] [INFO ] [com.aviccii.cc.CcApplication] : Starting CcApplication on DESKTOP-11K43QD with PID 10460 (D:\JAVAProject\blogSystem\target\classes started by Administrator in D:\JAVAProject\blogSystem)
-[2020/10/19-14:46:08] [restartedMain] [INFO ] [com.aviccii.cc.CcApplication] : The following profiles are active: dev
-[2020/10/19-14:46:13] [restartedMain] [INFO ] [com.aviccii.cc.CcApplication] : Started CcApplication in 5.992 seconds (JVM running for 6.877)
-[2020/10/19-14:46:17] [http-nio-2020-exec-1] [INFO ] [com.aviccii.cc.services.impl.UserServiceImpl] : checkuser ---> avicci
-[2020/10/19-14:46:17] [http-nio-2020-exec-1] [INFO ] [com.aviccii.cc.services.impl.IImageServiceImpl] : viewImage format == >2020_10_19
-[2020/10/19-14:46:17] [http-nio-2020-exec-1] [INFO ] [com.aviccii.cc.services.impl.IImageServiceImpl] : get image target path  === >D:\\JAVAProject\\images\2020_10_19\jpg\\7677601656078336001.jpg
-[2020/10/19-14:46:30] [http-nio-2020-exec-2] [INFO ] [com.aviccii.cc.services.impl.UserServiceImpl] : checkuser ---> avicci
-[2020/10/19-14:46:30] [http-nio-2020-exec-2] [INFO ] [com.aviccii.cc.services.impl.IImageServiceImpl] : contentType == >image/jpeg
-[2020/10/19-14:46:30] [http-nio-2020-exec-2] [INFO ] [com.aviccii.cc.services.impl.IImageServiceImpl] : originalFilename == > mlane.jpg
-[2020/10/19-14:46:30] [http-nio-2020-exec-2] [INFO ] [com.aviccii.cc.services.impl.IImageServiceImpl] : maxSize === >2097152 size === > 15450
-[2020/10/19-14:46:30] [http-nio-2020-exec-2] [INFO ] [com.aviccii.cc.services.impl.IImageServiceImpl] : current day == >2020_10_19
-[2020/10/19-14:46:30] [http-nio-2020-exec-2] [INFO ] [com.aviccii.cc.services.impl.IImageServiceImpl] : targetFile == >D:\JAVAProject\images\2020_10_19\jpg\767760596237025280.jpg
-[2020/10/19-14:46:38] [http-nio-2020-exec-3] [INFO ] [com.aviccii.cc.services.impl.UserServiceImpl] : checkuser ---> avicci
-[2020/10/19-14:46:38] [http-nio-2020-exec-3] [INFO ] [com.aviccii.cc.services.impl.IImageServiceImpl] : viewImage format == >2020_10_19
-[2020/10/19-14:46:38] [http-nio-2020-exec-3] [INFO ] [com.aviccii.cc.services.impl.IImageServiceImpl] : get image target path  === >D:\\JAVAProject\\images\2020_10_19\jpg\\767760596237025280.jpg
+[2020/10/20-09:14:11] [restartedMain] [INFO ] [com.aviccii.cc.CcApplication] : Starting CcApplication on DESKTOP-11K43QD with PID 14920 (D:\JAVAProject\blogSystem\target\classes started by Administrator in D:\JAVAProject\blogSystem)
+[2020/10/20-09:14:11] [restartedMain] [INFO ] [com.aviccii.cc.CcApplication] : The following profiles are active: dev
+[2020/10/20-09:14:19] [restartedMain] [INFO ] [com.aviccii.cc.CcApplication] : Started CcApplication in 8.904 seconds (JVM running for 10.579)
+[2020/10/20-09:15:29] [http-nio-2020-exec-2] [INFO ] [com.aviccii.cc.services.impl.UserServiceImpl] : captcha font type index == >2
+[2020/10/20-09:15:29] [http-nio-2020-exec-2] [INFO ] [com.aviccii.cc.services.impl.UserServiceImpl] : captcha content == >6
+[2020/10/20-09:15:55] [http-nio-2020-exec-6] [INFO ] [com.aviccii.cc.services.impl.UserServiceImpl] : password ==>123456
+[2020/10/20-09:15:55] [http-nio-2020-exec-6] [INFO ] [com.aviccii.cc.services.impl.UserServiceImpl] : passwordEncoding ==>$2a$10$BIQeIgZhagXjEMi9EWET0OqCPltWTMnQyoFIyXWj/B/jDFAFYf/5.
+[2020/10/20-09:16:12] [http-nio-2020-exec-8] [INFO ] [com.aviccii.cc.services.impl.UserServiceImpl] : checkuser ---> avicci
+[2020/10/20-09:16:12] [http-nio-2020-exec-8] [INFO ] [com.aviccii.cc.services.impl.IImageServiceImpl] : contentType == >image/png
+[2020/10/20-09:16:12] [http-nio-2020-exec-8] [INFO ] [com.aviccii.cc.services.impl.IImageServiceImpl] : originalFilename == > icon.png
+[2020/10/20-09:16:12] [http-nio-2020-exec-8] [INFO ] [com.aviccii.cc.services.impl.IImageServiceImpl] : maxSize === >2097152 size === > 673
+[2020/10/20-09:16:12] [http-nio-2020-exec-8] [INFO ] [com.aviccii.cc.services.impl.IImageServiceImpl] : current day == >2020_10_20
+[2020/10/20-09:16:12] [http-nio-2020-exec-8] [INFO ] [com.aviccii.cc.services.impl.IImageServiceImpl] : targetFile == >D:\JAVAProject\images\2020_10_20\png\768039862963011584.png
+[2020/10/20-09:16:12] [http-nio-2020-exec-8] [INFO ] [com.aviccii.cc.services.impl.UserServiceImpl] : checkuser ---> avicci
+[2020/10/20-09:27:58] [restartedMain] [INFO ] [com.aviccii.cc.CcApplication] : Starting CcApplication on DESKTOP-11K43QD with PID 12280 (D:\JAVAProject\blogSystem\target\classes started by Administrator in D:\JAVAProject\blogSystem)
+[2020/10/20-09:27:58] [restartedMain] [INFO ] [com.aviccii.cc.CcApplication] : The following profiles are active: dev
+[2020/10/20-09:28:04] [restartedMain] [INFO ] [com.aviccii.cc.CcApplication] : Started CcApplication in 6.981 seconds (JVM running for 7.975)
+[2020/10/20-09:29:45] [http-nio-2020-exec-1] [INFO ] [com.aviccii.cc.services.impl.UserServiceImpl] : checkuser ---> avicci
+[2020/10/20-09:51:39] [restartedMain] [INFO ] [com.aviccii.cc.CcApplication] : Starting CcApplication on DESKTOP-11K43QD with PID 2700 (D:\JAVAProject\blogSystem\target\classes started by Administrator in D:\JAVAProject\blogSystem)
+[2020/10/20-09:51:39] [restartedMain] [INFO ] [com.aviccii.cc.CcApplication] : The following profiles are active: dev
+[2020/10/20-09:51:47] [restartedMain] [INFO ] [com.aviccii.cc.CcApplication] : Started CcApplication in 8.66 seconds (JVM running for 9.916)
+[2020/10/20-09:52:00] [http-nio-2020-exec-10] [INFO ] [com.aviccii.cc.services.impl.UserServiceImpl] : checkuser ---> avicci
+[2020/10/20-09:52:00] [http-nio-2020-exec-10] [INFO ] [com.aviccii.cc.services.impl.IImageServiceImpl] : contentType == >image/jpeg
+[2020/10/20-09:52:00] [http-nio-2020-exec-10] [INFO ] [com.aviccii.cc.services.impl.IImageServiceImpl] : originalFilename == > arashmil.jpg
+[2020/10/20-09:52:00] [http-nio-2020-exec-10] [INFO ] [com.aviccii.cc.services.impl.IImageServiceImpl] : maxSize === >2097152 size === > 5223
+[2020/10/20-09:52:00] [http-nio-2020-exec-10] [INFO ] [com.aviccii.cc.services.impl.IImageServiceImpl] : current day == >2020_10_20
+[2020/10/20-09:52:00] [http-nio-2020-exec-10] [INFO ] [com.aviccii.cc.services.impl.IImageServiceImpl] : targetFile == >D:\JAVAProject\images\2020_10_20\jpg\768048872554496000.jpg
+[2020/10/20-09:52:00] [http-nio-2020-exec-10] [INFO ] [com.aviccii.cc.services.impl.UserServiceImpl] : checkuser ---> avicci
+[2020/10/20-09:52:06] [http-nio-2020-exec-3] [INFO ] [com.aviccii.cc.services.impl.UserServiceImpl] : checkuser ---> avicci
+[2020/10/20-09:52:06] [http-nio-2020-exec-3] [INFO ] [com.aviccii.cc.services.impl.UserServiceImpl] : checkuser ---> avicci
+[2020/10/20-09:52:41] [http-nio-2020-exec-2] [INFO ] [com.aviccii.cc.services.impl.UserServiceImpl] : captcha font type index == >3
+[2020/10/20-09:52:41] [http-nio-2020-exec-2] [INFO ] [com.aviccii.cc.services.impl.UserServiceImpl] : captcha content == >30
+[2020/10/20-09:52:58] [http-nio-2020-exec-8] [INFO ] [com.aviccii.cc.services.impl.UserServiceImpl] : password ==>123456
+[2020/10/20-09:52:58] [http-nio-2020-exec-8] [INFO ] [com.aviccii.cc.services.impl.UserServiceImpl] : passwordEncoding ==>$2a$10$BIQeIgZhagXjEMi9EWET0OqCPltWTMnQyoFIyXWj/B/jDFAFYf/5.
+[2020/10/20-09:53:40] [http-nio-2020-exec-9] [INFO ] [com.aviccii.cc.services.impl.UserServiceImpl] : checkuser ---> avicci
+[2020/10/20-09:53:40] [http-nio-2020-exec-9] [INFO ] [com.aviccii.cc.services.impl.IImageServiceImpl] : viewImage format == >2020_10_20
+[2020/10/20-09:53:40] [http-nio-2020-exec-9] [INFO ] [com.aviccii.cc.services.impl.IImageServiceImpl] : get image target path  === >D:\\JAVAProject\\images\2020_10_20\jpg\\768048872554496000.jpg
+[2020/10/20-09:54:09] [restartedMain] [INFO ] [com.aviccii.cc.CcApplication] : Starting CcApplication on DESKTOP-11K43QD with PID 13528 (D:\JAVAProject\blogSystem\target\classes started by Administrator in D:\JAVAProject\blogSystem)
+[2020/10/20-09:54:09] [restartedMain] [INFO ] [com.aviccii.cc.CcApplication] : The following profiles are active: dev
+[2020/10/20-09:54:15] [restartedMain] [INFO ] [com.aviccii.cc.CcApplication] : Started CcApplication in 6.357 seconds (JVM running for 7.623)
+[2020/10/20-09:54:29] [http-nio-2020-exec-10] [INFO ] [com.aviccii.cc.services.impl.UserServiceImpl] : checkuser ---> avicci
+[2020/10/20-09:54:29] [http-nio-2020-exec-10] [INFO ] [com.aviccii.cc.services.impl.UserServiceImpl] : checkuser ---> avicci
+[2020/10/20-09:55:01] [http-nio-2020-exec-3] [INFO ] [com.aviccii.cc.services.impl.UserServiceImpl] : checkuser ---> avicci
+[2020/10/20-10:28:06] [restartedMain] [INFO ] [com.aviccii.cc.CcApplication] : Starting CcApplication on DESKTOP-11K43QD with PID 14136 (D:\JAVAProject\blogSystem\target\classes started by Administrator in D:\JAVAProject\blogSystem)
+[2020/10/20-10:28:06] [restartedMain] [INFO ] [com.aviccii.cc.CcApplication] : The following profiles are active: dev
+[2020/10/20-10:28:12] [restartedMain] [INFO ] [com.aviccii.cc.CcApplication] : Started CcApplication in 5.947 seconds (JVM running for 7.03)
+[2020/10/20-10:29:58] [http-nio-2020-exec-5] [INFO ] [com.aviccii.cc.services.impl.UserServiceImpl] : checkuser ---> avicci
+[2020/10/20-10:29:58] [http-nio-2020-exec-5] [INFO ] [com.aviccii.cc.services.impl.UserServiceImpl] : checkuser ---> avicci
+[2020/10/20-10:31:25] [http-nio-2020-exec-8] [INFO ] [com.aviccii.cc.services.impl.UserServiceImpl] : checkuser ---> avicci
+[2020/10/20-10:39:46] [http-nio-2020-exec-9] [INFO ] [com.aviccii.cc.services.impl.UserServiceImpl] : checkuser ---> avicci
+[2020/10/20-10:39:46] [http-nio-2020-exec-9] [INFO ] [com.aviccii.cc.services.impl.IImageServiceImpl] : contentType == >image/jpeg
+[2020/10/20-10:39:46] [http-nio-2020-exec-9] [INFO ] [com.aviccii.cc.services.impl.IImageServiceImpl] : originalFilename == > jm_denis.jpg
+[2020/10/20-10:39:46] [http-nio-2020-exec-9] [INFO ] [com.aviccii.cc.services.impl.IImageServiceImpl] : maxSize === >2097152 size === > 3072
+[2020/10/20-10:39:46] [http-nio-2020-exec-9] [INFO ] [com.aviccii.cc.services.impl.IImageServiceImpl] : current day == >2020_10_20
+[2020/10/20-10:39:46] [http-nio-2020-exec-9] [INFO ] [com.aviccii.cc.services.impl.IImageServiceImpl] : targetFile == >D:\JAVAProject\images\2020_10_20\jpg\768060891575877632.jpg
+[2020/10/20-10:39:46] [http-nio-2020-exec-9] [INFO ] [com.aviccii.cc.services.impl.UserServiceImpl] : checkuser ---> avicci
+[2020/10/20-10:39:52] [http-nio-2020-exec-10] [INFO ] [com.aviccii.cc.services.impl.UserServiceImpl] : checkuser ---> avicci
+[2020/10/20-10:39:52] [http-nio-2020-exec-10] [INFO ] [com.aviccii.cc.services.impl.UserServiceImpl] : checkuser ---> avicci
+[2020/10/20-10:40:57] [http-nio-2020-exec-2] [INFO ] [com.aviccii.cc.services.impl.UserServiceImpl] : checkuser ---> avicci
+[2020/10/20-11:08:31] [restartedMain] [INFO ] [com.aviccii.cc.CcApplication] : Starting CcApplication on DESKTOP-11K43QD with PID 7500 (D:\JAVAProject\blogSystem\target\classes started by Administrator in D:\JAVAProject\blogSystem)
+[2020/10/20-11:08:31] [restartedMain] [INFO ] [com.aviccii.cc.CcApplication] : The following profiles are active: dev
+[2020/10/20-11:08:32] [restartedMain] [INFO ] [com.aviccii.cc.CcApplication] : Starting CcApplication on DESKTOP-11K43QD with PID 7660 (D:\JAVAProject\blogSystem\target\classes started by Administrator in D:\JAVAProject\blogSystem)
+[2020/10/20-11:08:32] [restartedMain] [INFO ] [com.aviccii.cc.CcApplication] : The following profiles are active: dev
+[2020/10/20-11:08:38] [restartedMain] [INFO ] [com.aviccii.cc.CcApplication] : Started CcApplication in 7.172 seconds (JVM running for 8.478)
+[2020/10/20-11:12:41] [http-nio-2020-exec-10] [INFO ] [com.aviccii.cc.services.impl.UserServiceImpl] : checkuser ---> avicci
+[2020/10/20-11:12:51] [http-nio-2020-exec-3] [INFO ] [com.aviccii.cc.services.impl.UserServiceImpl] : checkuser ---> avicci
+[2020/10/20-11:13:38] [restartedMain] [INFO ] [com.aviccii.cc.CcApplication] : Starting CcApplication on DESKTOP-11K43QD with PID 9904 (D:\JAVAProject\blogSystem\target\classes started by Administrator in D:\JAVAProject\blogSystem)
+[2020/10/20-11:13:38] [restartedMain] [INFO ] [com.aviccii.cc.CcApplication] : The following profiles are active: dev
+[2020/10/20-11:13:43] [restartedMain] [INFO ] [com.aviccii.cc.CcApplication] : Started CcApplication in 5.877 seconds (JVM running for 6.788)
+[2020/10/20-11:14:07] [http-nio-2020-exec-10] [INFO ] [com.aviccii.cc.services.impl.UserServiceImpl] : checkuser ---> avicci
+[2020/10/20-11:15:19] [http-nio-2020-exec-8] [INFO ] [com.aviccii.cc.services.impl.UserServiceImpl] : checkuser ---> avicci
+[2020/10/20-11:15:51] [http-nio-2020-exec-7] [INFO ] [com.aviccii.cc.services.impl.UserServiceImpl] : checkuser ---> avicci
