@@ -22,23 +22,27 @@ public interface Constants {
         String KEY_TOKEN = "key_token_";
     }
 
-    interface imageType{
+    interface imageType {
         String PREFIX = "image/";
         String TYPE_JPG = "jpg";
         String TYPE_JPEG = "jpeg";
         String TYPE_PNG = "png";
         String TYPE_GIF = "gif";
-        String TYPE_JPG_WITH_PREFIX = PREFIX+"jpg";
-        String TYPE_JPEG_WITH_PREFIX = PREFIX+"jpeg";
-        String TYPE_PNG_WITH_PREFIX = PREFIX+"png";
-        String TYPE_GIF_WITH_PREFIX = PREFIX+"gif";
+        String TYPE_JPG_WITH_PREFIX = PREFIX + "jpg";
+        String TYPE_JPEG_WITH_PREFIX = PREFIX + "jpeg";
+        String TYPE_PNG_WITH_PREFIX = PREFIX + "png";
+        String TYPE_GIF_WITH_PREFIX = PREFIX + "gif";
     }
 
     interface settings {
         String HAS_MANAGER_ACCOUNT_INIT_STATE = "";
+        String WEB_SIZE_TITLE = "web_size_title";
+        String WEB_SIZE_DESCRIPTION = "web_size_description";
+        String WEB_SIZE_KEYWORDS = "web_size_keywords";
+        String WEB_SIZE_VIEW_COUNT = "web_size_view_count";
     }
 
-    interface Page{
+    interface Page {
         int DEFAULT_PAGE = 1;
         int DEFAULT_SIZE = 2;
         int MIN_SIZE = 10;
@@ -50,7 +54,7 @@ public interface Constants {
     interface timeValueInMillions {
         int MIN = 60 * 1000;
         int HOUR = 60 * MIN;
-        int HOUR_2 = 60 * MIN*2;
+        int HOUR_2 = 60 * MIN * 2;
         int DAY = 24 * HOUR;
         int WEEK = 7 * DAY;
         int MONTH = 30 * DAY;
@@ -63,10 +67,15 @@ public interface Constants {
     interface timeValue {
         int MIN = 60;
         int HOUR = 60 * MIN;
-        int HOUR_2 = 60 * MIN*2;
+        int HOUR_2 = 60 * MIN * 2;
         int DAY = 24 * HOUR;
         int WEEK = 7 * DAY;
         int MONTH = 30 * DAY;
+    }
+
+    interface Article {
+        int TITLE_MAX_LENGTH = 128;
+        int SUMMARY_MAX_LENGTH = 256;
     }
 
 }

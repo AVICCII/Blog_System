@@ -2,6 +2,9 @@ package com.aviccii.cc.controller.admin;
 
 import com.aviccii.cc.pojo.Article;
 import com.aviccii.cc.response.ResponseResult;
+import com.aviccii.cc.services.IArticleService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 /**
@@ -12,9 +15,13 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/admin/article")
 public class ArticleAdminApi {
 
+    @Autowired
+    private IArticleService iArticleService;
+
+    @PreAuthorize("@permission.admin()")
     @PostMapping
     public ResponseResult postArticle(@RequestBody Article article){
-        return null;
+        return iArticleService.postArticle(article);
     }
 
     @DeleteMapping("/{articleId}")
