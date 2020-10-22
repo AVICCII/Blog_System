@@ -1,14 +1,14 @@
 package com.aviccii.cc.pojo;
 
-import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.Arrays;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 import java.util.Date;
-import java.util.List;
 
 @Entity
 @Table(name = "tb_article")
-public class Article {
+public class ArticleNoContent {
 
   @Id
   private String id;
@@ -22,8 +22,6 @@ public class Article {
   private String userName;
   	@Column(name = "category_id")
   private String categoryId;
-  	@Column(name = "content")
-  private String content;
   	@Column(name = "type")
   private String type;
   	@Column(name = "state")
@@ -32,7 +30,7 @@ public class Article {
   	@Column(name = "summary")
   private String summary;
   	@Column(name = "labels")
-  private String label;
+  private String labels;
   	@Column(name = "view_count")
   private long viewCount=0;
   	@Column(name = "create_time")
@@ -41,29 +39,6 @@ public class Article {
   private Date updateTime;
   @Column(name = "cover")
    private String cover;
-
-  @OneToOne(targetEntity = UserNoPassword.class)
-  @JoinColumn(name = "user_id",referencedColumnName = "id",insertable = false,updatable = false)
-  private UserNoPassword user;
-
-  @Transient
-  private List<String> labels = new ArrayList<>();
-
-  public List<String> getLabels() {
-    return labels;
-  }
-
-  public void setLabels(List<String> labels) {
-    this.labels = labels;
-  }
-
-  public UserNoPassword getUser() {
-    return user;
-  }
-
-  public void setUser(UserNoPassword user) {
-    this.user = user;
-  }
 
   public String getCover() {
     return cover;
@@ -123,14 +98,6 @@ public class Article {
     this.categoryId = categoryId;
   }
 
-  public String getContent() {
-    return content;
-  }
-
-  public void setContent(String content) {
-    this.content = content;
-  }
-
   public String getType() {
     return type;
   }
@@ -147,22 +114,6 @@ public class Article {
     this.state = state;
   }
 
-  public String getLabel() {
-    //打散到集合里
-    this.labels.clear();
-    if (this.label !=null) {
-      if (!this.label.contains("-")) {
-        this.labels.add(this.label);
-      } else {
-        String[] split = this.label.split("-");
-        List<String> strings = Arrays.asList(split);
-        this.labels.addAll(strings);
-      }
-    }
-      return label;
-    }
-
-
   public String getSummary() {
     return summary;
   }
@@ -170,8 +121,13 @@ public class Article {
   public void setSummary(String summary) {
     this.summary = summary;
   }
-  public void setLabel(String labels) {
-    this.label = labels;
+
+  public String getLabels() {
+    return labels;
+  }
+
+  public void setLabels(String labels) {
+    this.labels = labels;
   }
 
   public long getViewCount() {

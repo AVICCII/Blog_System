@@ -10,4 +10,12 @@ import com.aviccii.cc.response.ResponseResult;
 public interface IArticleService {
 
     ResponseResult postArticle(Article article);
+
+    ResponseResult listArticle(int page, int size, String state, String keyword, String categoryId);
+
+    ResponseResult getArticleById(String articleId);
+
+    ResponseResult updateArticle(String articleId, Article article);
+
+    ResponseResult deleteArticleById(String articleId);
 }

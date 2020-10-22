@@ -3,9 +3,11 @@ package com.aviccii.cc.services.impl;
 import com.aviccii.cc.dao.RefreshTokenDao;
 import com.aviccii.cc.dao.SettingsDao;
 import com.aviccii.cc.dao.UserDao;
+import com.aviccii.cc.dao.UserNoPasswordDao;
 import com.aviccii.cc.pojo.RefreshToken;
 import com.aviccii.cc.pojo.Setting;
 import com.aviccii.cc.pojo.User;
+import com.aviccii.cc.pojo.UserNoPassword;
 import com.aviccii.cc.response.ResponseResult;
 import com.aviccii.cc.response.ResponseState;
 import com.aviccii.cc.services.IUserService;
@@ -528,15 +530,16 @@ public class UserServiceImpl implements IUserService {
 
     }
 
-    private HttpServletRequest getRequest(){
+    private HttpServletRequest getRequest() {
         ServletRequestAttributes requestAttributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
         return requestAttributes.getRequest();
     }
 
-    private HttpServletResponse getResponse(){
+    private HttpServletResponse getResponse() {
         ServletRequestAttributes requestAttributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
         return requestAttributes.getResponse();
     }
+
     /**
      * 删除用户，并不是真正删除而是修改状态
      * 需要管理员权限
@@ -571,6 +574,10 @@ public class UserServiceImpl implements IUserService {
      * @param size
      * @return
      */
+
+    @Autowired
+    private UserNoPasswordDao userNoPasswordDao;
+
     @Override
     public ResponseResult listUsers(int page, int size) {
 
@@ -587,7 +594,7 @@ public class UserServiceImpl implements IUserService {
         //根据注册日期来排序
         Sort sort = Sort.by(Sort.Direction.DESC, "createTime");
         Pageable pageable = PageRequest.of(page - 1, size, sort);
-        Page<User> all = userDao.listAllUserNoPassword(pageable);
+        Page<UserNoPassword> all = userNoPasswordDao.findAll(pageable);
 
         ResponseResult success = ResponseResult.SUCCESS("获取用户列表成功");
         success.setData(all);
@@ -656,7 +663,7 @@ public class UserServiceImpl implements IUserService {
             return ResponseResult.ACCOUNT_NOT_LOGIN();
         }
         //删除redis里的token
-        redisUtil.del(KEY_TOKEN+tokenKey);
+        redisUtil.del(KEY_TOKEN + tokenKey);
         //删除mysql里的refreshtoken
         int result = refreshTokenDao.deleteAllByTokenKey(tokenKey);
         //删除cookie

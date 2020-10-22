@@ -1,20 +1,21 @@
 package com.aviccii.cc.pojo;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.Table;
 import javax.persistence.Id;
+import javax.persistence.Table;
 import java.util.Date;
 
 @Entity
 @Table(name = "tb_user")
-public class User {
+public class UserNoPassword {
+
 
   @Id
   private String id;
   	@Column(name = "user_name")
   private String userName;
-  	@Column(name = "password")
-  private String password;
+
   @Column(name = "roles")
   private String role;
   	@Column(name = "avatar")
@@ -57,15 +58,6 @@ public class User {
 
   public void setUserName(String user_name) {
     this.userName = user_name;
-  }
-
-
-  public String getPassword() {
-    return password;
-  }
-
-  public void setPassword(String password) {
-    this.password = password;
   }
 
 
