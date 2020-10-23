@@ -2,8 +2,10 @@ package com.aviccii.cc.services.impl;
 
 import com.aviccii.cc.dao.FriendLinkDao;
 import com.aviccii.cc.pojo.FriendLink;
+import com.aviccii.cc.pojo.User;
 import com.aviccii.cc.services.IFriendLinkService;
 import com.aviccii.cc.response.ResponseResult;
+import com.aviccii.cc.services.IUserService;
 import com.aviccii.cc.utils.Constants;
 import com.aviccii.cc.utils.IdWorker;
 import com.aviccii.cc.utils.TextUtils;
@@ -16,6 +18,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Date;
+import java.util.List;
 
 /**
  * @author aviccii 2020/10/16
@@ -30,6 +33,9 @@ public class FriendLinkServiceImpl extends BaseSerive implements IFriendLinkServ
 
     @Autowired
     private FriendLinkDao friendLinkDao;
+
+    @Autowired
+    private IUserService iUserService;
 
     /**
      * 添加友情链接
@@ -74,13 +80,18 @@ public class FriendLinkServiceImpl extends BaseSerive implements IFriendLinkServ
     }
 
     @Override
-    public ResponseResult listFriendLinks(int page, int size) {
-        page = checkPage(page);
-        size = checkSize(size);
+    public ResponseResult listFriendLinks() {
         //创建条件
         Sort sort = Sort.by(Sort.Direction.DESC, "createTime","order");
-        Pageable pageable = PageRequest.of(page - 1, size, sort);
-        Page<FriendLink> all = friendLinkDao.findAll(pageable);
+        List<FriendLink> all;
+        User user = iUserService.checkUser();
+        if (user == null||!Constants.user.ROLE_ADMIN.equals(user.getRole())) {
+            //只能获取到正常的category
+            all = friendLinkDao.listfriendLinkByState("1");
+        }else {
+            //查询
+            all = friendLinkDao.findAll(sort);
+        }
         ResponseResult success = ResponseResult.SUCCESS("获取友情链接列表成功");
         success.setData(all);
         return success;

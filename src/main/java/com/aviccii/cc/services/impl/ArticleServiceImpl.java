@@ -11,6 +11,7 @@ import com.aviccii.cc.services.IUserService;
 import com.aviccii.cc.utils.Constants;
 import com.aviccii.cc.utils.IdWorker;
 import com.aviccii.cc.utils.TextUtils;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -24,9 +25,7 @@ import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
 import static com.aviccii.cc.utils.Constants.Article.*;
 
@@ -60,6 +59,7 @@ import static com.aviccii.cc.utils.Constants.Article.*;
  * @author aviccii 2020/10/21
  * @Discrimination
  */
+@Slf4j
 @Service
 @Transactional
 public class ArticleServiceImpl extends BaseSerive implements IArticleService {
@@ -230,7 +230,7 @@ public class ArticleServiceImpl extends BaseSerive implements IArticleService {
         //如果是删除/草稿，需要管理员角色
         User user = iUserService.checkUser();
         String role = user.getRole();
-        if (!Constants.user.ROLE_ADMIN.equals(role)) {
+        if (user==null||!Constants.user.ROLE_ADMIN.equals(role)) {
             return ResponseResult.PERMISSION_FORBID();
         }
         //返回结果
@@ -296,5 +296,96 @@ public class ArticleServiceImpl extends BaseSerive implements IArticleService {
             return ResponseResult.SUCCESS("文章删除成功");
         }
         return ResponseResult.FAILED("文章不存在");
+    }
+
+    /**
+     * 通过修改状态来删除文章
+     * @param articleId
+     * @return
+     */
+    @Override
+    public ResponseResult deleteArticleByState(String articleId) {
+        int result = articleDao.deleteArticleByState(articleId);
+        if (result>0){
+            return ResponseResult.SUCCESS("文章删除成功");
+        }
+        return ResponseResult.FAILED("文章不存在");
+    }
+
+    @Override
+    public ResponseResult TopArticle(String articleId) {
+        //必须是已经发布的，才可以置顶
+        Article article = articleDao.findOneById(articleId);
+        String state = article.getState();
+        if (article == null) {
+            return ResponseResult.FAILED("文章为空");
+        }
+        if (state.equals(STATE_PUBLISH)) {
+            article.setState(STATE_TOP);
+            articleDao.save(article);
+            return ResponseResult.SUCCESS("文章置顶成功");
+        }
+        if (state.equals(STATE_TOP)) {
+            article.setState(STATE_PUBLISH);
+            articleDao.save(article);
+            return ResponseResult.FAILED("文章取消置顶");
+        }
+        return ResponseResult.FAILED("不支持该操作");
+    }
+
+    /**
+     * 获取置顶文章
+     * 跟权限无关
+     * 状态必须是置顶
+     * @return
+     */
+    @Override
+    public ResponseResult listTopArticles() {
+        List<Article> result = articleDao.findAll(new Specification<Article>() {
+            @Override
+            public Predicate toPredicate(Root<Article> root, CriteriaQuery<?> criteriaQuery, CriteriaBuilder criteriaBuilder) {
+                return criteriaBuilder.equal(root.get("state").as(String.class), STATE_TOP);
+            }
+        });
+        ResponseResult success = ResponseResult.SUCCESS("获取置顶文章成功");
+        success.setData(result);
+        return success;
+    }
+
+    /**
+     * 获取推荐文章，通过标签来计算
+     * @param articleId
+     * @param size
+     * @return
+     */
+    @Autowired
+    private Random random;
+
+    @Override
+    public ResponseResult listRecommendArticle(String articleId, int size) {
+        //查询文章，不需要文章，只需要标签
+        String labels = articleDao.listArticleLabelsById(articleId);
+        //打散标签
+        List<String> labelList = new ArrayList<>();
+        if (labels.contains("-")) {
+            labelList.add(labels);
+        }else {
+            labelList.addAll(Arrays.asList(labels.split("-")));
+        }
+        //从列表中随机获取一个标签，查询与此标签相似的标签
+        String targetLabel = labelList.get(random.nextInt(labelList.size()));
+        log.info("targetLabel =====>" +targetLabel);
+        List<ArticleNoContent> likeResult = articleNoContentDao.listArticleByLikeLabel("%"+targetLabel+"%", size, articleId);
+        //判断长度
+        if (likeResult.size()<size) {
+            //说明不够数量，获取最新的文章作为补充
+            int dxSize = size-likeResult.size();
+            List<ArticleNoContent> dxList = articleNoContentDao.listLastedArticleBySize(articleId,dxSize);
+            //这个写法有一定的弊端，会把可能前面找到的也加进来，概率比较小，如果文章比较多
+            likeResult.addAll(dxList);
+        }
+        ResponseResult success = ResponseResult.SUCCESS("获取推荐文章成功");
+        success.setData(likeResult);
+        return success;
     }
 }

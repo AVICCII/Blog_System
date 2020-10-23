@@ -2,8 +2,10 @@ package com.aviccii.cc.services.impl;
 
 import com.aviccii.cc.dao.CategoryDao;
 import com.aviccii.cc.pojo.Category;
+import com.aviccii.cc.pojo.User;
 import com.aviccii.cc.response.ResponseResult;
 import com.aviccii.cc.services.ICategoryService;
+import com.aviccii.cc.services.IUserService;
 import com.aviccii.cc.utils.Constants;
 import com.aviccii.cc.utils.IdWorker;
 import com.aviccii.cc.utils.TextUtils;
@@ -16,6 +18,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Date;
+import java.util.List;
 
 /**
  * @author aviccii 2020/10/15
@@ -30,6 +33,9 @@ public class CategoryServiceImpl extends BaseSerive implements ICategoryService 
 
     @Autowired
     private CategoryDao categoryDao;
+
+    @Autowired
+    private IUserService iUserService;
 
     @Override
     public ResponseResult addCategory(Category category) {
@@ -67,18 +73,26 @@ public class CategoryServiceImpl extends BaseSerive implements ICategoryService 
     }
 
     @Override
-    public ResponseResult listCategories(int page, int size) {
+    public ResponseResult listCategories() {
         //参数检查
-        page = checkPage(page);
-        size = checkSize(size);
         //创建条件
         Sort sort = Sort.by(Sort.Direction.DESC, "createTime","order");
-        Pageable pageable = PageRequest.of(page - 1, size, sort);
-        //查询
-        Page<Category> all = categoryDao.findAll(pageable);
+
+        //判断用户角色  普通用户或者未登录用户只能获取正常的category
+        //管理员账户可以拿到所有
+        User user = iUserService.checkUser();
+        List<Category> categories ;
+        if (user == null||!Constants.user.ROLE_ADMIN.equals(user.getRole())) {
+            //只能获取到正常的category
+            categories = categoryDao.listCategoriesByState("1");
+        }else {
+            //查询
+            categories = categoryDao.findAll(sort);
+        }
+
         //返回结果
         ResponseResult success = ResponseResult.SUCCESS("获取分类列表成功");
-        success.setData(all);
+        success.setData(categories);
         return success;
     }
 

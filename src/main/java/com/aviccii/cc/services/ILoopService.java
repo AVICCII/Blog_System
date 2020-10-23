@@ -12,7 +12,7 @@ public interface ILoopService {
 
     ResponseResult getLoop(String loopId);
 
-    ResponseResult listLooopers(int page, int size);
+    ResponseResult listLooopers();
 
     ResponseResult updateLoop(String loopId, Looper looper);
 

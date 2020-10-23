@@ -18,4 +18,13 @@ public interface IArticleService {
     ResponseResult updateArticle(String articleId, Article article);
 
     ResponseResult deleteArticleById(String articleId);
+
+    ResponseResult deleteArticleByState(String articleId);
+
+    ResponseResult TopArticle(String articleId);
+
+    ResponseResult listTopArticles();
+
+
+    ResponseResult listRecommendArticle(String articleId, int size);
 }

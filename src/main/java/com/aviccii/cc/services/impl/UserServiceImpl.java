@@ -420,7 +420,6 @@ public class UserServiceImpl implements IUserService {
         //拿到tokenKey
         String tokenKey = CookieUtils.getCookie(getRequest(), COOKIE_TOKEN_KEY);
         User user = parseByTokenKey(tokenKey);
-        log.info("checkuser ---> " + user.getUserName());
         if (user == null) {
             //根据refreshToken去判断是否已经登录过了
             //1.去mysql数据库查询refreshToken

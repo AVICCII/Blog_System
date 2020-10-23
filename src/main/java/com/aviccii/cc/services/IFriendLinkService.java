@@ -12,7 +12,7 @@ public interface IFriendLinkService {
 
     ResponseResult getFriendLink(String friendLinkId);
 
-    ResponseResult listFriendLinks(int page, int size);
+    ResponseResult listFriendLinks();
 
     ResponseResult deleteFriendLink(String friendLinkId);
 
