@@ -9,4 +9,5 @@ import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
  * @Discrimination
  */
 public interface CommentDao extends JpaRepository<Comment,String>, JpaSpecificationExecutor<Comment> {
+    Comment findOneById(String commentId);
 }

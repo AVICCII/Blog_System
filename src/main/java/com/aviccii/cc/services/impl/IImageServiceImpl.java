@@ -109,7 +109,7 @@ public class IImageServiceImpl extends BaseSerive implements IImageService {
         File targetFile = new File(targetPath);
         //判断类型文件夹是否存在
         if (!targetFile.getParentFile().exists()) {
-            targetFile.mkdirs();
+            targetFile.getParentFile().mkdirs();
         }
 
         try {

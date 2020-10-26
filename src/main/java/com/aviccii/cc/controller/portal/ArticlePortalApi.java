@@ -81,7 +81,7 @@ public class ArticlePortalApi {
     public ResponseResult listArticleByLabel(@PathVariable("label")String label,
                                                 @PathVariable("page")int page,
                                                 @PathVariable("size")int size){
-        return null;
+        return articleService.listArticleByLabel(page,size,label);
     }
 
 
@@ -91,7 +91,7 @@ public class ArticlePortalApi {
      * @return
      */
     @GetMapping("/label/{size}")
-    public ResponseResult getLabels(@PathVariable("size")String size){
-        return null;
+    public ResponseResult getLabels(@PathVariable("size")int size){
+        return articleService.listLabels(size);
     }
 }

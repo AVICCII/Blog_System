@@ -2,8 +2,10 @@ package com.aviccii.cc.services.impl;
 
 import com.aviccii.cc.dao.ArticleDao;
 import com.aviccii.cc.dao.ArticleNoContentDao;
+import com.aviccii.cc.dao.LabelDao;
 import com.aviccii.cc.pojo.Article;
 import com.aviccii.cc.pojo.ArticleNoContent;
+import com.aviccii.cc.pojo.Label;
 import com.aviccii.cc.pojo.User;
 import com.aviccii.cc.response.ResponseResult;
 import com.aviccii.cc.services.IArticleService;
@@ -21,10 +23,7 @@ import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import javax.persistence.criteria.CriteriaBuilder;
-import javax.persistence.criteria.CriteriaQuery;
-import javax.persistence.criteria.Predicate;
-import javax.persistence.criteria.Root;
+import javax.persistence.criteria.*;
 import java.util.*;
 
 import static com.aviccii.cc.utils.Constants.Article.*;
@@ -151,11 +150,46 @@ public class ArticleServiceImpl extends BaseSerive implements IArticleService {
         articleDao.save(article);
 
         //TODO：保存到搜索的数据库里
+        //打散标签，入库，统计
+        this.setupLabels(article.getLabel());
         //返回结果,只有一种case使用到这个id
         //如果要做程序自动保存成草稿，比如说每30秒保存一次，就需要加上这个id，否则会创建多个item
         ResponseResult success = ResponseResult.SUCCESS(STATE_DRAFT.equals(state)?"草稿保存成功":"文章发表成功");
         success.setData(article.getId());
         return success;
+    }
+
+    @Autowired
+    private LabelDao labelDao;
+
+    private void setupLabels(String labels){
+        List<String> labelList = new ArrayList<>();
+        if (labels.contains("-")){
+            labelList.addAll(Arrays.asList(labels.split("-")));
+        }else {
+            labelList.add(labels);
+        }
+        //入库，统计
+        for (String label : labelList) {
+            //找出来
+//            Label targetLabel = labelDao.findOneByName(label);
+//            if (targetLabel == null) {
+
+//            }
+//            long count = targetLabel.getCount();
+//            targetLabel.setCount(++count);
+//            targetLabel.setUpdate_time(new Date());
+            int result = labelDao.updateCountByName(label);
+            if (result==0){
+                Label targetLabel = new Label();
+                targetLabel.setId(idWorker.nextId() + "");
+                targetLabel.setCount(1);
+                targetLabel.setName(label);
+                targetLabel.setCreateTime(new Date());
+                targetLabel.setUpdate_time(new Date());
+                labelDao.save(targetLabel);
+            }
+        }
     }
 
     /**
@@ -386,6 +420,38 @@ public class ArticleServiceImpl extends BaseSerive implements IArticleService {
         }
         ResponseResult success = ResponseResult.SUCCESS("获取推荐文章成功");
         success.setData(likeResult);
+        return success;
+    }
+
+    @Override
+    public ResponseResult listArticleByLabel(int page, int size, String label) {
+        page=checkPage(page);
+        size=checkSize(size);
+        Sort sort = Sort.by(Sort.Direction.DESC,"createTime");
+        Pageable pageable = PageRequest.of(page-1,size,sort);
+        Page<ArticleNoContent> all = articleNoContentDao.findAll(new Specification<ArticleNoContent>() {
+            @Override
+            public Predicate toPredicate(Root<ArticleNoContent> root, CriteriaQuery<?> criteriaQuery, CriteriaBuilder criteriaBuilder) {
+                Predicate labelPre = criteriaBuilder.like(root.get("labels").as(String.class), "%" + label + "%");
+                Predicate statePublishPre = criteriaBuilder.equal(root.get("state").as(String.class), STATE_PUBLISH);
+                Predicate stateTopPre = criteriaBuilder.equal(root.get("state").as(String.class), STATE_TOP);
+                Predicate or = criteriaBuilder.or(statePublishPre, stateTopPre);
+                return criteriaBuilder.and(or, labelPre);
+            }
+        }, pageable);
+        ResponseResult success = ResponseResult.SUCCESS("获取文章列表成功");
+        success.setData(all);
+        return success;
+    }
+
+    @Override
+    public ResponseResult listLabels(int size) {
+        size = this.checkSize(size);
+        Sort sort = Sort.by(Sort.Direction.DESC,"count");
+        Pageable pageable = PageRequest.of(0,size,sort);
+        Page<Label> all = labelDao.findAll(pageable);
+        ResponseResult success = ResponseResult.SUCCESS("获取标签成功");
+        success.setData(all);
         return success;
     }
 }

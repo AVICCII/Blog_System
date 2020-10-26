@@ -27,4 +27,8 @@ public interface IArticleService {
 
 
     ResponseResult listRecommendArticle(String articleId, int size);
+
+    ResponseResult listArticleByLabel(int page, int size, String label);
+
+    ResponseResult listLabels(int size);
 }

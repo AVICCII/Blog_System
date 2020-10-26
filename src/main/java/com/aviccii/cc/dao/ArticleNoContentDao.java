@@ -13,7 +13,7 @@ import java.util.List;
  * @Discrimination
  */
 public interface ArticleNoContentDao extends JpaRepository<ArticleNoContent,String>, JpaSpecificationExecutor<ArticleNoContent> {
-    Article findOneById(String id);
+    ArticleNoContent findOneById(String id);
 
     @Query(nativeQuery = true,value = "select * from `tb_article` where `labels` like ?1 and `id` !=?3 and (`state` = '1' or `state` = '3') LIMIT ?2")
     List<ArticleNoContent> listArticleByLikeLabel(String label,int size,String originalArticleId);
