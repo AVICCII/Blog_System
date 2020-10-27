@@ -5,9 +5,12 @@ import com.aviccii.cc.dao.SettingsDao;
 import com.aviccii.cc.pojo.Setting;
 import com.aviccii.cc.response.ResponseResult;
 import com.aviccii.cc.services.IWebSizeInfoService;
+import com.aviccii.cc.utils.Constants;
 import com.aviccii.cc.utils.IdWorker;
+import com.aviccii.cc.utils.RedisUtil;
 import com.aviccii.cc.utils.TextUtils;
 import io.swagger.models.auth.In;
+import org.apache.tomcat.util.bcel.Const;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -110,20 +113,61 @@ public class WebSizeInfoImpl extends BaseSerive implements IWebSizeInfoService {
      */
     @Override
     public ResponseResult getSizeViewCount() {
-        Setting descriptionFromDb = settingDao.findOneByKey(WEB_SIZE_VIEW_COUNT);
-        if (descriptionFromDb == null) {
-            descriptionFromDb = new Setting();
-            descriptionFromDb.setId(idWorker.nextId()+"");
-            descriptionFromDb.setKey(WEB_SIZE_VIEW_COUNT);
-            descriptionFromDb.setUpdate_time(new Date());
-            descriptionFromDb.setCreate_time(new Date());
-            descriptionFromDb.setValue("1");
-            settingDao.save(descriptionFromDb);
+        //先从redis里拿出来
+        String viewCountStr = (String) redisUtil.get(WEB_SIZE_VIEW_COUNT);
+        Setting viewCount = settingDao.findOneByKey(WEB_SIZE_VIEW_COUNT);
+        if (viewCount == null) {
+            viewCount =this.initViewItem();
+            settingDao.save(viewCount);
         }
+        if (TextUtils.isEmpty(viewCountStr)){
+            viewCountStr=viewCount.getValue();
+            redisUtil.set(WEB_SIZE_VIEW_COUNT,viewCountStr);
+        }else {
+            //把redis里的更新到数据库里
+            viewCount.setValue(viewCountStr);
+            settingDao.save(viewCount);
+        }
+
         Map<String, Integer> result = new HashMap<>();
-        result.put(descriptionFromDb.getKey(),Integer.valueOf(descriptionFromDb.getValue()));
+        result.put(viewCount.getKey(),Integer.valueOf(viewCount.getValue()));
         ResponseResult success = ResponseResult.SUCCESS("获取网站浏览量成功");
         success.setData(result);
         return success;
+    }
+
+
+    private Setting initViewItem(){
+            Setting viewCount = new Setting();
+            viewCount.setId(idWorker.nextId()+"");
+            viewCount.setKey(WEB_SIZE_VIEW_COUNT);
+            viewCount.setUpdate_time(new Date());
+            viewCount.setCreate_time(new Date());
+            viewCount.setValue("1");
+            return viewCount;
+    }
+
+    @Autowired
+    private RedisUtil redisUtil;
+
+    /**
+     * 1.并发量
+     * 2.过滤相同ip/id
+     * 3.防止攻击，比如太频繁的访问，就提示请稍后重试
+     */
+    @Override
+    public void updateViewCount() {
+        //redis的时机
+        Object viewCount = redisUtil.get(WEB_SIZE_VIEW_COUNT);
+        if (viewCount == null) {
+            Setting setting = settingDao.findOneByKey(WEB_SIZE_VIEW_COUNT);
+            if (setting == null) {
+                setting = this.initViewItem();
+            }
+            redisUtil.set(WEB_SIZE_VIEW_COUNT,setting.getValue());
+        }else{
+            //自增
+            redisUtil.incr(WEB_SIZE_VIEW_COUNT,1);
+        }
     }
 }

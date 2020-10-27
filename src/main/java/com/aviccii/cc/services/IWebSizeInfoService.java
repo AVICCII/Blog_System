@@ -17,4 +17,5 @@ public interface IWebSizeInfoService {
 
     ResponseResult getSizeViewCount();
 
+    void updateViewCount();
 }

@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/portal/comment")
 public class CommentPortalApi {
 
+
     @Autowired
     private ICommentService commentService;
 

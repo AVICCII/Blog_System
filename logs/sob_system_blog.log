@@ -1,16 +1,29 @@
-[2020/10/26-09:25:01] [restartedMain] [INFO ] [com.aviccii.cc.CcApplication] : Starting CcApplication on DESKTOP-11K43QD with PID 9244 (D:\JAVAProject\blogSystem\target\classes started by Administrator in D:\JAVAProject\blogSystem)
-[2020/10/26-09:25:01] [restartedMain] [INFO ] [com.aviccii.cc.CcApplication] : The following profiles are active: dev
-[2020/10/26-09:25:09] [restartedMain] [INFO ] [com.aviccii.cc.CcApplication] : Started CcApplication in 8.152 seconds (JVM running for 9.679)
-[2020/10/26-09:26:07] [http-nio-2020-exec-9] [INFO ] [com.aviccii.cc.services.impl.UserServiceImpl] : captcha font type index == >3
-[2020/10/26-09:26:07] [http-nio-2020-exec-9] [INFO ] [com.aviccii.cc.services.impl.UserServiceImpl] : captcha content == >0
-[2020/10/26-09:26:22] [http-nio-2020-exec-1] [INFO ] [com.aviccii.cc.services.impl.UserServiceImpl] : password ==>123456
-[2020/10/26-09:26:22] [http-nio-2020-exec-1] [INFO ] [com.aviccii.cc.services.impl.UserServiceImpl] : passwordEncoding ==>$2a$10$BIQeIgZhagXjEMi9EWET0OqCPltWTMnQyoFIyXWj/B/jDFAFYf/5.
-[2020/10/26-09:54:41] [restartedMain] [INFO ] [com.aviccii.cc.CcApplication] : Starting CcApplication on DESKTOP-11K43QD with PID 11712 (D:\JAVAProject\blogSystem\target\classes started by Administrator in D:\JAVAProject\blogSystem)
-[2020/10/26-09:54:41] [restartedMain] [INFO ] [com.aviccii.cc.CcApplication] : The following profiles are active: dev
-[2020/10/26-09:54:47] [restartedMain] [INFO ] [com.aviccii.cc.CcApplication] : Started CcApplication in 6.44 seconds (JVM running for 7.304)
-[2020/10/26-10:37:07] [restartedMain] [INFO ] [com.aviccii.cc.CcApplication] : Starting CcApplication on DESKTOP-11K43QD with PID 6520 (D:\JAVAProject\blogSystem\target\classes started by Administrator in D:\JAVAProject\blogSystem)
-[2020/10/26-10:37:07] [restartedMain] [INFO ] [com.aviccii.cc.CcApplication] : The following profiles are active: dev
-[2020/10/26-10:37:12] [restartedMain] [INFO ] [com.aviccii.cc.CcApplication] : Started CcApplication in 5.979 seconds (JVM running for 7.003)
-[2020/10/26-10:52:37] [restartedMain] [INFO ] [com.aviccii.cc.CcApplication] : Starting CcApplication on DESKTOP-11K43QD with PID 10540 (D:\JAVAProject\blogSystem\target\classes started by Administrator in D:\JAVAProject\blogSystem)
-[2020/10/26-10:52:37] [restartedMain] [INFO ] [com.aviccii.cc.CcApplication] : The following profiles are active: dev
-[2020/10/26-10:52:42] [restartedMain] [INFO ] [com.aviccii.cc.CcApplication] : Started CcApplication in 5.981 seconds (JVM running for 6.963)
+[2020/10/27-10:13:35] [restartedMain] [INFO ] [com.aviccii.cc.CcApplication] : Starting CcApplication on DESKTOP-11K43QD with PID 248 (D:\JAVAProject\blogSystem\target\classes started by Administrator in D:\JAVAProject\blogSystem)
+[2020/10/27-10:13:35] [restartedMain] [INFO ] [com.aviccii.cc.CcApplication] : The following profiles are active: dev
+[2020/10/27-10:13:42] [restartedMain] [INFO ] [com.aviccii.cc.CcApplication] : Started CcApplication in 7.706 seconds (JVM running for 9.132)
+[2020/10/27-10:14:33] [restartedMain] [INFO ] [com.aviccii.cc.CcApplication] : Starting CcApplication on DESKTOP-11K43QD with PID 5972 (D:\JAVAProject\blogSystem\target\classes started by Administrator in D:\JAVAProject\blogSystem)
+[2020/10/27-10:14:33] [restartedMain] [INFO ] [com.aviccii.cc.CcApplication] : The following profiles are active: dev
+[2020/10/27-10:14:40] [restartedMain] [INFO ] [com.aviccii.cc.CcApplication] : Started CcApplication in 7.589 seconds (JVM running for 8.812)
+[2020/10/27-10:15:23] [http-nio-2020-exec-1] [INFO ] [com.aviccii.cc.services.impl.UserServiceImpl] : captcha font type index == >7
+[2020/10/27-10:15:23] [http-nio-2020-exec-1] [INFO ] [com.aviccii.cc.services.impl.UserServiceImpl] : captcha content == >1
+[2020/10/27-10:15:46] [http-nio-2020-exec-2] [INFO ] [com.aviccii.cc.services.impl.UserServiceImpl] : password ==>123456
+[2020/10/27-10:15:46] [http-nio-2020-exec-2] [INFO ] [com.aviccii.cc.services.impl.UserServiceImpl] : passwordEncoding ==>$2a$10$BIQeIgZhagXjEMi9EWET0OqCPltWTMnQyoFIyXWj/B/jDFAFYf/5.
+[2020/10/27-10:17:09] [restartedMain] [INFO ] [com.aviccii.cc.CcApplication] : Starting CcApplication on DESKTOP-11K43QD with PID 10428 (D:\JAVAProject\blogSystem\target\classes started by Administrator in D:\JAVAProject\blogSystem)
+[2020/10/27-10:17:09] [restartedMain] [INFO ] [com.aviccii.cc.CcApplication] : The following profiles are active: dev
+[2020/10/27-10:17:16] [restartedMain] [INFO ] [com.aviccii.cc.CcApplication] : Started CcApplication in 6.786 seconds (JVM running for 7.838)
+[2020/10/27-10:18:51] [restartedMain] [INFO ] [com.aviccii.cc.CcApplication] : Starting CcApplication on DESKTOP-11K43QD with PID 12624 (D:\JAVAProject\blogSystem\target\classes started by Administrator in D:\JAVAProject\blogSystem)
+[2020/10/27-10:18:51] [restartedMain] [INFO ] [com.aviccii.cc.CcApplication] : The following profiles are active: dev
+[2020/10/27-10:18:57] [restartedMain] [INFO ] [com.aviccii.cc.CcApplication] : Started CcApplication in 6.539 seconds (JVM running for 7.589)
+[2020/10/27-10:41:01] [restartedMain] [INFO ] [com.aviccii.cc.CcApplication] : Starting CcApplication on DESKTOP-11K43QD with PID 11868 (D:\JAVAProject\blogSystem\target\classes started by Administrator in D:\JAVAProject\blogSystem)
+[2020/10/27-10:41:01] [restartedMain] [INFO ] [com.aviccii.cc.CcApplication] : The following profiles are active: dev
+[2020/10/27-10:41:09] [restartedMain] [INFO ] [com.aviccii.cc.CcApplication] : Started CcApplication in 8.147 seconds (JVM running for 9.403)
+[2020/10/27-10:42:06] [restartedMain] [INFO ] [com.aviccii.cc.CcApplication] : Starting CcApplication on DESKTOP-11K43QD with PID 13816 (D:\JAVAProject\blogSystem\target\classes started by Administrator in D:\JAVAProject\blogSystem)
+[2020/10/27-10:42:06] [restartedMain] [INFO ] [com.aviccii.cc.CcApplication] : The following profiles are active: dev
+[2020/10/27-10:42:11] [restartedMain] [INFO ] [com.aviccii.cc.CcApplication] : Started CcApplication in 6.455 seconds (JVM running for 7.505)
+[2020/10/27-11:31:36] [restartedMain] [INFO ] [com.aviccii.cc.CcApplication] : Starting CcApplication on DESKTOP-11K43QD with PID 9864 (D:\JAVAProject\blogSystem\target\classes started by Administrator in D:\JAVAProject\blogSystem)
+[2020/10/27-11:31:36] [restartedMain] [INFO ] [com.aviccii.cc.CcApplication] : The following profiles are active: dev
+[2020/10/27-11:31:43] [restartedMain] [INFO ] [com.aviccii.cc.CcApplication] : Started CcApplication in 7.675 seconds (JVM running for 8.829)
+[2020/10/27-13:38:07] [http-nio-2020-exec-2] [INFO ] [com.aviccii.cc.services.impl.UserServiceImpl] : captcha font type index == >1
+[2020/10/27-13:38:07] [http-nio-2020-exec-2] [INFO ] [com.aviccii.cc.services.impl.UserServiceImpl] : captcha content == >0
+[2020/10/27-13:38:27] [http-nio-2020-exec-5] [INFO ] [com.aviccii.cc.services.impl.UserServiceImpl] : password ==>123456
+[2020/10/27-13:38:27] [http-nio-2020-exec-5] [INFO ] [com.aviccii.cc.services.impl.UserServiceImpl] : passwordEncoding ==>$2a$10$BIQeIgZhagXjEMi9EWET0OqCPltWTMnQyoFIyXWj/B/jDFAFYf/5.
