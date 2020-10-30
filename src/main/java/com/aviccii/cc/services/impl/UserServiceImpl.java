@@ -670,6 +670,17 @@ public class UserServiceImpl implements IUserService {
         return ResponseResult.SUCCESS("退出登录成功");
     }
 
+    @Override
+    public ResponseResult parseToken() {
+        User user = checkUser();
+        if (user == null) {
+            return ResponseResult.FAILED("用户未登录");
+        }
+        ResponseResult success = ResponseResult.SUCCESS("获取成功");
+        success.setData(user);
+        return success;
+    }
+
     private User parseByTokenKey(String tokenKey) {
         String token = (String) redisUtil.get(KEY_TOKEN + tokenKey);
         if (token != null) {

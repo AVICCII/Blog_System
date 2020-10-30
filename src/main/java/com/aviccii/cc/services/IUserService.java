@@ -41,4 +41,7 @@ public interface IUserService {
     ResponseResult updateEmail(String email, String verifyCode);
 
     ResponseResult doLogout();
+
+    ResponseResult parseToken();
+
 }

@@ -243,4 +243,12 @@ public class UserApi {
     public ResponseResult logout(){
         return iUserService.doLogout();
     }
+
+    @GetMapping("/check-token")
+    public ResponseResult parseToken(){
+        return iUserService.parseToken();
+    }
+
 }
+
+
