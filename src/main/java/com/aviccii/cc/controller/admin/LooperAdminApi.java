@@ -44,7 +44,7 @@ public class LooperAdminApi {
     }
 
     @PreAuthorize("@permission.admin()")
-    @GetMapping("/list/{page}/{size}")
+    @GetMapping("/list")
     public ResponseResult listLoops(){
         return loopService.listLooopers();
     }

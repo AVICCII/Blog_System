@@ -116,6 +116,7 @@ public class CategoryServiceImpl extends BaseSerive implements ICategoryService 
         if (!TextUtils.isEmpty(description)) {
             categoryFromDb.setDescription(description);
         }
+        categoryFromDb.setStatus(category.getStatus());
         categoryFromDb.setOrder(category.getOrder());
         categoryFromDb.setUpdateTime(new Date());
         //第三步是保存数据

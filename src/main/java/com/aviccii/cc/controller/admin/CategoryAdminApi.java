@@ -72,8 +72,8 @@ public class CategoryAdminApi {
      * @return
      */
     @PreAuthorize("@permission.admin()")
-    @GetMapping("/list/{page}/{size}")
-    public ResponseResult listCategories(@PathVariable("page")int page,@PathVariable("size")int size){
+    @GetMapping("/list")
+    public ResponseResult listCategories(){
         return iCategoryService.listCategories();
     }
 

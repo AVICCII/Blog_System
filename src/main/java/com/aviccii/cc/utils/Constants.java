@@ -20,6 +20,7 @@ public interface Constants {
         String KEY_EMAIL_SEND_IP = "key_email_send_ip_";
         String KEY_EMAIL_SEND_ADDRESS = "key_email_send_address_";
         String KEY_TOKEN = "key_token_";
+        String KEY_COMMIT_TOKEN_RECORD = "key_commit_token_record_";
     }
 
     interface imageType {
@@ -66,6 +67,7 @@ public interface Constants {
      */
     interface timeValue {
         int MIN = 60;
+        int MIN_2 = 30;
         int HOUR = 60 * MIN;
         int HOUR_2 = 60 * MIN * 2;
         int DAY = 24 * HOUR;
