@@ -1,0 +1,59 @@
+[2020/11/02-10:16:25] [restartedMain] [INFO ] [com.aviccii.cc.CcApplication] : Starting CcApplication on DESKTOP-11K43QD with PID 14780 (D:\JAVAProject\blogSystem\target\classes started by Administrator in D:\JAVAProject\blogSystem)
+[2020/11/02-10:16:25] [restartedMain] [INFO ] [com.aviccii.cc.CcApplication] : The following profiles are active: dev
+[2020/11/02-10:16:33] [restartedMain] [INFO ] [com.aviccii.cc.CcApplication] : Started CcApplication in 8.559 seconds (JVM running for 13.914)
+[2020/11/02-10:17:45] [http-nio-2020-exec-1] [INFO ] [com.aviccii.cc.services.impl.UserServiceImpl] : captcha font type index == >6
+[2020/11/02-10:17:45] [http-nio-2020-exec-1] [INFO ] [com.aviccii.cc.services.impl.UserServiceImpl] : captcha content == >6
+[2020/11/02-10:17:46] [http-nio-2020-exec-2] [INFO ] [com.aviccii.cc.services.impl.UserServiceImpl] : captcha font type index == >6
+[2020/11/02-10:17:46] [http-nio-2020-exec-2] [INFO ] [com.aviccii.cc.services.impl.UserServiceImpl] : captcha content == >0
+[2020/11/02-10:21:42] [http-nio-2020-exec-4] [INFO ] [com.aviccii.cc.services.impl.UserServiceImpl] : captcha font type index == >9
+[2020/11/02-10:21:42] [http-nio-2020-exec-4] [INFO ] [com.aviccii.cc.services.impl.UserServiceImpl] : captcha content == >1
+[2020/11/02-10:21:42] [http-nio-2020-exec-4] [INFO ] [com.aviccii.cc.services.impl.UserServiceImpl] : captcha font type index == >0
+[2020/11/02-10:21:42] [http-nio-2020-exec-4] [INFO ] [com.aviccii.cc.services.impl.UserServiceImpl] : captcha content == >0
+[2020/11/02-10:21:42] [http-nio-2020-exec-5] [INFO ] [com.aviccii.cc.services.impl.UserServiceImpl] : captcha font type index == >4
+[2020/11/02-10:21:42] [http-nio-2020-exec-5] [INFO ] [com.aviccii.cc.services.impl.UserServiceImpl] : captcha content == >42
+[2020/11/02-10:21:47] [http-nio-2020-exec-6] [INFO ] [com.aviccii.cc.services.impl.UserServiceImpl] : captcha font type index == >3
+[2020/11/02-10:21:47] [http-nio-2020-exec-6] [INFO ] [com.aviccii.cc.services.impl.UserServiceImpl] : captcha content == >18
+[2020/11/02-10:22:14] [http-nio-2020-exec-7] [INFO ] [com.aviccii.cc.services.impl.UserServiceImpl] : captcha font type index == >1
+[2020/11/02-10:22:14] [http-nio-2020-exec-7] [INFO ] [com.aviccii.cc.services.impl.UserServiceImpl] : captcha content == >4
+[2020/11/02-10:22:38] [http-nio-2020-exec-8] [INFO ] [com.aviccii.cc.services.impl.UserServiceImpl] : captcha font type index == >9
+[2020/11/02-10:22:38] [http-nio-2020-exec-8] [INFO ] [com.aviccii.cc.services.impl.UserServiceImpl] : captcha content == >9
+[2020/11/02-10:23:27] [http-nio-2020-exec-9] [INFO ] [com.aviccii.cc.services.impl.UserServiceImpl] : captcha font type index == >5
+[2020/11/02-10:23:27] [http-nio-2020-exec-9] [INFO ] [com.aviccii.cc.services.impl.UserServiceImpl] : captcha content == >3
+[2020/11/02-10:23:32] [http-nio-2020-exec-1] [INFO ] [com.aviccii.cc.services.impl.UserServiceImpl] : captcha font type index == >5
+[2020/11/02-10:23:32] [http-nio-2020-exec-1] [INFO ] [com.aviccii.cc.services.impl.UserServiceImpl] : captcha content == >9
+[2020/11/02-10:23:35] [http-nio-2020-exec-3] [INFO ] [com.aviccii.cc.services.impl.UserServiceImpl] : captcha font type index == >5
+[2020/11/02-10:23:35] [http-nio-2020-exec-3] [INFO ] [com.aviccii.cc.services.impl.UserServiceImpl] : captcha content == >7
+[2020/11/02-10:23:40] [http-nio-2020-exec-5] [INFO ] [com.aviccii.cc.services.impl.UserServiceImpl] : captcha font type index == >7
+[2020/11/02-10:23:40] [http-nio-2020-exec-5] [INFO ] [com.aviccii.cc.services.impl.UserServiceImpl] : captcha content == >15
+[2020/11/02-10:26:01] [http-nio-2020-exec-7] [INFO ] [com.aviccii.cc.services.impl.UserServiceImpl] : captcha font type index == >7
+[2020/11/02-10:26:01] [http-nio-2020-exec-7] [INFO ] [com.aviccii.cc.services.impl.UserServiceImpl] : captcha content == >12
+[2020/11/02-10:26:04] [http-nio-2020-exec-8] [INFO ] [com.aviccii.cc.services.impl.UserServiceImpl] : captcha font type index == >8
+[2020/11/02-10:26:04] [http-nio-2020-exec-8] [INFO ] [com.aviccii.cc.services.impl.UserServiceImpl] : captcha content == >3
+[2020/11/02-10:26:05] [http-nio-2020-exec-10] [INFO ] [com.aviccii.cc.services.impl.UserServiceImpl] : captcha font type index == >7
+[2020/11/02-10:26:05] [http-nio-2020-exec-10] [INFO ] [com.aviccii.cc.services.impl.UserServiceImpl] : captcha content == >9
+[2020/11/02-10:26:13] [http-nio-2020-exec-2] [INFO ] [com.aviccii.cc.services.impl.UserServiceImpl] : captcha font type index == >6
+[2020/11/02-10:26:13] [http-nio-2020-exec-2] [INFO ] [com.aviccii.cc.services.impl.UserServiceImpl] : captcha content == >7
+[2020/11/02-10:26:31] [http-nio-2020-exec-3] [INFO ] [com.aviccii.cc.services.impl.UserServiceImpl] : captcha font type index == >9
+[2020/11/02-10:26:31] [http-nio-2020-exec-3] [INFO ] [com.aviccii.cc.services.impl.UserServiceImpl] : captcha content == >9
+[2020/11/02-10:26:34] [http-nio-2020-exec-5] [INFO ] [com.aviccii.cc.services.impl.UserServiceImpl] : captcha font type index == >1
+[2020/11/02-10:26:34] [http-nio-2020-exec-5] [INFO ] [com.aviccii.cc.services.impl.UserServiceImpl] : captcha content == >30
+[2020/11/02-10:32:00] [http-nio-2020-exec-7] [INFO ] [com.aviccii.cc.services.impl.UserServiceImpl] : captcha font type index == >4
+[2020/11/02-10:32:00] [http-nio-2020-exec-7] [INFO ] [com.aviccii.cc.services.impl.UserServiceImpl] : captcha content == >3
+[2020/11/02-10:32:03] [http-nio-2020-exec-8] [INFO ] [com.aviccii.cc.services.impl.UserServiceImpl] : captcha font type index == >8
+[2020/11/02-10:32:03] [http-nio-2020-exec-8] [INFO ] [com.aviccii.cc.services.impl.UserServiceImpl] : captcha content == >8
+[2020/11/02-10:32:05] [http-nio-2020-exec-9] [INFO ] [com.aviccii.cc.services.impl.UserServiceImpl] : password ==>123456
+[2020/11/02-10:32:05] [http-nio-2020-exec-9] [INFO ] [com.aviccii.cc.services.impl.UserServiceImpl] : passwordEncoding ==>$2a$10$BIQeIgZhagXjEMi9EWET0OqCPltWTMnQyoFIyXWj/B/jDFAFYf/5.
+[2020/11/02-11:31:15] [restartedMain] [INFO ] [com.aviccii.cc.CcApplication] : Starting CcApplication on DESKTOP-11K43QD with PID 5596 (D:\JAVAProject\blogSystem\target\classes started by Administrator in D:\JAVAProject\blogSystem)
+[2020/11/02-11:31:15] [restartedMain] [INFO ] [com.aviccii.cc.CcApplication] : The following profiles are active: dev
+[2020/11/02-11:31:21] [restartedMain] [INFO ] [com.aviccii.cc.CcApplication] : Started CcApplication in 7.0 seconds (JVM running for 7.987)
+[2020/11/02-13:32:50] [http-nio-2020-exec-10] [INFO ] [com.aviccii.cc.services.impl.UserServiceImpl] : checkuser2 ---> avicci
+[2020/11/02-13:34:35] [http-nio-2020-exec-2] [INFO ] [com.aviccii.cc.services.impl.UserServiceImpl] : captcha font type index == >4
+[2020/11/02-13:34:35] [http-nio-2020-exec-2] [INFO ] [com.aviccii.cc.services.impl.UserServiceImpl] : captcha content == >5
+[2020/11/02-13:34:37] [http-nio-2020-exec-3] [INFO ] [com.aviccii.cc.services.impl.UserServiceImpl] : password ==>123456
+[2020/11/02-13:34:37] [http-nio-2020-exec-3] [INFO ] [com.aviccii.cc.services.impl.UserServiceImpl] : passwordEncoding ==>$2a$10$BIQeIgZhagXjEMi9EWET0OqCPltWTMnQyoFIyXWj/B/jDFAFYf/5.
+[2020/11/02-14:43:18] [restartedMain] [INFO ] [com.aviccii.cc.CcApplication] : Starting CcApplication on DESKTOP-11K43QD with PID 7768 (D:\JAVAProject\blogSystem\target\classes started by Administrator in D:\JAVAProject\blogSystem)
+[2020/11/02-14:43:18] [restartedMain] [INFO ] [com.aviccii.cc.CcApplication] : The following profiles are active: dev
+[2020/11/02-14:43:25] [restartedMain] [INFO ] [com.aviccii.cc.CcApplication] : Started CcApplication in 7.433 seconds (JVM running for 8.592)
+[2020/11/02-14:46:37] [restartedMain] [INFO ] [com.aviccii.cc.CcApplication] : Starting CcApplication on DESKTOP-11K43QD with PID 14004 (D:\JAVAProject\blogSystem\target\classes started by Administrator in D:\JAVAProject\blogSystem)
+[2020/11/02-14:46:37] [restartedMain] [INFO ] [com.aviccii.cc.CcApplication] : The following profiles are active: dev
+[2020/11/02-14:46:44] [restartedMain] [INFO ] [com.aviccii.cc.CcApplication] : Started CcApplication in 7.703 seconds (JVM running for 9.188)
