@@ -155,9 +155,11 @@ public class UserApi {
     @PreAuthorize("@permission.admin()")
     @GetMapping("/list")
     public ResponseResult listUsers(@RequestParam("page") int page,
-                                    @RequestParam("size") int size
+                                    @RequestParam("size") int size,
+                                    @RequestParam(value = "userName",required = false)String userName,
+                                    @RequestParam(value = "email",required = false)String email
                                      ) {
-        return iUserService.listUsers(page,size);
+        return iUserService.listUsers(page,size,userName,email);
     }
 
     /**

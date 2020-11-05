@@ -39,6 +39,7 @@ public class ApiInterceptor extends HandlerInterceptorAdapter {
             log.info("method name == >" + name);
             CheckTooFrequentCommit methodAnnotation = handlerMethod.getMethodAnnotation(CheckTooFrequentCommit.class);
             if (methodAnnotation != null) {
+                String methodName = handlerMethod.getMethod().getName();
                 //所有提交的方法，必须用户登录的，所以使用token作为key来记录请求频率
                 String tokenKey = CookieUtils.getCookie(request, Constants.user.COOKIE_TOKEN_KEY);
                 log.info("tokenKey -||- >" + tokenKey);
