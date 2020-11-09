@@ -49,6 +49,7 @@ import java.util.Random;
 
 import static com.aviccii.cc.controller.user.UserApi.captcha_font_types;
 import static com.aviccii.cc.utils.Constants.user.*;
+import static java.lang.Integer.parseInt;
 
 /**
  * @author aviccii 2020/9/21
@@ -228,12 +229,17 @@ public class UserServiceImpl implements IUserService {
             remoteAddr = remoteAddr.replaceAll(":", "_");
         }
         //拿出来如果没有，那就过，如果有则判断次数
-        log.info("Constants.user.KEY_EMAIL_SEND_IP+remoteAddr === >" + Constants.user.KEY_EMAIL_SEND_IP + remoteAddr);
-        Integer ipSendTime = (Integer) redisUtil.get(Constants.user.KEY_EMAIL_SEND_IP + remoteAddr);
-        if (ipSendTime != null) {
-            if (ipSendTime > 10) {
+        log.info("Constants.user.KEY_EMAIL_SEND_IP+remoteAddr === >" + KEY_EMAIL_SEND_IP + remoteAddr);
+        log.info("sss"+ redisUtil.get(KEY_EMAIL_SEND_IP + remoteAddr));
+        Integer ipSendTime;
+        String ipSendTimeValue = (String) redisUtil.get(KEY_EMAIL_SEND_IP + remoteAddr);
+        if (ipSendTimeValue != null) {
+            ipSendTime = Integer.parseInt(ipSendTimeValue);
+        }else   {
+            ipSendTime = 1;
+        }
+        if (ipSendTime > 10) {
                 return ResponseResult.FAILED("请不要太频繁发送");
-            }
         }
         Object addressSendTime = redisUtil.get(Constants.user.KEY_EMAIL_SEND_ADDRESS + emailAddress);
         if (addressSendTime != null) {
@@ -263,7 +269,7 @@ public class UserServiceImpl implements IUserService {
         }
         ipSendTime++;
         //1个小时有效期
-        redisUtil.set(Constants.user.KEY_EMAIL_SEND_IP + remoteAddr, ipSendTime, 60 * 60);
+        redisUtil.set(KEY_EMAIL_SEND_IP + remoteAddr, String.valueOf(ipSendTime), 60 * 60);
         redisUtil.set(Constants.user.KEY_EMAIL_SEND_ADDRESS + emailAddress, "true", 30);
         //保存code,10分钟内有效
         redisUtil.set(Constants.user.KEY_EMAIL_CODE_CONTENT + emailAddress, String.valueOf(code), 60 * 10);
@@ -704,6 +710,21 @@ public class UserServiceImpl implements IUserService {
         ResponseResult success = ResponseResult.SUCCESS("获取成功");
         success.setData(user);
         return success;
+    }
+
+    @Override
+    public ResponseResult resetPassword(String userId, String password) {
+        //查询出用户来
+        User user = userDao.findOneById(userId);
+        //判断是否存在
+        if (user == null) {
+            return ResponseResult.FAILED("用户不存在");
+        }
+        //密码进行加密
+        user.setPassword(bCryptPasswordEncoder.encode(password));
+        //处理结果
+        userDao.save(user);
+        return ResponseResult.SUCCESS("重置成功");
     }
 
     private User parseByTokenKey(String tokenKey) {

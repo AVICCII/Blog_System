@@ -44,4 +44,6 @@ public interface IUserService {
 
     ResponseResult parseToken();
 
+    ResponseResult resetPassword(String userId, String password);
+
 }

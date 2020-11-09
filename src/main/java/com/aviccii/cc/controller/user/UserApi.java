@@ -251,6 +251,11 @@ public class UserApi {
         return iUserService.parseToken();
     }
 
+    @PreAuthorize("@permission.admin()")
+    @PutMapping("/reset-password/{userId}")
+    public ResponseResult resetPassword(@PathVariable("userId")String userId,@RequestParam("password")String password){
+            return iUserService.resetPassword(userId,password);
+    }
 }
 
 
